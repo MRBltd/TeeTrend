@@ -1,0 +1,354 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "css/teetrend.css" %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title></title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+          <li class="nav-item">
+            <a class="nav-link text-end" href="#">teetrend.info@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand fw-bold text-primary fs-2 ms-5" href="#">T<span class="text-warning">&#600;&#600;</span>Trend</a>
+      <div class="collapse navbar-collapse me-3" id="navbarTogglerDemo03">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+          <li class="dropdown nav-item">
+            <a class="nav-link fw-bold text-uppercase text-dark nav-list" aria-current="page" href="#">Shop</a>
+            <ul class="dropdown-menu ms-2">
+              <div class="list-item">
+                <div class="mx-2">
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="#">Men</a></li>
+                  <li><a class="dropdown-item" href="#">Polo Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Half Sleeves</a></li>
+                  <li><a class="dropdown-item" href="#">Henley Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Hoodies</a></li>
+                  <li><a class="dropdown-item" href="#">Sleeveless</a></li>
+                  <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+                  <li><a class="dropdown-item" href="#">Long Sleeves</a></li>
+                  <li><a class="dropdown-item" href="#">Printed T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Colorblock T-Shirts</a></li>
+                </div>
+                <div class="mx-2">
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="#">Women</a></li>
+                  <li><a class="dropdown-item" href="#">Plunge Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Half Sleeves</a></li>
+                  <li><a class="dropdown-item" href="#">Cold Shoulder</a></li>
+                  <li><a class="dropdown-item" href="#">Hoodies</a></li>
+                  <li><a class="dropdown-item" href="#">Sleeveless</a></li>
+                  <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
+                  <li><a class="dropdown-item" href="#">Long Sleeves</a></li>
+                  <li><a class="dropdown-item" href="#">Printed T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Colorblock T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">High Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Collared T-shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Basic White T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Boyfriend tees</a></li>
+                  <li><a class="dropdown-item" href="#">V-Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Striped T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Knot Crop</a></li>
+                  <li><a class="dropdown-item" href="#">Scoop Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Crew Neck</a></li>
+                </div>
+                <div class="mx-2">
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="#">Kids</a></li>
+                  <li><a class="dropdown-item" href="#">Polo Neck</a></li>
+                  <li><a class="dropdown-item" href="#">V-Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Henley Neck</a></li>
+                  <li><a class="dropdown-item" href="#">Long Sleeves</a></li>
+                  <li><a class="dropdown-item" href="#">Printed T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Colorblock T-Shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Wide Neck Off <br> Shoulder T-shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Yoke Neck T-shirts</a></li>
+                  <li><a class="dropdown-item" href="#">Douche Bag <br> Neck T-shirt</a></li>
+                </div>
+                <div class="mx-2">
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Cloth Materials</a></li>
+                  <li><a class="dropdown-item" href="#">Pure Cotton</a></li>
+                  <li><a class="dropdown-item" href="#">Cotton Blend</a></li>
+                  <li><a class="dropdown-item" href="#">Wool Blend</a></li>
+                  <li><a class="dropdown-item" href="#">Lycra Blend</a></li>
+                  <li><a class="dropdown-item" href="#">Organic Cotton</a></li>
+                </div>
+              </div>
+            </ul>
+          </li>          
+          <li class="dropdown nav-item">
+            <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="#">Characters</a>
+            <ul class="dropdown-menu ms-2">
+              <div class="list-item">
+                <div class="mx-2">
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Marvel</a></li>
+                  <li><a class="dropdown-item" href="#">Avengers</a></li>
+                  <li><a class="dropdown-item" href="#">Spider-Man</a></li>
+                  <li><a class="dropdown-item" href="#">Iron Man</a></li>
+                  <li><a class="dropdown-item" href="#">Captain America</a></li>
+                  <li><a class="dropdown-item" href="#">Thor</a></li>
+                  <li><a class="dropdown-item" href="#">Loki</a></li>
+                  <li><a class="dropdown-item" href="#">Doctor Strange</a></li>
+                  <li><a class="dropdown-item" href="#">Dead Pool</a></li>
+                  <li><a class="dropdown-item" href="#">The Hulk</a></li>
+                  <li><a class="dropdown-item" href="#">Black Widow</a></li>
+                  <li><a class="dropdown-item" href="#">Venom</a></li>
+                  <li><a class="dropdown-item" href="#">Wandavision</a></li>
+                  <li><a class="dropdown-item" href="#">Ant-Man</a></li>
+                  <li><a class="dropdown-item" href="#">Captain Marvel</a></li>
+                  <li><a class="dropdown-item" href="#">Shang Chi</a></li>
+                  <li><a class="dropdown-item" href="#">Thanos</a></li>
+                  <li><a class="dropdown-item" href="#">Black Panther</a></li>
+                  <li><a class="dropdown-item" href="#">Eternals</a></li>
+                </div>
+                <div class="mx-2">
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">dc comics</a></li>
+                  <li><a class="dropdown-item" href="#">Blue Beetle</a></li>
+                  <li><a class="dropdown-item" href="#">Justice League</a></li>
+                  <li><a class="dropdown-item" href="#">Batman</a></li>
+                  <li><a class="dropdown-item" href="#">The Fish</a></li>
+                  <li><a class="dropdown-item" href="#">Superman</a></li>
+                  <li><a class="dropdown-item" href="#">Wonder Woman</a></li>
+                  <li><a class="dropdown-item" href="#">Shazam</a></li>
+                  <li><a class="dropdown-item" href="#">Joker</a></li>
+                  <li><a class="dropdown-item" href="#">Aquaman</a></li>
+                  <li><a class="dropdown-item" href="#">Green Lantern</a></li>
+                  <li><a class="dropdown-item" href="#">Harley Quinn</a></li>
+                  <li><a class="dropdown-item" href="#">Black Adam</a></li>
+                  <li><a class="dropdown-item" href="#">Suicide Squad</a></li>
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Movies & tv</a></li>
+                  <li><a class="dropdown-item" href="#">Harry Potter</a></li>
+                  <li><a class="dropdown-item" href="#">Friends</a></li>
+                  <li><a class="dropdown-item" href="#">star Wars</a></li>
+                  <li><a class="dropdown-item" href="#">The mandalorian</a></li>
+                </div>
+                <div class="mx-2">
+                  <li><a class="dropdown-item" href="#">House of the Dragon</a></li>
+                  <li><a class="dropdown-item" href="#">Game of Thrones</a></li>
+                  <li><a class="dropdown-item" href="#">The Lion King</a></li>
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Cartoons / animation</a></li>
+                  <li><a class="dropdown-item" href="#">Snoopy</a></li>
+                  <li><a class="dropdown-item" href="#">Rick and Morty</a></li>
+                  <li><a class="dropdown-item" href="#">Looney Tunes</a></li>
+                  <li><a class="dropdown-item" href="#">Bugs Bunny</a></li>
+                  <li><a class="dropdown-item" href="#">Tweety</a></li>
+                  <li><a class="dropdown-item" href="#">Space Jam</a></li>
+                  <li><a class="dropdown-item" href="#">Tom and Jerry</a></li>
+                  <li><a class="dropdown-item" href="#">Scooby Doo</a></li>
+                  <li><a class="dropdown-item" href="#">Disney</a></li>
+                  <li><a class="dropdown-item" href="#">Mickey Mouse</a></li>
+                  <li><a class="dropdown-item" href="#">Donald Duck</a></li>
+                  <li><a class="dropdown-item" href="#">Samurai Jack</a></li>
+                  <li><a class="dropdown-item" href="#">Ben 10</a></li>
+                  <li><a class="dropdown-item" href="#">Sponge Bob <br> Square Pants</a></li>
+                  <li><a class="dropdown-item" href="#">Fido Dido</a></li>
+                </div>
+                <div class="mx-2">
+                  <li><a class="dropdown-item" href="#">Chotta Beam</a></li>
+                  <li><a class="dropdown-item" href="#">Motu Patlu</a></li>
+                  <li><a class="dropdown-item" href="#">Mowgli</a></li>
+                  <li><a class="dropdown-item" href="#">Doremon</a></li>
+                  <li><a class="dropdown-item" href="#">Jackie Chan <br> Adventure</a></li>
+                  <li><a class="dropdown-item" href="#">Little Krishna</a></li>
+                  <li><a class="dropdown-item" href="#">Shiva</a></li>
+                  <li><a class="dropdown-item" href="#">Dora the Explorer</a></li>
+                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Web series</a></li>
+                  <li><a class="dropdown-item" href="#">Stranger Things</a></li>
+                  <li><a class="dropdown-item" href="#">Wednesday</a></li>
+                  <li><a class="dropdown-item" href="#">Never Have I Ever</a></li>
+                  <li><a class="dropdown-item" href="#">Elite</a></li>
+                  <li><a class="dropdown-item" href="#">Peaky Blinders</a></li>
+                  <li><a class="dropdown-item" href="#">Lucifer</a></li>
+                  <li><a class="dropdown-item" href="#">All Of Us Are Dead</a></li>
+                  <li><a class="dropdown-item" href="#">Sex Education</a></li>
+                </div>
+              </div>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="#">About us</a>
+          </li>
+        </ul>
+        <ul class="list-unstyled me-auto mb-2 mb-lg-0 mx-auto d-flex justify-content-center">
+          <li class="nav-item profile1 dropdown" id="profile-icon">
+            <a class="nav-link text-dark d-flex flex-column align-items-center dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+              </svg>
+              <span>Profile</span>
+              <div class="dropdown-menu mt-5 ms-5 p-4" aria-labelledby="navbarDropdown">
+                <div id="login-div">
+                  <div class="login-details">
+                    <h5>Welcome</h5>
+                    <p>To access account and manage orders</p>
+                    <button class="btn btn-success" onclick="location.href='#'">Sign In</button>
+                    <button class="btn btn-info" onclick="location.href='#'">Sign Up</button>
+                  </div>
+                  <hr class="dropdown-divider">
+                  <ul class="list-unstyled">
+                    <li class="profile-items" onclick="location.href='#'">Your Account</li>
+                    <li class="profile-items">Your Orders</li>
+                    <li class="profile-items">Your Whish List</li>
+                    <li class="profile-items">Contact Us</li>
+                  </ul>
+                </div>
+              </div>
+             </a>
+          </li>
+          <li class="nav-item whishlist1">
+            <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+                <span>Whishlist</span>
+            </a>
+          </li>
+          <li class="nav-item bag1">
+            <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+              </svg>
+              <span>Bag</span>
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search T-Shirt" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+      <ul class="list-unstyled me-auto mb-2 mb-lg-0 mx-auto d-flex">
+        <li class="nav-item profile dropdown" id="profile-icon">
+          <a class="nav-link text-dark d-flex flex-column align-items-center dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+            </svg>
+            <span>Profile</span>
+            <div class="dropdown-menu mt-5 p-4" aria-labelledby="navbarDropdown">
+              <div id="login-div">
+                <div class="login-details">
+                  <h5>Welcome</h5>
+                  <p>To access account and manage orders</p>
+                  <button class="btn btn-success" onclick="location.href='#'">Sign In</button>
+                  <button class="btn btn-info" onclick="location.href='#'">Sign Up</button>
+                </div>
+                <hr class="dropdown-divider">
+                <ul class="list-unstyled">
+                  <li class="profile-items" onclick="location.href='#'">Your Account</li>
+                  <li class="profile-items">Your Orders</li>
+                  <li class="profile-items">Your Whish List</li>
+                  <li class="profile-items">Contact Us</li>
+                </ul>
+              </div>
+            </div>
+           </a>
+        </li>        
+        <li class="nav-item whishlist">
+          <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+            <span>Whishlist</span>
+          </a>
+        </li>
+        <li class="nav-item bag">
+          <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+              <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+            </svg>
+            <span>Bag</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  
+
+
+  <div class="container">
+    <footer class="pt-5">
+      <div class="row">
+        <div id="about">
+          <h6 class="footer-sub-headline mb-4">About</h6>
+          <p style="font-size: 12px;">Teetrend is a one-stop online destination for all your T-shirt needs. We offer a wide range of trendy and comfortable T-shirts designed to suit every individual’s unique style. Our collection includes a variety of designs, from classic solids and stripes to quirky prints and graphics.<a href="#" class="footer-link text-danger">Show More</a></p>
+        </div>
+
+        <div id="section">
+          <h6 class="footer-sub-headline mb-4">Online Shopping</h6>
+          <ul class="footer flex-column">
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Men</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Women</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Kids</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Characters</a></li>
+          </ul>
+        </div>
+  
+        <div id="section">
+          <h6 class="footer-sub-headline mb-4">Contact Us</h6>
+            <p class="text-muted" style="font-size: 12px; margin: 0; padding: 0;">MRB Technologies Private Limited,</p>
+            <p class="text-muted" style="font-size: 12px; margin: 0; padding: 0;">CIN:</p>
+            <p class="text-muted" style="font-size: 12px; margin: 0; padding: 0;">Address</p>
+            <p class="text-muted" style="font-size: 12px; margin: 0; padding: 0;">Email address : </p>
+            <p class="text-muted" style="font-size: 12px; margin: 0; padding: 0;">© 2015-2023 TeeTrend.com</p>
+        </div>
+
+        <div id="section">
+          <h6 class="footer-sub-headline mb-4">customer policies</h6>
+          <ul class="footer flex-column">
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Term of Use</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">FAQs</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">T&C</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Cancellation</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Returns</a></li>
+            <li class="footer-item mb-2"><a href="#" class="footer-link p-0 text-muted footer-section-list">Privacy Policy</a></li>
+          </ul>
+        </div>
+  
+        <div id="subscribe-section">
+          <form>
+            <h6>Subscribe to know our new updates</h6>
+            <p>By subscribing you will get our daily updates.Let's subscribe.</p>
+            <div class="d-flex w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column align-items-center py-4 my-4 border-top">
+        <p>© 2021 Company, Inc. All rights reserved.</p>
+        <ul class="list-unstyled d-flex">
+          <li class="mx-3"><a class="fa fa-facebook text-decoration-none text-primary" href="#"></a></li>
+          <li class="mx-3"><a class="fa fa-twitter text-decoration-none text-info" href="#"></a></li>
+          <li class="mx-3"><a class="fa fa-instagram text-decoration-none text-danger" href="#"></a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex flex-column align-items-center py-4 my-4 border-top">
+        <button class="btn btn-dark" id="back-to-top" style="font-size: 10px;">Back To Top</button>
+      </div>
+    </footer>
+  </div>
+  
+
+
+
+  <script src="{% static "js/teetrend.js" %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
