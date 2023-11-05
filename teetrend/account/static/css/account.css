@@ -1,0 +1,47 @@
+@media (max-width: 992px) {
+  .profile {
+    display: none;
+  }
+  .whishlist {
+    display: none;
+  }
+  .bag {
+    display: none;
+  }
+  .list-item {
+    display: flex;
+    flex-direction: column;
+  }
+  #subscribe-section {
+    width: 100%;
+  }
+  #section {
+    width: 50%;
+  }
+  #about {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .profile1 {
+    display: none;
+  }
+  .whishlist1 {
+    display: none;
+  }
+  .bag1 {
+    display: none;
+  }
+  #subscribe-section {
+    width: 40%;
+  }
+  #section {
+    width: 12%;
+  }
+  #about {
+    width: 20%;
+  }
+}
+.nav-list:hover {
+  border-bottom: 2px solid red;
+}
