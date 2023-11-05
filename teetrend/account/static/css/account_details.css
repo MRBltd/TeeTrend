@@ -1,0 +1,49 @@
+@media (max-width: 992px) {
+  .account_details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+  .account_section {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .details {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .account_details {
+    width: 70%;
+    display: flex;
+    margin: 0 150px;
+  }
+  .account_section {
+    width: 30%;
+    margin-right: 20px;
+  }
+  .details {
+    width: 70%;
+  }
+}
+.account {
+  display: flex;
+  flex-direction: column;
+}
+.account_details {
+  padding: 15px 15px;
+  box-shadow: 1px 1px 10px rgb(193, 192, 192);
+}
+.account_section {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 1px solid black;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+}
