@@ -10,6 +10,7 @@
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-primary">Sign In</button>
+        <p class="ms-2 my-2">New to TeeTrend? <a class="text-decoration-none text-warning fw-bold" href="{% url "sign_up" %}"> SIGN UP</a></p>
       </form>
     </div>
   </div>

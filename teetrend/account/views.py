@@ -6,12 +6,19 @@ from .models import UserAccount
 from django.core.mail import send_mail
 import random
 import string
-from django.contrib.auth import login
-from django.contrib.auth import authenticate
+from django.contrib.auth import login , authenticate , logout
 
 
 def account(request):
-  return render(request , 'account_details.html')
+  if 'user_id' in request.session:
+    user_id = request.session['user_id']
+    acct = UserAccount.objects.get(id=user_id)
+    return render(request , 'account_details.html' , {'acct' : acct})
+  else:
+    return redirect('sign_in')
+
+
+
 
 def generate_otp(length=6):
   characters = string.digits
@@ -38,6 +45,7 @@ def sign_up(request):
         user = form.save(commit=False)
         user.otp = otp
         user.save()
+        request.session['user_id'] = user.id
         send_mail(
           'Your OTP for Registration',
           f'Your OTP is: {otp}',
@@ -59,6 +67,7 @@ def verify_otp(request):
       try:
         user = UserAccount.objects.get(email=email)
         if user.otp == otp:
+          request.session['user_id'] = user.id 
           # OTP is correct, add the success messages , redirect to the next page
           messages.success(request, 'Welcome , Successful Logged')
           return redirect('home')
@@ -80,6 +89,7 @@ def sign_in(request):
       password = form.cleaned_data.get('password')
       user = UserAccount.objects.get(username=username , password=password)
       if user is not None:
+        request.session['user_id'] = user.id
         messages.success(request, 'Welcome , Successful Logged')
         return redirect('home')
       else:
@@ -87,3 +97,8 @@ def sign_in(request):
   else:
     form = SignInForm()
   return render(request, 'sign_in.html', {'form': form})
+
+def logout_view(request):
+  if 'user_id' in request.session:
+    del request.session['user_id']
+  return redirect('home')
