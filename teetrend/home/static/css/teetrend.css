@@ -82,3 +82,9 @@
 .footer-link {
   text-decoration: none;
 }
+.messages {
+  list-style-type: none;
+  background-color: greenyellow;
+  font-size: 14px;
+  font-weight: 500;
+}

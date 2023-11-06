@@ -2,5 +2,12 @@
 {% block title %}Home{% endblock  %}
 {% block content %}
 {% load static %}
-<h1>Home</h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<h1>Home Page</h1>
 {% endblock  %}
