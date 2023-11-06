@@ -1,11 +1,13 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from .forms import UserAccountForm , VerifyOTPForm
+from .forms import UserAccountForm , VerifyOTPForm , SignInForm
 from .models import UserAccount
 from django.core.mail import send_mail
 import random
 import string
+from django.contrib.auth import login
+from django.contrib.auth import authenticate
 
 
 def account(request):
@@ -69,3 +71,19 @@ def verify_otp(request):
   else:
     form = VerifyOTPForm()
   return render(request , 'verify_otp.html' , {'form' : form})
+
+def sign_in(request):
+  if request.method == 'POST':
+    form = SignInForm(request.POST)
+    if form.is_valid():
+      username = form.cleaned_data.get('username')
+      password = form.cleaned_data.get('password')
+      user = UserAccount.objects.get(username=username , password=password)
+      if user is not None:
+        messages.success(request, 'Welcome , Successful Logged')
+        return redirect('home')
+      else:
+        form.add_error(None, 'Invalid username or password')
+  else:
+    form = SignInForm()
+  return render(request, 'sign_in.html', {'form': form})
