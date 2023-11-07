@@ -12,13 +12,10 @@ from django.contrib.auth import login , authenticate , logout
 def account(request):
   if 'user_id' in request.session:
     user_id = request.session['user_id']
-    acct = UserAccount.objects.get(id=user_id)
-    return render(request , 'account_details.html' , {'acct' : acct})
+    accts = UserAccount.objects.get(id=user_id)  
+    return render(request, 'account_details.html', {'accts': accts})
   else:
     return redirect('sign_in')
-
-
-
 
 def generate_otp(length=6):
   characters = string.digits
@@ -46,6 +43,7 @@ def sign_up(request):
         user.otp = otp
         user.save()
         request.session['user_id'] = user.id
+        request.session['full_name'] = full_name
         send_mail(
           'Your OTP for Registration',
           f'Your OTP is: {otp}',
@@ -57,7 +55,7 @@ def sign_up(request):
   else:
     form = UserAccountForm()
   return render(request, 'sign_up.html', {'form': form})
- 
+
 def verify_otp(request):
   if request.method == 'POST':
     form = VerifyOTPForm(request.POST)
@@ -68,6 +66,7 @@ def verify_otp(request):
         user = UserAccount.objects.get(email=email)
         if user.otp == otp:
           request.session['user_id'] = user.id 
+          request.session['full_name'] = full_name
           # OTP is correct, add the success messages , redirect to the next page
           messages.success(request, 'Welcome , Successful Logged')
           return redirect('home')
@@ -87,9 +86,9 @@ def sign_in(request):
     if form.is_valid():
       username = form.cleaned_data.get('username')
       password = form.cleaned_data.get('password')
-      user = UserAccount.objects.get(username=username , password=password)
+      user = UserAccount.objects.get(username=username, password=password)
       if user is not None:
-        request.session['user_id'] = user.id
+        request.session['user_id'] = user.id 
         messages.success(request, 'Welcome , Successful Logged')
         return redirect('home')
       else:
@@ -100,5 +99,11 @@ def sign_in(request):
 
 def logout_view(request):
   if 'user_id' in request.session:
-    del request.session['user_id']
+      del request.session['user_id']
   return redirect('home')
+
+def profile(request):
+  if 'full_name' in request.session:
+    full_name = request.session['full_name']
+    accts = UserAccount.objects.get(full_name=full_name)  
+    return render(request, 'teetrend.html', {'accts': accts})

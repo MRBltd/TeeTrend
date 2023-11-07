@@ -1,0 +1,54 @@
+@media (min-width: 992px) {
+  .sign-in-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sign-in {
+    width: 50%;
+  }
+}
+@media (max-width: 992px) {
+  .sign-in-section {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    width: 100%;
+  }
+  .sign-in {
+    width: 100%;
+  }
+}
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.sign-in {
+  padding: 30px 30px;
+  margin: 20px;
+  box-shadow: 1px 1px 10px rgb(4, 4, 4);
+  border-radius: 10px;
+}
+.sign-in h5 {
+  /* color: rgb(213, 26, 26); */
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
+}
+.sign-in-form {
+  margin-top: 20px;
+}
+.btn {
+  margin-left: 10px;
+}
+.messages {
+  list-style-type: none;
+}
+.forgot-password {
+  font-size: 12px;
+  font-weight: 700;
+  text-align: end;
+  margin: 10px;
+}
+.forgot-password a {
+  color: red;
+}

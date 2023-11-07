@@ -192,13 +192,17 @@
               <div class="dropdown-menu mt-5 ms-5 p-4" aria-labelledby="navbarDropdown">
                 <div id="login-div">
                   <div class="login-details">
-                    <h5>Welcome</h5>
+                    {% if accts %}
+                    <h5>Welcome {{ accts.username }}</h5>
                     <p>To access account and manage orders</p>
-                    {% if 'user_id' in request.session %}
-                      <button class="btn btn-danger" onclick="location.href='{% url "logout" %}'">Log Out</button>
                     {% else %}
-                      <button class="btn btn-success" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
-                      <button class="btn btn-info" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
+                    <p>You have no Account. Click below</p>
+                    {% endif %}
+                    {% if 'user_id' in request.session %}
+                      <button class="btn btn-danger fw-bold" onclick="location.href='{% url "logout" %}'">Log Out</button>
+                    {% else %}
+                      <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
+                      <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
                     {% endif %}
                   </div>
                   <hr class="dropdown-divider">
@@ -243,13 +247,17 @@
             <div class="dropdown-menu mt-5 ms-5 p-4" aria-labelledby="navbarDropdown">
               <div id="login-div">
                 <div class="login-details">
-                  <h5>Welcome</h5>
-                  <p>To access account and manage orders</p>
                   {% if 'user_id' in request.session %}
-                    <button class="btn btn-danger" onclick="location.href='{% url "logout" %}'">Log Out</button>
+                  <h5>Welcome {{ accts.username }}</h5>
+                  <p>To access account and manage orders</p>
                   {% else %}
-                    <button class="btn btn-success" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
-                    <button class="btn btn-info" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
+                  <p>You have no Account. Click below</p>
+                  {% endif %}
+                  {% if 'user_id' in request.session %}
+                    <button class="btn btn-danger fw-bold" onclick="location.href='{% url "logout" %}'">Log Out</button>
+                  {% else %}
+                    <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
+                    <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
                   {% endif %}
                 </div>
                 <hr class="dropdown-divider">

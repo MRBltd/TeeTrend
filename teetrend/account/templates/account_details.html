@@ -21,13 +21,14 @@
       </div>
       <div class="details">
         <h5>Account Details</h5>
-        {% if 'user_id' in request.session %}
-        <div>
-          <p>Username : {{ accts.username }}</p>
-          <p>Email : {{ accts.email }}</p>
-          <p>Phone Number : {{ accts.phone_number }}</p>
-          <p>Password : {{ accts.password }}</p>
-        </div>
+        {% if accts %}
+          <div>
+            <p>Username: {% if accts.username %}{{ accts.username }}{% else %}- not added -{% endif %}</p>
+            <p>Email: {% if accts.email %}{{ accts.email }}{% else %}- not added -{% endif %}</p>
+            <p>Phone Number: {% if accts.phone_number %}{{ accts.phone_number }}{% else %}- not added -{% endif %}</p>
+            <p>Password: {% if accts.password %}{{ accts.password }}{% else %}- not added -{% endif %}</p>
+            <p>Address: </p>
+          </div>
         {% endif %}
       </div>
     </div>

@@ -39,8 +39,14 @@
 .sign-up {
   padding: 30px 30px;
   margin: 20px;
-  box-shadow: 1px 1px 10px rgb(144, 144, 144);
+  box-shadow: 1px 1px 10px rgb(4, 4, 4);
   border-radius: 10px;
+}
+.sign-up h5 {
+  /* color: rgb(255, 248, 39); */
+  text-align: center;
+  font-weight: 900;
+  font-size: 18px;
 }
 .sign-up-form {
   margin-top: 20px;
