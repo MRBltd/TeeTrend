@@ -1,49 +1,64 @@
-@media (max-width: 992px) {
-  .account_details {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-  }
-  .account_section {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .details {
-    width: 100%;
-  }
-}
 @media (min-width: 992px) {
-  .account_details {
-    width: 70%;
+  .account-settings {
+    margin: 50px 150px;
+  }
+  .profile-card {
+    padding: 42px 100px;
+  }
+  .td span {
+    width: 200px;
+  }
+  .td {
     display: flex;
-    margin: 0 150px;
-  }
-  .account_section {
-    width: 30%;
-    margin-right: 20px;
-  }
-  .details {
-    width: 70%;
+    justify-content: space-between;
+    margin: 10px 0;
   }
 }
-.account {
+@media  (max-width: 992px) {
+  .account-settings {
+    margin: 10px 10px;
+  }
+  .profile-card {
+    padding: 5px 10px;
+  }
+}
+@media (min-width: 472px) and (max-width: 992px) {
+  .td {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 472px) {
+  .td span {
+    display: inline-block;
+    width: 100px;
+  }
+  .td {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px 0;
+  }
+}
+.no-gutters {
+  padding-left: 0;
+  padding-right: 0;
+}
+.col {
+  padding: 0;
+}
+.profile-infoTable {
   display: flex;
   flex-direction: column;
 }
-.account_details {
-  padding: 15px 15px;
-  box-shadow: 1px 1px 10px rgb(193, 192, 192);
+.profile-overview {
+  display: none;
 }
-.account_section {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  border: 1px solid black;
+#profile-overviewButton {
+  cursor: pointer;
 }
-.details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid red;
+.hd {
+  font-size: 12px;
+  color: rgb(192, 192, 192);
+  text-align: center;
 }

@@ -1,4 +1,4 @@
-{% extends "account.html" %}
+{% extends "user-sign.html" %}
 {% block title %}Account | Create New Account{% endblock  %}
 {% block content %}
 {% load crispy_forms_tags %}
@@ -6,6 +6,7 @@
 <div class="container-fluid">
   <div class="sign-up-section">
     <div class="sign-up">
+      <a class="navbar-brand fw-bold text-primary fs-2 ms-5" href="{% url "home" %}">T<span class="text-warning">&#600;&#600;</span>Trend</a>
       <h5>SIGN UP</h5>
       <form class="sign-up-form" action="" method="POST">
         {% csrf_token %}

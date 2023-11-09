@@ -5,23 +5,30 @@ from .forms import UserAccountForm , VerifyOTPForm , SignInForm
 from .models import UserAccount
 from django.core.mail import send_mail
 import random
+import pyotp
 import string
 from django.contrib.auth import login , authenticate , logout
 
 
 def account(request):
   if 'user_id' in request.session:
-    user_id = request.session['user_id']
-    accts = UserAccount.objects.get(id=user_id)  
-    return render(request, 'account_details.html', {'accts': accts})
+    try:
+        user_id = request.session['user_id']
+        accts = UserAccount.objects.get(id=user_id)  
+        return render(request, 'account_details.html', {'accts': accts})
+    except UserAccount.DoesNotExist:
+        return redirect('sign_in')
   else:
-    return redirect('sign_in')
+    return redirect('sign_in')      
+
+def profileOverview(request):
+  return render(request , 'account_details.html')
 
 def generate_otp(length=6):
-  characters = string.digits
-  otp = ''.join(random.choice(characters) for _ in range(length))
+  base32secret = pyotp.random_base32()
+  otp = pyotp.TOTP(base32secret, interval=60, digits=6)
   print(otp)
-  return otp
+  return otp.now()
 
 def sign_up(request):
   if request.method == 'POST':
@@ -42,8 +49,7 @@ def sign_up(request):
         user = form.save(commit=False)
         user.otp = otp
         user.save()
-        request.session['user_id'] = user.id
-        request.session['full_name'] = full_name
+        # request.session['user_id'] = user.id
         send_mail(
           'Your OTP for Registration',
           f'Your OTP is: {otp}',
@@ -65,20 +71,19 @@ def verify_otp(request):
       try:
         user = UserAccount.objects.get(email=email)
         if user.otp == otp:
+          user.is_verified = True  # set is_verified to True
+          user.save()  # save the change to the database
           request.session['user_id'] = user.id 
-          request.session['full_name'] = full_name
-          # OTP is correct, add the success messages , redirect to the next page
           messages.success(request, 'Welcome , Successful Logged')
           return redirect('home')
         else:
-          # OTP is incorrect, show an error message
           form.add_error('otp', 'Invalid OTP')
       except UserAccount.DoesNotExist:
-        # Email does not exist, show an error message
         form.add_error('email', 'No user with this email exists')
   else:
     form = VerifyOTPForm()
   return render(request , 'verify_otp.html' , {'form' : form})
+
 
 def sign_in(request):
   if request.method == 'POST':
@@ -86,12 +91,12 @@ def sign_in(request):
     if form.is_valid():
       username = form.cleaned_data.get('username')
       password = form.cleaned_data.get('password')
-      user = UserAccount.objects.get(username=username, password=password)
-      if user is not None:
+      try:
+        user = UserAccount.objects.get(username=username, password=password)
         request.session['user_id'] = user.id 
         messages.success(request, 'Welcome , Successful Logged')
         return redirect('home')
-      else:
+      except UserAccount.DoesNotExist:
         form.add_error(None, 'Invalid username or password')
   else:
     form = SignInForm()
