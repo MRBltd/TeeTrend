@@ -84,8 +84,8 @@
 }
 .messages {
   list-style-type: none;
-  background-color: rgb(0, 198, 26);
+  background-color: rgba(51, 186, 69, 0.603);
   font-size: 14px;
   font-weight: 500;
-  height: 30px;
+  padding: 10px 20px;
 }

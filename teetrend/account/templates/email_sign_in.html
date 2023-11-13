@@ -11,8 +11,7 @@
       <form class="sign-in-form" action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
-        <p class="forgot-password"><a href="{% url "email_sign_in" %}">Forgot Password?</a></p>
-        <button class="btn btn-success fw-bold">Sign In</button>
+        <button class="btn btn-success fw-bold">Send OTP</button>
         <p class="ms-2 my-2">New to TeeTrend? <a class="text-decoration-none text-warning fw-bold" href="{% url "sign_up" %}"> SIGN UP</a></p>
       </form>
     </div>

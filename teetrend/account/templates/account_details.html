@@ -18,24 +18,34 @@
     <div class="account-settings">
       {% if accts %}
       <div class="row">
-        <h6 class="fw-bold">Account</h6>
+        <h6 class="fw-bold m-0">Account</h6>
         <p>{% if accts.full_name %} {{ accts.full_name }} {% else %}- not added -{% endif %}</p>
         <hr style="border-top: 1px solid black; margin: 0;">
         <div class="col-lg-2 no-gutters">
-          <div class="col no-gutters px-2 py-3"><a class="text-decoration-none" href="#">Overview</a></div>
-          <hr style="border-top: 1px solid black;">
-          <div class="col no-gutters px-2 py-3"><p class="hd">ORDERS</p></div>
-          <hr style="border-top: 1px solid black;">
-          <div class="col no-gutters px-2 py-3"><p class="hd">CREDITS</p></div>
-          <hr style="border-top: 1px solid black;">
-          <div class="col no-gutters px-2 py-3"><p class="hd">ACCOUNT</p></div>
-          <hr style="border-top: 1px solid black;">
-          <div class="col no-gutters px-2 py-3"><p class="hd">LEGAL</p></div>
-          <hr style="border-top: 1px solid black;">
+          <div class="col no-gutters px-2 py-4">
+            <a class="hd-overview" href="#">Overview</a>
+          </div>
+          <hr style="border-top: 1px solid black; margin: 0;">
+          <div class="col no-gutters px-2 py-4">
+            <p class="hd">ORDERS</p>
+            <a class="hd-link" href="#">Orders & Returns</a>
+          </div>
+          <hr style="border-top: 1px solid black; margin: 0;">
+          <div class="col no-gutters px-2 py-4">
+            <p class="hd">ACCOUNT</p>
+            <a href="#" class="hd-link">Profile</a>
+          </div>
+          <hr style="border-top: 1px solid black; margin: 0;">
+          <div class="col no-gutters px-2 py-4">
+            <p class="hd">LEGAL</p>
+            <a href="#" class="hd-link">Term of Use</a>
+            <a href="#" class="hd-link">Privacy Policy</a>
+          </div>
+          <hr style="border-top: 1px solid black; margin: 0;">
         </div>
         <div class="col no-gutters" style="border-right:1px solid black"></div>
         <div class="col-lg-9 no-gutters">
-          <div class="profile-card border border-1 border-warning m-3">
+          <div class="profile-card overflow-scroll overflow-x-auto border border-1 border-warning m-3">
             <h4>Profile Details</h4>
             <hr style="border-top: 1px solid black;">
             <div class="profile-infoTable">
@@ -53,6 +63,7 @@
                 <span>{% if accts.address %}{{ accts.address }}{% else %}- not added -{% endif %}</span></div>
               <div class="td"><span>Date Of Birth </span>
                 <span>{% if accts.birth_date %}{{ accts.birth_date }}{% else %}- not added -{% endif %}</span></div>
+              <button class="btn btn-danger my-3 py-2">Edit</button>
             </div>
           </div>
         </div>

@@ -190,10 +190,10 @@
               </svg>
               <span>Profile</span>
               <div class="dropdown-menu mt-5 ms-5 p-4" aria-labelledby="navbarDropdown">
-                <div id="login-div">
+                <div id="login-div" class="dropdown-item">
                   <div class="login-details">
-                    {% if accts %}
-                    <h5>Welcome {{ accts.username }}</h5>
+                    {% if 'user_id' in request.session %}
+                    <h5>Welcome {{ username }}</h5>
                     <p>To access account and manage orders</p>
                     {% else %}
                     <p>You have no Account. Click below</p>
@@ -248,7 +248,7 @@
               <div id="login-div">
                 <div class="login-details">
                   {% if 'user_id' in request.session %}
-                  <h5>Welcome {{ accts.username }}</h5>
+                  <h5>Welcome {{ username }}</h5>
                   <p>To access account and manage orders</p>
                   {% else %}
                   <p>You have no Account. Click below</p>
