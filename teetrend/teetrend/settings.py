@@ -78,8 +78,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # or 'smtp.sendgrid.net' for SendGrid
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'midhunbalachandran07@gmail.com'  # your email here
-EMAIL_HOST_PASSWORD = 'mkgftzffyfpuswwm'  # your email password here
+EMAIL_HOST_USER = 'midhunbalachandran07@gmail.com'  
+EMAIL_HOST_PASSWORD = 'qmeq scsu cejs rxyl'  
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

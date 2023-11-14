@@ -54,15 +54,32 @@
 .dropdown-item {
   font-size: 12px;
 }
-.profile-items {
-  color: gray;
+.login-details h5 , .login-details p {
+  cursor: text;
 }
-.profile-items:hover , .footer-section-list:hover {
-  color: black;
+.login-details ul {
+  cursor: default;
+}
+.profile-items {
+  color: rgb(48, 47, 47);
+  width: 130px;
+  padding: 4px 0 4px 8px;
+  cursor: pointer;
+}
+.profile-items:hover {
+  color: rgb(42, 40, 40);
   font-weight: bold;
+  background-color: rgb(220, 219, 219);
+}
+.profile-items:active {
+  border-bottom: 2px solid red;
 }
 .nav-list:hover {
   border-bottom: 2px solid red;
+}
+.footer-section-list:hover {
+  color: rgb(42, 40, 40);
+  font-weight: bold;
 }
 .footer-sub-headline {
   font-size: 10px;

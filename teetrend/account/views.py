@@ -9,17 +9,18 @@ import pyotp
 import string
 from django.contrib.auth import login , authenticate , logout
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
 
 
 # The User entering details
 def account(request):
   if 'user_id' in request.session:
     try:
-        user_id = request.session['user_id']
-        accts = UserAccount.objects.get(id=user_id)  
-        return render(request, 'account_details.html', {'accts': accts})
+      user_id = request.session['user_id']
+      accts = UserAccount.objects.get(id=user_id)  
+      return render(request, 'account_details.html', {'accts': accts})
     except UserAccount.DoesNotExist:
-        return redirect('sign_in')
+      return redirect('sign_in')
   else:
     return redirect('sign_in')      
 
@@ -160,11 +161,15 @@ def sign_in_verify_otp(request):
 def logout_view(request):
   if 'user_id' in request.session:
       del request.session['user_id']
-  return redirect('home')
+  return redirect('sign_in')
 
 # The function for  User complete the signup or signin the home page will make some changes
 def profile(request):
-  if 'full_name' in request.session:
-    full_name = request.session['full_name']
-    accts = UserAccount.objects.get(full_name=full_name)  
-    return render(request, 'teetrend.html', {'accts': accts})
+  # accts = None
+  if 'user_id' in request.session:
+    user_id = request.session['user_id']
+    try:
+      accts = UserAccount.objects.get(id=user_id)
+    except UserAccount.DoesNotExist:
+      pass
+  return render(request, 'teetrend.html', {'accts': accts})  

@@ -192,26 +192,33 @@
               <div class="dropdown-menu mt-5 ms-5 p-4" aria-labelledby="navbarDropdown">
                 <div id="login-div" class="dropdown-item">
                   <div class="login-details">
-                    {% if 'user_id' in request.session %}
-                    <h5>Welcome {{ username }}</h5>
-                    <p>To access account and manage orders</p>
+                    {% if accts %}
+                      <h5>{{ accts.full_name }}</h5>
+                      <p>{{ accts.phone_number }}</p>
                     {% else %}
-                    <p>You have no Account. Click below</p>
+                      <h5>Welcome to T<span class="text-warning">&#600;&#600;</span>Trend</h5>
+                      <p>You have no Account. Click below</p>
                     {% endif %}
                     {% if 'user_id' in request.session %}
-                      <button class="btn btn-danger fw-bold" onclick="location.href='{% url "logout" %}'">Log Out</button>
-                    {% else %}
-                      <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
-                      <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
-                    {% endif %}
-                  </div>
-                  <hr class="dropdown-divider">
-                  <ul class="list-unstyled">
-                    <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
-                    <li class="profile-items">Your Orders</li>
-                    <li class="profile-items">Your Whish List</li>
-                    <li class="profile-items">Contact Us</li>
-                  </ul>
+                    <hr class="dropdown-divider">
+                    <ul class="list-unstyled">
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
+                      <li class="profile-items">Your Orders</li>
+                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items">Contact Us</li>
+                      <li class="profile-items" onclick="location.href='{% url "logout" %}'">Log Out</li>
+                    </ul>
+                  {% else %}
+                    <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
+                    <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
+                    <hr class="dropdown-divider">
+                    <ul class="list-unstyled">
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
+                      <li class="profile-items">Your Orders</li>
+                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items">Contact Us</li>
+                    </ul>
+                  {% endif %}
                 </div>
               </div>
             </a>            
@@ -247,26 +254,34 @@
             <div class="dropdown-menu mt-5 ms-5 p-4" aria-labelledby="navbarDropdown">
               <div id="login-div">
                 <div class="login-details">
-                  {% if 'user_id' in request.session %}
-                  <h5>Welcome {{ username }}</h5>
-                  <p>To access account and manage orders</p>
+                  {% if accts %}
+                    <h5>{{ accts.full_name }}</h5>
+                    <p>{{ accts.phone_number }}</p>
                   {% else %}
-                  <p>You have no Account. Click below</p>
+                    <h5>Welcome to T<span class="text-warning">&#600;&#600;</span>Trend</h5>
+                    <p>You have no Account. Click below</p>
                   {% endif %}
                   {% if 'user_id' in request.session %}
-                    <button class="btn btn-danger fw-bold" onclick="location.href='{% url "logout" %}'">Log Out</button>
+                    <hr class="dropdown-divider">
+                    <ul class="list-unstyled">
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
+                      <li class="profile-items">Your Orders</li>
+                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items">Contact Us</li>
+                      <li class="profile-items" onclick="location.href='{% url "logout" %}'">Log Out</li>
+                    </ul>
                   {% else %}
                     <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
                     <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
+                    <hr class="dropdown-divider">
+                    <ul class="list-unstyled">
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
+                      <li class="profile-items">Your Orders</li>
+                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items">Contact Us</li>
+                    </ul>
                   {% endif %}
                 </div>
-                <hr class="dropdown-divider">
-                <ul class="list-unstyled">
-                  <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
-                  <li class="profile-items">Your Orders</li>
-                  <li class="profile-items">Your Whish List</li>
-                  <li class="profile-items">Contact Us</li>
-                </ul>
               </div>
             </div>
           </a>          
