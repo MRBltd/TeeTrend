@@ -10,6 +10,7 @@ import string
 from django.contrib.auth import login , authenticate , logout
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.decorators import login_required
 
 
 # The User entering details
@@ -173,3 +174,14 @@ def profile(request):
     except UserAccount.DoesNotExist:
       pass
   return render(request, 'teetrend.html', {'accts': accts})  
+
+@login_required
+def delete_account(request):
+  user_id = request.session['user_id']
+  try:
+    user = UserAccount.objects.get(id=user_id)  # Get the User instance
+    user.delete()
+  except UserAccount.DoesNotExist:
+    print(f"No UserAccount found for id {user_id}")
+  logout(request)  # Log out the user
+  return redirect('sign_in') 

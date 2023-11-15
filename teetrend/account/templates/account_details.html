@@ -34,6 +34,7 @@
           <div class="col no-gutters px-2 py-4">
             <p class="hd">ACCOUNT</p>
             <a href="{% url "account" %}" class="hd-link">Profile</a>
+            <a href="{% url "logout" %}" class="hd-link">Log Out</a>
           </div>
           <hr style="border-top: 1px solid black; margin: 0;">
           <div class="col no-gutters px-2 py-4">
@@ -68,6 +69,10 @@
           </div>
         </div>
       </div>
+        <form method="post" action="{% url 'delete_account' %}" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+          {% csrf_token %}
+          <button type="submit">Delete Account</button>
+      </form>
       {% else %}
       <Button class="btn btn-success" onclick="location.href='{% url "sign_in" %}'">Sign In</Button>
       {% endif %} 

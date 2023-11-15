@@ -9,5 +9,6 @@ urlpatterns = [
   path('email_sign_in/' , views.email_sign_in , name = 'email_sign_in') , # The email signin urls
   path('sign_in_verify_otp/' , views.sign_in_verify_otp , name = 'sign_in_verify_otp') , # The signin otp verification urls
   path('logout/' , views.logout_view , name = 'logout') , # The logout urls
+  path('delete_account/', views.delete_account, name='delete_account') , # The User account deleting urls
   path('profile_overview/' , views.profileOverview , name = 'priofile_overview') , # The profile overview urls
 ]

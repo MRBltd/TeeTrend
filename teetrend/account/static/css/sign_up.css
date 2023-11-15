@@ -6,6 +6,7 @@
   }
   .sign-up {
     width: 50%;
+    margin: 50px;
   }
   .verify-otp-section {
     display: flex;
@@ -34,11 +35,11 @@
   }
   .verify-otp {
     width: 100%;
+    margin: 20px;
   }
 }
 .sign-up {
   padding: 30px 30px;
-  margin: 20px;
   box-shadow: 1px 1px 10px rgb(4, 4, 4);
   border-radius: 10px;
 }
