@@ -1,0 +1,35 @@
+{% extends "account.html" %}
+{% block title %}{% endblock  %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="account-deletion mb-5">
+      <div class="warning-description my-5">
+        <h3 class="mb-5">Warning: Account Deletion</h3>
+        <p>Dear valued customer,</p>
+        <p>You are about to delete your account on <a class="navbar-brand fw-bold text-primary m-0" href="{% url "home" %}">T<span class="text-warning">&#600;&#600;</span>Trend</a>. <mark class="bg-danger text-white">Please be aware that this action is irreversible.</mark></p>
+        <div class="instructions">
+          <ul class="my-2">
+            Once your account is deleted:
+            <li class="my-3">You will <mark>lose access</mark> to your account immediately.</li>
+            <li class="my-3">All your <mark>personal information, including your shipping and billing addresses, will be permanently deleted</mark> from our servers.</li>
+            <li class="my-3">Your <mark>order history</mark> and <mark>transaction records</mark> will be <mark>erased</mark>.</li>
+            <li class="my-3">Any <mark>unredeemed rewards or credits</mark> will be <mark>forfeited</mark>.</li>
+          </ul>
+        </div>
+        <p>If you have any active orders or subscriptions, they will be cancelled upon account deletion.</p>
+        <p>We recommend you to download any data you may need before proceeding with the deletion. If you have any questions or need assistance, please contact our customer service team.</p>
+        <p>Please take a moment to reconsider. If you still wish to proceed, click on the <mark class="bg-danger text-white">Delete Account</mark> button.</p>
+        <p>Thank you for your understanding.</p>
+        <p>Best, The TeeTrend Team</p>
+      </div>
+      <form method="post" action="{% url 'delete_account' %}">
+        {% csrf_token %}
+        <p>If You want to delete your account , Click below</p>
+        <button class="btn btn-danger" type="submit">Delete Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock  %}

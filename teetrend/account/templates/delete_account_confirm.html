@@ -1,0 +1,18 @@
+{% extends "account.html" %}
+{% block title %}{% endblock  %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="account-deletion-confirm my-5 text-center">
+      <h4>Confirmation</h4>
+      <p>Are You sure ! <br> You want to delete the account. <br> If you sure to that you will click the below confirm button</p>
+      <form method="post" action="{% url 'delete_account_confirmation' %}">
+        {% csrf_token %}
+        <input type="hidden" name="confirm" value="true">
+        <button class="btn btn-danger" type="submit">Confirm</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

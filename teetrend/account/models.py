@@ -11,4 +11,7 @@ class UserAccount(models.Model):
   birth_date = models.DateField(null=True, blank=True)
   is_verified = models.BooleanField(default=False)
 
+  def __str__(self):
+    return self.email
+  
   

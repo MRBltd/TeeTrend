@@ -15,6 +15,7 @@
   }
   .verify-otp {
     width: 50%;
+    margin: 50px;
   }
 }
 @media (max-width: 992px) {
@@ -26,6 +27,7 @@
   }
   .sign-up {
     width: 100%;
+    margin: 20px;
   }
   .verify-otp-section {
     display: flex;
@@ -35,7 +37,7 @@
   }
   .verify-otp {
     width: 100%;
-    margin: 20px;
+    margin: 50px 0;
   }
 }
 .sign-up {
@@ -44,7 +46,6 @@
   border-radius: 10px;
 }
 .sign-up h5 {
-  /* color: rgb(255, 248, 39); */
   text-align: center;
   font-weight: 900;
   font-size: 18px;
@@ -59,8 +60,12 @@
   list-style-type: none;
 }
 .verify-otp {
-  margin: 20px;
   padding: 30px 30px;
-  box-shadow: 1px 1px 10px rgb(144, 144, 144);
+  box-shadow: 1px 1px 10px rgb(4, 4, 4);
   border-radius: 10px;
+}
+.verify-otp h5 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
 }

@@ -11,6 +11,7 @@ from django.contrib.auth import login , authenticate , logout
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 
 
 # The User entering details
@@ -175,13 +176,36 @@ def profile(request):
       pass
   return render(request, 'teetrend.html', {'accts': accts})  
 
-@login_required
+def account_deletion_warning(request):
+  return render(request , 'account_deletion.html')
+
+# @login_required
 def delete_account(request):
-  user_id = request.session['user_id']
-  try:
-    user = UserAccount.objects.get(id=user_id)  # Get the User instance
-    user.delete()
-  except UserAccount.DoesNotExist:
-    print(f"No UserAccount found for id {user_id}")
-  logout(request)  # Log out the user
-  return redirect('sign_in') 
+  sign_in_url = reverse('sign_in')
+  if request.method == 'POST':
+    if 'user_id' in request.session:
+      return render(request , 'delete_account_confirm.html')
+    else:
+      return HttpResponse(f'''
+      <h3>No user account. Sign in to your account...</h3>
+      <a href="{sign_in_url}" style="color: white; background-color: green; padding: 10px 20px; text-decoration: none; font-weight: 900; border-radius: 10px;">Sign In</a>
+      ''')
+  else:
+    # If the request method is not POST, render the form
+    return render(request, 'account_deletion.html')
+
+def delete_account_confirmation(request):
+  if request.method == 'POST':
+    if 'user_id' in request.session:
+      user_id = request.session['user_id']
+      try:
+        user = UserAccount.objects.get(id=user_id)  # Get the User instance
+        user.delete()
+      except UserAccount.DoesNotExist:
+        print(f"No UserAccount found for id {user_id}")
+      logout(request)  # Log out the user
+    else:
+      return HttpResponse("No user account. Sign in to your account...")
+    return redirect('sign_in')
+  else:
+    return render(request , 'delete_account_confirm.html')

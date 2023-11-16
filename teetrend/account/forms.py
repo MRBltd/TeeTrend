@@ -5,14 +5,21 @@ import re
 
 # The signup forms
 class UserAccountForm(forms.ModelForm):
-  confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'password-input'}))
+  confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'password-input' , 'placeholder': 'Confirm Password'}))
   show_password = forms.BooleanField(required=False)
   class Meta:
     model = UserAccount
     fields = ['full_name' , 'username', 'phone_number', 'email', 'password' , 'confirm_password' , 'show_password']
     widgets = {
-      'password': forms.PasswordInput(attrs={'class': 'password-input'}),  
+      'password': forms.PasswordInput(attrs={'class': 'password-input'}) ,  
     }
+    widgets = {
+        'full_name': forms.TextInput(attrs={'class': 'text-input', 'placeholder': 'TeeTrend'}) ,
+        'username': forms.TextInput(attrs={'class': 'text-input', 'placeholder': 'teetrend@info.123'}) ,
+        'phone_number': forms.TextInput(attrs={'class': 'text-input', 'placeholder': '1234567890'}) ,
+        'email': forms.EmailInput(attrs={'class': 'email-input', 'placeholder': 'teetrend@gmail.com'}) ,
+        'password': forms.PasswordInput(attrs={'class': 'password-input', 'placeholder': 'Password'}) ,  
+      }
 
   def clean_password(self):
     password = self.cleaned_data.get('password')
@@ -46,19 +53,19 @@ class UserAccountForm(forms.ModelForm):
 
 # The OTP verification with email forms
 class VerifyOTPForm(forms.Form):
-  email = forms.EmailField()
-  otp = forms.CharField(max_length=6)
+  email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'teetrend@gmail.com'}))
+  otp = forms.CharField(max_length=6, widget=forms.TextInput(attrs={'placeholder': '0 0 0 0 0 0'}))
 
 # The User signin forms
 class SignInForm(forms.Form):
-  username = forms.CharField(max_length=200)
-  password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'password-input'}))
+  username = forms.CharField(max_length=200, widget=forms.TextInput(attrs={'placeholder': 'teetrend@info.123'}))
+  password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'password-input', 'placeholder': 'Password'}))
   show_password = forms.BooleanField(required=False)
 
 # The User signin forms using email
 class EmailSignInForm(forms.Form):
-  email = forms.EmailField()
+  email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'teetrend@gmail.com'}))
 
 # The otp verification
 class SignInOtpForm(forms.Form):
-  otp = forms.CharField(max_length=6)
+  otp = forms.CharField(max_length=6, widget=forms.TextInput(attrs={'placeholder': '0 0 0 0 0 0'}))
