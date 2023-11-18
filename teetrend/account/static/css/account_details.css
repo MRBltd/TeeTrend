@@ -13,6 +13,16 @@
     justify-content: space-between;
     margin: 15px 0;
   }
+  .tees-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .hd-link-desktop-logout , .hd-link-desktop-delete-account {
+    display: block;
+  }
+  .hd-link-delete-account , .hd-link-logout {
+    display: none;
+  }
 }
 @media  (max-width: 992px) {
   .account-settings {
@@ -23,6 +33,33 @@
   }
   .profile-infoTable {
     padding: 5px 10px;
+  }
+  .tees-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .tees-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .hd {
+    display: none;
+  }
+  .hd-overview , .hd-link {
+    display: block;
+    text-align: center;
+    border: 1px solid black;
+    box-shadow: 1px 1px 10px rgb(204, 204, 204);
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+  .hd-link-delete-account , .hd-link-logout {
+    display: block;
+  }
+  .hd-link-desktop-logout , .hd-link-desktop-delete-account {
+    display: none;
   }
 }
 @media (min-width: 472px) and (max-width: 992px) {
@@ -74,11 +111,29 @@
   color: rgb(118, 115, 115);
   margin-bottom: 8px;
 }
-.hd-link {
-  display: block;
+.hd-link-delete-account  , .hd-link-logout {
+  width: 100%;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px rgb(197, 197, 197);
   font-size: 12px;
-  font-weight: 700;
-  color: rgb(107, 107, 107);
+  font-weight: 900;
+  color: rgb(42, 42, 42);
+  text-decoration: none; 
+  margin: 15px 0;
+}
+.hd-link-desktop-logout , .hd-link-desktop-delete-account {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(42, 42, 42);
+  text-decoration: none; 
+  margin-bottom: 5px;
+}
+.hd-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgb(42, 42, 42);
   text-decoration: none; 
   margin-bottom: 5px;
 }
