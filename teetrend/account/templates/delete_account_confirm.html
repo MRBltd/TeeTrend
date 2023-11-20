@@ -1,15 +1,17 @@
 {% extends "account.html" %}
 {% block title %}{% endblock  %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-  <div class="row">
-    <div class="account-deletion-confirm my-5 text-center">
+  <div class="deactivate-section">
+    <div class="deactivate">
       <h4>Confirmation</h4>
       <p>Are You sure ! <br> You want to delete the account. <br> If you sure to that you will click the below confirm button</p>
-      <form method="post" action="{% url 'delete_account_confirmation' %}">
+      <form class="deactivate-form" action="{% url 'deactivate_account_confirmation' %}" method="POST">
         {% csrf_token %}
-        <input type="hidden" name="confirm" value="true">
+        <p>Your account with the email <span class="u-email">{{ email }}</span> will be deactivated.</p>
+        {{ form|crispy }}
         <button class="btn btn-danger" type="submit">Confirm</button>
       </form>
     </div>

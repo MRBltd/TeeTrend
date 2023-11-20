@@ -42,8 +42,7 @@
           <div class="tees-row">
             <div class="col tees-info no-gutters px-2 py-4">
               <p class="hd"></p>
-              <a href="{% url "logout" %}" class="hd-link-desktop-logout">Log Out</a>
-              <a href="{% url "account_deletion_warning" %}" class="hd-link-desktop-delete-account">Delete Account</a>
+              <a href="{% url "logout" %}" class="hd-link-desktop-logout">Sign Out</a>
             </div>
           </div>
         </div>
@@ -67,12 +66,11 @@
                 <span>{% if accts.address %}{{ accts.address }}{% else %}- not added -{% endif %}</span></div>
               <div class="td"><span>Date Of Birth </span>
                 <span>{% if accts.birth_date %}{{ accts.birth_date }}{% else %}- not added -{% endif %}</span></div>
-              <button class="btn btn-danger my-3 py-2">Edit</button>
+              <button class="btn btn-danger my-3 py-2" onclick="location.href='{% url "edit_profile" %}'">Edit</button>
             </div>
           </div>
         </div>
-        <a href="{% url "logout" %}" class="hd-link-logout">Log Out</a>
-        <a href="{% url "account_deletion_warning" %}" class="hd-link-delete-account">Delete Account</a>
+        <a href="{% url "logout" %}" class="hd-link-logout">Sign Out</a>
       </div>
       {% else %}
       <Button class="btn btn-success" onclick="location.href='{% url "sign_in" %}'">Sign In</Button>

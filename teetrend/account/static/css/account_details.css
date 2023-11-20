@@ -17,11 +17,14 @@
     display: flex;
     flex-direction: column;
   }
-  .hd-link-desktop-logout , .hd-link-desktop-delete-account {
+  .hd-link-desktop-logout {
     display: block;
   }
-  .hd-link-delete-account , .hd-link-logout {
+ .hd-link-logout {
     display: none;
+  }
+  .hd-delete-account {
+    width: 25%;
   }
 }
 @media  (max-width: 992px) {
@@ -55,11 +58,14 @@
     padding: 5px 10px;
     border-radius: 2px;
   }
-  .hd-link-delete-account , .hd-link-logout {
+  .hd-link-logout {
     display: block;
   }
-  .hd-link-desktop-logout , .hd-link-desktop-delete-account {
+  .hd-link-desktop-logout {
     display: none;
+  }
+  .hd-delete-account {
+    width: 100%;
   }
 }
 @media (min-width: 472px) and (max-width: 992px) {
@@ -111,7 +117,7 @@
   color: rgb(118, 115, 115);
   margin-bottom: 8px;
 }
-.hd-link-delete-account  , .hd-link-logout {
+.hd-link-logout {
   width: 100%;
   padding: 5px 0;
   text-align: center;
@@ -123,13 +129,24 @@
   text-decoration: none; 
   margin: 15px 0;
 }
-.hd-link-desktop-logout , .hd-link-desktop-delete-account {
+.hd-link-desktop-logout {
   font-size: 12px;
   font-weight: 500;
   color: rgb(42, 42, 42);
   text-decoration: none; 
   margin-bottom: 5px;
 }
+.hd-delete-account {
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px rgb(197, 197, 197);
+  font-size: 12px;
+  font-weight: 900;
+  color: rgb(42, 42, 42);
+  text-decoration: none; 
+  margin: 15px 0;
+} 
 .hd-link {
   font-size: 12px;
   font-weight: 500;

@@ -69,3 +69,16 @@ class EmailSignInForm(forms.Form):
 # The otp verification
 class SignInOtpForm(forms.Form):
   otp = forms.CharField(max_length=6, widget=forms.TextInput(attrs={'placeholder': '0 0 0 0 0 0'}))
+
+class deactivateOtpForm(forms.Form):
+  otp = forms.CharField(max_length=6 , widget=forms.TextInput(attrs={'placeholder': '0 0 0 0 0 0'}))
+
+class DateInput(forms.DateInput):
+  input_type = 'date'
+
+class EditProfileForm(forms.ModelForm):
+  birth_date = forms.DateField(widget=DateInput)
+  
+  class Meta:
+    model = UserAccount
+    fields = ['username', 'phone_number', 'email', 'full_name', 'address', 'birth_date']

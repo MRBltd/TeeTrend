@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from .forms import UserAccountForm , VerifyOTPForm , SignInForm , EmailSignInForm , SignInOtpForm
+from .forms import UserAccountForm , VerifyOTPForm , SignInForm , EmailSignInForm , SignInOtpForm , deactivateOtpForm , EditProfileForm
 from .models import UserAccount
 from django.core.mail import send_mail
 import random
@@ -12,6 +12,7 @@ from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 
 # The User entering details
@@ -159,6 +160,21 @@ def sign_in_verify_otp(request):
       form = SignInOtpForm()
   return render(request, 'sign_in_verify_otp.html', {'form': form})
 
+# The Profile edit function
+def edit_profile(request):
+  if 'user_id' not in request.session:
+    return redirect('sign_in')  # Redirect to sign in page if user is not logged in
+  user_id = request.session['user_id']
+  user = UserAccount.objects.get(id=user_id)
+  if request.method == 'POST':
+    form = EditProfileForm(request.POST, instance=user)
+    if form.is_valid():
+      form.save()
+      return redirect('account')  # Redirect to profile page after successful update
+  else:
+    form = EditProfileForm(instance=user)
+  return render(request, 'edit_profile.html', {'form': form})
+
 # The User logout function
 def logout_view(request):
   if 'user_id' in request.session:
@@ -170,21 +186,35 @@ def profile(request):
   # accts = None
   if 'user_id' in request.session:
     user_id = request.session['user_id']
-    try:
-      accts = UserAccount.objects.get(id=user_id)
-    except UserAccount.DoesNotExist:
-      pass
+    accts = UserAccount.objects.get(id=user_id)
   return render(request, 'teetrend.html', {'accts': accts})  
 
-def account_deletion_warning(request):
+def account_deactivation_warning(request):
   return render(request , 'account_deletion.html')
 
 # @login_required
-def delete_account(request):
+def deactivate_account(request):
   sign_in_url = reverse('sign_in')
   if request.method == 'POST':
     if 'user_id' in request.session:
-      return render(request , 'delete_account_confirm.html')
+      user_id = request.session['user_id']
+      try:
+        user = UserAccount.objects.get(id=user_id)  # Get the User instance
+        # Generate an OTP
+        otp = generate_otp()
+        request.session['otp'] = otp
+        # Send OTP to user's email
+        send_mail(
+          'Account Deactivation OTP',
+          f'Your OTP for account deactivation is {otp}',
+          'midhunbalachandran07@gmail.com',
+          [user.email],
+          fail_silently=False,
+        )
+        form = deactivateOtpForm()
+        return render(request , 'delete_account_confirm.html', {'form': form, 'email': user.email})
+      except UserAccount.DoesNotExist:
+        print(f"No UserAccount found for id {user_id}")
     else:
       return HttpResponse(f'''
       <h3>No user account. Sign in to your account...</h3>
@@ -194,18 +224,27 @@ def delete_account(request):
     # If the request method is not POST, render the form
     return render(request, 'account_deletion.html')
 
-def delete_account_confirmation(request):
+def deactivate_account_confirmation(request):
+  user_email = None  # Initialize user_email
+  if 'user_id' in request.session:
+    user_id = request.session['user_id']
+    try:
+      user = UserAccount.objects.get(id=user_id)  # Get the User instance
+      user_email = user.email  # Get the user's email
+    except UserAccount.DoesNotExist:
+      print(f"No UserAccount found for id {user_id}")
+
   if request.method == 'POST':
-    if 'user_id' in request.session:
-      user_id = request.session['user_id']
-      try:
-        user = UserAccount.objects.get(id=user_id)  # Get the User instance
+    form = deactivateOtpForm(request.POST)
+    if form.is_valid():
+      entered_otp = form.cleaned_data.get('otp')
+      if entered_otp == request.session.get('otp'):
         user.delete()
-      except UserAccount.DoesNotExist:
-        print(f"No UserAccount found for id {user_id}")
-      logout(request)  # Log out the user
-    else:
-      return HttpResponse("No user account. Sign in to your account...")
-    return redirect('sign_in')
+        logout(request)  # Log out the user
+        return redirect('sign_in')
+      else:
+        # return HttpResponse("Invalid OTP or no user account. Sign in to your account...")
+        form.add_error(None, mark_safe("Invalid OTP.. Enter a correct OTP and click the confirm button"))
   else:
-    return render(request , 'delete_account_confirm.html')
+    form = deactivateOtpForm()
+  return render(request , 'delete_account_confirm.html', {'form': form, 'email': user_email})
