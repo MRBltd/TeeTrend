@@ -117,24 +117,23 @@ def email_sign_in(request):
     form = EmailSignInForm(request.POST)
     if form.is_valid():
       email = form.cleaned_data.get('email')
-      try:
-        user = UserAccount.objects.filter(email=email).first()
-        if user:
-          otp = generate_otp() # The Generated otp will saving in otp named variable
-          user.otp = otp
-          user.save() # The otp saving in the database
-          # The otp sending at user email
-          send_mail(
-            'Your OTP',
-            f'Your OTP is {otp}',
-            'midhunbalachandran07@gmail.com',
-            [user.email],
-          )
-          return redirect('sign_in_verify_otp')
-      except UserAccount.DoesNotExist:
+      user = UserAccount.objects.filter(email=email).first()
+      if user:
+        otp = generate_otp() # The Generated otp will saving in otp named variable
+        user.otp = otp
+        user.save() # The otp saving in the database
+        # The otp sending at user email
+        send_mail(
+          'Your OTP',
+          f'Your OTP is {otp}',
+          'midhunbalachandran07@gmail.com',
+          [user.email],
+        )
+        return redirect('sign_in_verify_otp')
+      else:
         form.add_error('email', 'No user with this email exists')
   else:
-      form = EmailSignInForm()
+    form = EmailSignInForm()
   return render(request, 'email_sign_in.html', {'form': form})
 
 # The Otp verification 
@@ -143,7 +142,6 @@ def sign_in_verify_otp(request):
     form = SignInOtpForm(request.POST)
     if form.is_valid():
       otp = form.cleaned_data.get('otp')
-      email = form.cleaned_data.get('email')
       try:
         user = UserAccount.objects.get(otp=otp)
         if user.otp == otp:
@@ -153,9 +151,9 @@ def sign_in_verify_otp(request):
           messages.success(request, 'Welcome , Successful Logged')
           return redirect('home')
         else:
-          form.add_error('otp', 'Invalid OTP')
-      except UserAccount.DoesNotExist:
-        form.add_error('email', 'No user with this email exists')
+          form.add_error('otp', 'Invalid OTP.. Enter a correct OTP and click the sign in button')
+      except ObjectDoesNotExist:
+        form.add_error(None, 'Invalid OTP.. Enter a correct OTP and click the sign in button')
   else:
       form = SignInOtpForm()
   return render(request, 'sign_in_verify_otp.html', {'form': form})
