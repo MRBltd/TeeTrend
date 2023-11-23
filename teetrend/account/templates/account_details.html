@@ -60,13 +60,11 @@
                 <span>{% if accts.email %}{{ accts.email }}{% else %}- not added -{% endif %}</span></div>
               <div class="td"><span>Phone Number </span>
                 <span>{% if accts.phone_number %}{{ accts.phone_number }}{% else %}- not added -{% endif %}</span></div>
-              <div class="td"><span>Password </span>
-                <span>{% if accts.password %}{{ accts.password }}{% else %}- not added -{% endif %}</span></div>
               <div class="td"><span>Address </span>
                 <span>{% if accts.address %}{{ accts.address }}{% else %}- not added -{% endif %}</span></div>
               <div class="td"><span>Date Of Birth </span>
                 <span>{% if accts.birth_date %}{{ accts.birth_date }}{% else %}- not added -{% endif %}</span></div>
-              <button class="btn btn-danger my-3 py-2" onclick="location.href='{% url "edit_profile" %}'">Edit</button>
+              <button class="btn btn-danger my-3 py-2" onclick="location.href='{% url "edit_profile" %}'" id="editButton">Edit</button>
             </div>
           </div>
         </div>

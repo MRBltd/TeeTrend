@@ -78,7 +78,30 @@ class DateInput(forms.DateInput):
 
 class EditProfileForm(forms.ModelForm):
   birth_date = forms.DateField(widget=DateInput)
+  password = forms.CharField(widget=forms.PasswordInput, required=False)
+  show_password = forms.BooleanField(required=False)
   
   class Meta:
     model = UserAccount
-    fields = ['username', 'phone_number', 'email', 'full_name', 'address', 'birth_date']
+    fields = ['full_name','username', 'phone_number', 'email', 'password' , 'show_password' , 'address', 'birth_date']
+
+  def clean_password(self):
+    password = self.cleaned_data.get('password')
+    full_name = self.cleaned_data.get('full_name')
+    username = self.cleaned_data.get('username')
+    email = self.cleaned_data.get('email')
+    phone_number = self.cleaned_data.get('phone_number')
+
+    # Checking the password have atleast 8 characters
+    if len(password) < 8:
+      raise ValidationError("Password must be at least 8 characters long.")
+
+    # Checking the password include some special characters
+    if not re.search(r'\W', password):
+      raise ValidationError("Password must include at least one special character.")
+
+    # Checking the password not to the similar to personal details
+    if (full_name and full_name in password) or (username and username in password) or (email and email in password) or (phone_number and phone_number in password):
+      raise ValidationError("Password should not contain your personal information such as full name, username, email, or phone number.")  
+        
+    return password
