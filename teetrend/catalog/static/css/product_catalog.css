@@ -1,3 +1,4 @@
+/* Set default styling for HTML and body */
 html {
   width: 100%;
 }
@@ -8,66 +9,60 @@ body {
   /* overflow-x: hidden; */
   box-sizing: border-box;
 }
+/* Reset margin for container-fluid class */
 .container-fluid {
   margin: 0;
 }
+/* Set styling for a specific heading class */
 .tees-ht {
   font-size: 25px;
   font-weight: 900;
   color: rgb(112, 111, 111);
 }
+/* Responsive design using media queries */
 @media (max-width: 992px) {
-  .profile {
-    display: none;
-  }
-  .whishlist {
-    display: none;
-  }
-  .bag {
+  /* Hide certain elements on small screens */
+  .profile , .whishlist , .bag {
     display: none;
   }
   .list-item {
     display: flex;
     flex-direction: column;
   }
-  #subscribe-section {
+  /* Adjust width for specific sections */
+  #subscribe-section , #section , #about {
     width: 100%;
   }
-  #section {
-    width: 50%;
-  }
-  #about {
-    width: 100%;
-  }
+  /* Flex layout for the product catalog on small screens */
   .the-product-catalog {
     display: flex;
     flex-direction: column;
     padding: 2%;
   }
+  /* Hide desktop view product images on small screens */
   .tees-desktop-view-product-images {
     display: none;
   }
+   /* Adjust width and styling for product overview details on small screens */
   .tees-product-overview-details {
     width: 100%;
     padding: 4%;
   }
+  /* Hide breadcrumb navigation on small screens */
   .breadcrumb-nav {
     display: none;
   }
+  /* Display mobile view product images on small screens */
   .tees-mobile-view-product-images {
     display: flex;
   }
 }
 @media (min-width: 992px) {
-  .profile1 {
+  /* Hide certain elements on larger screens */
+  .profile1 , .whishlist1 , .bag1 {
     display: none;
   }
-  .whishlist1 {
-    display: none;
-  }
-  .bag1 {
-    display: none;
-  }
+  /* Adjust width for specific sections on larger screens */
   #subscribe-section {
     width: 40%;
   }
@@ -77,45 +72,57 @@ body {
   #about {
     width: 20%;
   }
+  /* Flex layout for the product catalog on larger screens */
   .the-product-catalog {
     display: flex;
     padding: 2%;
   }
+  /* Display desktop view product images on larger screens */
   .tees-desktop-view-product-images {
     display: flex;
     flex-direction: column;
   }
+  /* Adjust width and margins for product overview details on larger screens */
   .tees-product-overview-details {
     width: 50%;
     margin-left: 50px;
     margin-top: 7px;
   }
+  /* Hide mobile view product images on larger screens */
   .tees-mobile-view-product-images {
     display: none;
   }
 }
+/* Styling for login details */
 .profile .login-details {
   font-size: 15px;
   font-weight: 700;
 }
+/* Styling for list items */
 .list-item {
   display: flex;
 }
+/* Styling for navigation sub-headline */
 .nav-sub-headline {
   font-size: 11px;
 }
+/* Dropdown menu display on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+/* Styling for dropdown items */
 .dropdown-item {
   font-size: 12px;
 }
+/* Styling for login div */
 #login-div {
   padding: 0;
 }
+/* Styling for login details */
 .login-details h5 , .login-details p {
   cursor: text;
 }
+/* Styling for profile items */
 .login-details ul {
   cursor: default;
 }
@@ -125,6 +132,7 @@ body {
   padding: 4px 0 4px 8px;
   cursor: pointer;
 }
+/* Styling for profile items on hover and active states */
 .profile-items:hover {
   color: rgb(42, 40, 40);
   font-weight: bold;
@@ -133,31 +141,39 @@ body {
 .profile-items:active {
   border-bottom: 2px solid red;
 }
+/* Styling for navigation list on hover */
 .nav-list:hover {
   border-bottom: 2px solid red;
 }
+/* Styling for footer section list on hover */
 .footer-section-list:hover {
   color: rgb(42, 40, 40);
   font-weight: bold;
 }
+/* Styling for footer sub-headline */
 .footer-sub-headline {
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 700;
 }
+/* Styling for footer section list */
 .footer-section-list {
   font-size: 12px;
 }
+/* Styling for footer */
 .footer {
   padding-left: 8px;
 }
+/* Styling for footer item */
 .footer-item {
   overflow: hidden;
   list-style: none;
 }
+/* Styling for footer link */
 .footer-link {
   text-decoration: none;
 }
+/* Styling for django messages */
 .messages {
   list-style-type: none;
   background-color: rgba(51, 186, 69, 0.603);
@@ -165,6 +181,8 @@ body {
   font-weight: 500;
   padding: 10px 20px;
 }
+/* Product Catalog section */
+/* Styling for card container */
 .card {
   width: 100%;
   height: 400px;
@@ -173,112 +191,160 @@ body {
   box-shadow: 1px 1px 10px whitesmoke;
   transition: all ease 1s;
 }
+/* Card hover effect with scaling, shadow, and border-radius */
 .card:hover {
   transform: scale(1.02);
   box-shadow: 1px 1px 10px rgb(66, 66, 66);
   border-radius: 0 0 10px 10px;
 }
+/* Styling for the top image within the card */
 .card-top-img {
   width: 100%;
   height: 250px;
   cursor: pointer;
   transition: all ease 1s;
 }
+/* Styling for the body of the card */
 .card-body {
   height: 150px;
 }
+/* Styling for card top image display */
 .card .card-top-img {
   display: block;
 }
+/* Styling for the carousel within the card */
 .card .carousel {
   display: none;
 }
+/* Hide top image on card hover */
 .card:hover .card-top-img {
   display: none;
 }
+/* Display carousel on card hover */
 .card:hover .carousel {
   display: block;
 }
+/* Hide various elements on card hover */
 .card:hover .product-title {
   display: none;
 }
 .card:hover .product-description {
   display: none;
 }
+/* Styling for product wishlist on card hover */
 .card:hover .product-whishlist {
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid black;
 }
+/* Display product size on card hover */
 .card:hover .product-size {
   display: block;
 }
+/* Styling for carousel indicators */
 .carousel-indicators button {
   width: 5px;
   height: 15px;
   border-radius: 50%;
   background-color: #ffffff;
 }
+/* Styling for active carousel indicator */
 .carousel-indicators .active {
   background-color: #555;
 }
+/* Styling for product details  */
 .product-title , .product-description , .product-price , .product-discount , .product-whishlist , .product-size {
   text-decoration: none;
   text-align: start;
   margin: 0 10px 10px;
   color: black;
 }
+/* Hover effect on product details */
 .product-title:hover , .product-description:hover , .product-price:hover , .product-whishlist:hover , .product-size:hover {
   font-weight: bold;
   color: red;
 }
+/* Styling for product discount */
 .product-discount {
   color: rgb(255, 196, 0);
 }
+/* Hover effect on product discount */
 .product-discount:hover {
   font-weight: bold;
   color: rgb(255, 196, 0);
 }
+/* Display and styling for specific elements */
 .product-title , .product-description {
   display: block;
 }
+/* Hide elements initially */
 .product-whishlist , .product-size {
   display: none;
 }
+/* Styling for product wishlist icon and text */
 .product-whishlist span , .product-whishlist svg {
   margin: 5px 10px;
 }
+/* Product Catalog overview */
+/* Styling for breadcrumb navigation */
 .breadcrumb-nav {
   padding: 23px 20px;
   margin: 0;
 }
+/* Styling for breadcrumb items */
 .breadcrumb-item {
   font-weight: 700;
 }
+/* Styling for breadcrumb links */
 .breadcrumb-item a {
   text-decoration: none;
   color: rgb(113, 113, 113);
 }
+/* Styling for active breadcrumb item */
 .breadcrumb-item.active {
   color: black !important;
 }
+/* Styling for product overview section */
 .tees-product-overview {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
+/* Styling for desktop view product images */
 .tees-desktop-view-product-images {
   width: 50%;
   padding: 0 20px 20px 0;
 }
+/* Styling for image rows within the product catalog */
 .tees-image-row {
   width: 100%;
 }
+/* Styling for images within image rows */
 .tees-image-row img {
   width: 100%;
   height: auto;
 }
+/* Styled the carousels for a better mobile viewing experience */
+/* Set the width of the entire carousel to 100% */
+.carousel {
+  width: 100%;
+}
+/* Set the width of the carousel inner container to 100% */
+.carousel-inner {
+  width: 100%;
+}
+/* Set the width of the carousel inner container to 100% */
+.carousel-item {
+  width: 100%;
+}
+/* Set the width of individual carousel items to 100% */
+.carousel-img {
+  width: 100%;
+  display: block;
+  height: 300px;
+}
+/* Styling for product ratings section */
 .product-ratings {
   width: 185px;
   display: flex;
@@ -287,11 +353,13 @@ body {
   border: 1px solid black;
   cursor: pointer;
 }
+/* Styling for rating divider */
 .col {
   flex: 0 0 0% !important;
   height: auto;
   border-right: 1px solid black;
 }
+/* Styling for ratings value */
 .ratings-value {
   width: 70px;
   display: flex;
@@ -300,9 +368,11 @@ body {
   padding: 0 10px;
   font-weight: 900;
 }
+/* Styling for ratings value text */
 .ratings-value p {
   margin: 0;
 }
+/* Styling for number of ratings */
 .no-of-ratings {
   width: 120px;
   margin: 0;
@@ -310,36 +380,45 @@ body {
   font-size: 15px;
   font-weight: 700;
 } 
+/* Styling for star icon */
 .fa-star {
   text-decoration: none;
   color: green;
 }
+/* Styling for rating star list */
 .rating-star {
   list-style-type: none;
   margin-left: 3px;
 }
+/* Styling for dropdown divider */
 .dropdown-divider {
   margin: 12px 0 !important;
 }
+/* Styling for product price details section */
 .product-ov-price-details {
   padding: 1%;
 }
+/* Styling for price overview section */
 .price-ov {
   display: flex;
 }
+/* Styling for product price */
 .product-ov-price {
   font-weight: 800;
   margin-right: 5px;
 }
+/* Styling for retail price */
 .product-ov-retail-price {
   margin-left: 5px;
   margin-right: 5px;
 }
+/* Styling for product discount percentage */
 .product-ov-discount {
   font-weight: 700;
   color: rgb(255, 143, 52);
   margin-left: 5px;
 }
+/* Styling for taxes information */
 .taxes {
   font-weight: 500;
   color: rgb(1, 159, 1);
