@@ -19,3 +19,16 @@ def kids_tshirts(request):
 
 def characters_tshirts(request):
   return render(request , 'characters_t-shirts.html')
+
+def mens_tshirts_overview(request , brand , name , id):
+  tshirt = Tshirt.objects.get(id=id)
+  # Get the id of the Tshirt object
+  tshirt_id = tshirt.id
+  tshirt_details = tshirt.description
+  # Use the Tshirt object and its id to create a context dictionary
+  context = {
+    'tshirt': tshirt ,
+    'tshirt_id': tshirt_id ,
+    'tshirt_details' : tshirt_details ,
+  }
+  return render(request , 'mens_t-shirts_overview.html' , context)

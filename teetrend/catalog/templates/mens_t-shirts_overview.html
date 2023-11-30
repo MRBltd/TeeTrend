@@ -1,0 +1,51 @@
+{% extends "product_catalog.html" %}
+{% block title %}{% endblock  %}
+{% load static %}
+{% block content %}
+<div class="tees-product-overview">
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url "home" %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">T-Shits</a></li>
+      <li class="breadcrumb-item"><a href="{% url "mens_tshirts" %}">Mens T-shits</a></li>
+      <li class="breadcrumb-item"><a href="#">{{ tshirt.brand }}</a></li>
+      <li class="breadcrumb-item active">{{ tshirt.name }}</li>
+    </ol>
+  </nav>
+  <div class="the-product-catalog">
+    <div class="tees-desktop-view-product-images">
+      <div class="tees-image-row d-flex">
+        <img class="w-50 m-2" src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}">
+        <img class="w-50 m-2" src="{{ tshirt.image1.url }}" alt="{{ tshirt.name }}">
+      </div>
+      <div class="tees-image-row d-flex">
+        <img class="w-50 m-2" src="{{ tshirt.image2.url }}" alt="{{ tshirt.name }}">
+        <img class="w-50 m-2" src="{{ tshirt.image3.url }}" alt="{{ tshirt.name }}">
+      </div>
+    </div>
+    <div class="tees-mobile-view-product-images">
+    </div>
+    <div class="tees-product-overview-details">
+      <h5>{{ tshirt.name }}</h5>
+      <p>{{ tshirt.description }}</p>
+      <div class="product-ratings">
+        <div class="ratings-value">
+          <p>4.3</p>
+          <li class="rating-star"><a class="fa fa-star" href="#"></a></li>
+        </div>
+        <div class="col no-gutters" style="border-right:1px solid black"></div>
+        <p class="no-of-ratings">253 Ratings</p>
+      </div>
+      <hr class="dropdown-divider">
+      <div class="product-ov-price-details">
+        <div class="price-ov">
+          <p class="product-ov-price">&#8377;{{ tshirt.price }}</p>
+          <p class="product-ov-retail-price">MRP <del>1400</del></p>
+          <p class="product-ov-discount">({{ tshirt.discount }}% OFF)</p>
+        </div>
+        <p class="taxes">inclusive of all taxes</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}
