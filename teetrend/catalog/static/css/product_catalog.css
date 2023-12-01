@@ -314,16 +314,132 @@ body {
 /* Styling for desktop view product images */
 .tees-desktop-view-product-images {
   width: 50%;
-  padding: 0 20px 20px 0;
 }
 /* Styling for image rows within the product catalog */
 .tees-image-row {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
-/* Styling for images within image rows */
-.tees-image-row img {
+/* Styling for image colums within the product catalog */
+.tees-images-col {
+  width: 50%;
+  height: 500px;
+  margin: 1%;
+  overflow: hidden;
+}
+/* Styling for images in the product catalog */
+.tees-images {
   width: 100%;
+  object-fit: cover;
+  height: 500px;
+  cursor: zoom-in;
+}
+/* Hover effect on images */
+.tees-images:hover {
+  transform: scale(1.05);
+  transition: transform ease-in-out 0.8s;
+}
+/* The Modal */
+/* Styling for the modal container */
+.tees-desktop-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.782);
+}
+/* Styling for the modal content */
+.tees-desktop-modal-content {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  max-width: 982px;
+  height: 100%;
+  box-shadow: 1px 1px 5px rgb(255, 255, 255);
+  overflow-x: hidden; 
+  scrollbar-width: none;
+}
+/* Styling for the thumbnail container */
+.tees-desktop-modal-image-thumbnail {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+ /* Styling for each thumbnail button */
+.tees-desktop-modal-image-thumbnail-button {
+  border: 1px solid white;
+  background: none;
+  margin: 5px;
+  padding: 0;
+}
+/* Styling for each thumbnail images */
+.desktop-image-zoom-thumbnail {
+  width: 40px;
+  height: 50px;
+  object-fit: cover;
+}
+/* Styling for the selected thumbnail button */
+.tees-desktop-modal-image-thumbnail-button.selected {
+  border: 1px solid #f00;
+}
+/* Styling to hide the scrollbar in the image container */
+.tees-dessktop-modal-content-images::-webkit-scrollbar {
+  display: none;
+}
+/* Styling for the image container */
+.tees-dessktop-modal-content-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 982px;
+  margin: auto;
+  display: block;
   height: auto;
+  cursor: all-scroll;
+  overflow-y: scroll;
+}
+/* Styling for the modal image */
+.tees-desktop-modal-image {
+  width: 100%;
+  display: block;
+}
+/* Styling for the Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+/* Styling for the close icon */
+.fa-window-close {
+  color: #000000;
+  font-size: 30px !important;
+  font-weight: bold;
+  transition: 0.3s;
+  z-index: 10;
+}
+/* Styling for the close button on hover or focus */
+.close:hover, .close:focus {
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+}
+/* close button hover effect on close icon */
+.close:hover .fa-window-close {
+  color: rgb(100, 100, 100);
+  z-index: 10;
 }
 /* Styled the carousels for a better mobile viewing experience */
 /* Set the width of the entire carousel to 100% */

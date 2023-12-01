@@ -18,38 +18,111 @@
     <!-- Desktop view of product images -->
     <div class="tees-desktop-view-product-images">
       <!-- Display images in rows with conditional rendering for each image -->
-      <div class="tees-image-row d-flex">
+      <div class="tees-image-row">
         <!-- Display the images if available -->
         {% if tshirt.image %}
-        <img class="w-50 m-2" src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image.url }}')">
+        </div>
         {% endif %}
         {% if tshirt.image1 %}
-        <img class="w-50 m-2" src="{{ tshirt.image1.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image1.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image1.url }}')">
+        </div>
         {% endif %}
       </div>
-      <div class="tees-image-row d-flex">
+      <div class="tees-image-row">
         {% if tshirt.image2 %}
-        <img class="w-50 m-2" src="{{ tshirt.image2.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image2.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image2.url }}')">
+        </div>
         {% endif %}
         {% if tshirt.image3 %}
-        <img class="w-50 m-2" src="{{ tshirt.image3.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image3.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image3.url }}')">
+        </div>
         {% endif %}
       </div>
-      <div class="tees-image-row d-flex">
+      <div class="tees-image-row">
         {% if tshirt.image4 %}
-        <img class="w-50 m-2" src="{{ tshirt.image4.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image4.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image4.url }}')">
+        </div>
         {% endif %}
         {% if tshirt.image5 %}
-        <img class="w-50 m-2" src="{{ tshirt.image5.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image5.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image5.url }}')">
+        </div>
         {% endif %}
       </div>
-      <div class="tees-image-row d-flex">
+      <div class="tees-image-row">
         {% if tshirt.image6 %}
-        <img class="w-50 m-2" src="{{ tshirt.image6.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image6.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image6.url }}')">
+        </div>
         {% endif %}
         {% if tshirt.image7 %}
-        <img class="w-50 m-2" src="{{ tshirt.image7.url }}" alt="{{ tshirt.name }}">
+        <div class="tees-images-col">
+          <img class="tees-images" src="{{ tshirt.image7.url }}" alt="{{ tshirt.name }}" onclick="openImage('{{ tshirt.image7.url }}')">
+        </div>
         {% endif %}
+      </div>
+      <!-- The desktop view Modal -->
+      <div id="myModal" class="tees-desktop-modal">
+        <div class="tees-desktop-modal-content">
+          <!-- The Thumbnails -->
+          <div class="tees-desktop-modal-image-thumbnail">
+            <!-- Thumbnail buttons for each image -->
+            <!-- Check if image is available and create a button with the image -->
+            {% if tshirt.image %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image1 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image1.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image2 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image2.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image3 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image3.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image4 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image4.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image5 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image5.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image6 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image6.url }}">
+            </button>
+            {% endif %}
+            {% if tshirt.image7 %}
+            <button class="tees-desktop-modal-image-thumbnail-button">
+              <img draggable="false" class="desktop-image-zoom-selected-thumbnail desktop-image-zoom-thumbnail" src="{{ tshirt.image7.url }}">
+            </button>
+            {% endif %}
+          </div>
+          <!-- The Image modal container -->
+          <div class="tees-dessktop-modal-content-images">
+            <!-- The Image -->
+            <img class="tees-desktop-modal-image" id="img01">
+          </div>
+          <!-- The Close Button -->
+          <span class="close"><i class="fa fa-window-close"></i></span>
+        </div>
       </div>
     </div>
     <!-- Mobile view of product images using a responsive carousel -->
@@ -156,7 +229,9 @@
         <div class="price-ov">
           <p class="product-ov-price">&#8377;{{ tshirt.price }}</p>
           <p class="product-ov-retail-price">MRP <del>1400</del></p>
+          {% if tshirt.discount %}
           <p class="product-ov-discount">({{ tshirt.discount }}% OFF)</p>
+          {% endif %}
         </div>
         <!-- Display information about taxes -->
         <p class="taxes">inclusive of all taxes</p>
