@@ -1,0 +1,64 @@
+/* Media Query for Screens with Maximum Width of 992px */
+@media (max-width: 992px) {
+  .whish-bag-ul {
+    display: flex;
+    justify-content: center; /* Center align the wishlist and bag items */
+  }
+
+  .deactivate-section {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    width: 100%; /* Make the deactivate section full width */
+  }
+
+  .deactivate {
+    width: 100%;
+    margin: 50px 0; /* Adjust width and margin for better spacing */
+  }
+
+  .profile-edit-section {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    width: 100%; /* Make the profile edit section full width */
+  }
+
+  .profile-edit {
+    width: 100%;
+    margin: 50px 0; /* Adjust width and margin for better spacing */
+  }
+}
+
+/* Media Query for Screens with Minimum Width of 992px */
+@media (min-width: 992px) {
+  .list-item {
+    display: flex; /* Adjust the layout of list items for better responsiveness */
+  }
+
+  .whish-bag-ul {
+    display: flex; /* Display wishlist and bag items */
+  }
+
+  .deactivate-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .deactivate {
+    width: 50%;
+    margin: 50px; /* Adjust width and margin for better spacing */
+  }
+
+  .profile-edit-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-edit {
+    width: 50%;
+    margin: 50px; /* Adjust width and margin for better spacing */
+  }
+}

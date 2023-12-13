@@ -4,203 +4,252 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "css/teetrend.css" %}">
+  <link rel="stylesheet" href="{% static "css/main_responsive.css" %}">
   <link rel="stylesheet" href="{% static 'css/account.css' %}">
+  <link rel="stylesheet" href="{% static "css/account_responsive.css" %}">
   <link rel="stylesheet" href="{% static "css/account_details.css" %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
   <title>{% block title %}{% endblock  %}</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-0">
     <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand fw-bold text-primary fs-2 ms-5" href="{% url "home" %}">T<span class="text-warning">&#600;&#600;</span>Trend</a>
-      <div class="collapse navbar-collapse me-3" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-          <li class="dropdown nav-item">
-            <a class="nav-link fw-bold text-uppercase text-dark nav-list" aria-current="page">Shop</a>
-            <ul class="dropdown-menu ms-2">
-              <div class="list-item">
-                <div class="mx-2">
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url "mens_tshirts" %}">Men</a></li>
-                  <li><a class="dropdown-item" href="#">Polo Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Half Sleeves</a></li>
-                  <li><a class="dropdown-item" href="#">Henley Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Hoodies</a></li>
-                  <li><a class="dropdown-item" href="#">Sleeveless</a></li>
-                  <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
-                  <li><a class="dropdown-item" href="#">Long Sleeves</a></li>
-                  <li><a class="dropdown-item" href="#">Printed T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Colorblock T-Shirts</a></li>
-                </div>
-                <div class="mx-2">
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url "womens_tshirts" %}">Women</a></li>
-                  <li><a class="dropdown-item" href="#">Plunge Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Half Sleeves</a></li>
-                  <li><a class="dropdown-item" href="#">Cold Shoulder</a></li>
-                  <li><a class="dropdown-item" href="#">Hoodies</a></li>
-                  <li><a class="dropdown-item" href="#">Sleeveless</a></li>
-                  <li><a class="dropdown-item" href="#">Sweatshirts</a></li>
-                  <li><a class="dropdown-item" href="#">Long Sleeves</a></li>
-                  <li><a class="dropdown-item" href="#">Printed T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Colorblock T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">High Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Collared T-shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Basic White T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Boyfriend tees</a></li>
-                  <li><a class="dropdown-item" href="#">V-Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Striped T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Knot Crop</a></li>
-                  <li><a class="dropdown-item" href="#">Scoop Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Crew Neck</a></li>
-                </div>
-                <div class="mx-2">
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url "kids_tshirts" %}">Kids</a></li>
-                  <li><a class="dropdown-item" href="#">Polo Neck</a></li>
-                  <li><a class="dropdown-item" href="#">V-Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Henley Neck</a></li>
-                  <li><a class="dropdown-item" href="#">Long Sleeves</a></li>
-                  <li><a class="dropdown-item" href="#">Printed T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Colorblock T-Shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Wide Neck Off <br> Shoulder T-shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Yoke Neck T-shirts</a></li>
-                  <li><a class="dropdown-item" href="#">Douche Bag <br> Neck T-shirt</a></li>
-                </div>
-                <div class="mx-2">
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Cloth Materials</a></li>
-                  <li><a class="dropdown-item" href="#">Pure Cotton</a></li>
-                  <li><a class="dropdown-item" href="#">Cotton Blend</a></li>
-                  <li><a class="dropdown-item" href="#">Wool Blend</a></li>
-                  <li><a class="dropdown-item" href="#">Lycra Blend</a></li>
-                  <li><a class="dropdown-item" href="#">Organic Cotton</a></li>
-                </div>
-              </div>
-            </ul>
-          </li>          
-          <li class="dropdown nav-item">
-            <a class="nav-link fw-bold text-uppercase text-dark nav-list">Characters</a>
-            <ul class="dropdown-menu ms-2">
-              <div class="list-item">
-                <div class="mx-2">
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Marvel</a></li>
-                  <li><a class="dropdown-item" href="#">Avengers</a></li>
-                  <li><a class="dropdown-item" href="#">Spider-Man</a></li>
-                  <li><a class="dropdown-item" href="#">Iron Man</a></li>
-                  <li><a class="dropdown-item" href="#">Captain America</a></li>
-                  <li><a class="dropdown-item" href="#">Thor</a></li>
-                  <li><a class="dropdown-item" href="#">Loki</a></li>
-                  <li><a class="dropdown-item" href="#">Doctor Strange</a></li>
-                  <li><a class="dropdown-item" href="#">Dead Pool</a></li>
-                  <li><a class="dropdown-item" href="#">The Hulk</a></li>
-                  <li><a class="dropdown-item" href="#">Black Widow</a></li>
-                  <li><a class="dropdown-item" href="#">Venom</a></li>
-                  <li><a class="dropdown-item" href="#">Wandavision</a></li>
-                  <li><a class="dropdown-item" href="#">Ant-Man</a></li>
-                  <li><a class="dropdown-item" href="#">Captain Marvel</a></li>
-                  <li><a class="dropdown-item" href="#">Shang Chi</a></li>
-                  <li><a class="dropdown-item" href="#">Thanos</a></li>
-                  <li><a class="dropdown-item" href="#">Black Panther</a></li>
-                  <li><a class="dropdown-item" href="#">Eternals</a></li>
-                </div>
-                <div class="mx-2">
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">dc comics</a></li>
-                  <li><a class="dropdown-item" href="#">Blue Beetle</a></li>
-                  <li><a class="dropdown-item" href="#">Justice League</a></li>
-                  <li><a class="dropdown-item" href="#">Batman</a></li>
-                  <li><a class="dropdown-item" href="#">The Fish</a></li>
-                  <li><a class="dropdown-item" href="#">Superman</a></li>
-                  <li><a class="dropdown-item" href="#">Wonder Woman</a></li>
-                  <li><a class="dropdown-item" href="#">Shazam</a></li>
-                  <li><a class="dropdown-item" href="#">Joker</a></li>
-                  <li><a class="dropdown-item" href="#">Aquaman</a></li>
-                  <li><a class="dropdown-item" href="#">Green Lantern</a></li>
-                  <li><a class="dropdown-item" href="#">Harley Quinn</a></li>
-                  <li><a class="dropdown-item" href="#">Black Adam</a></li>
-                  <li><a class="dropdown-item" href="#">Suicide Squad</a></li>
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Movies & tv</a></li>
-                  <li><a class="dropdown-item" href="#">Harry Potter</a></li>
-                  <li><a class="dropdown-item" href="#">Friends</a></li>
-                  <li><a class="dropdown-item" href="#">star Wars</a></li>
-                  <li><a class="dropdown-item" href="#">The mandalorian</a></li>
-                </div>
-                <div class="mx-2">
-                  <li><a class="dropdown-item" href="#">House of the Dragon</a></li>
-                  <li><a class="dropdown-item" href="#">Game of Thrones</a></li>
-                  <li><a class="dropdown-item" href="#">The Lion King</a></li>
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Cartoons / animation</a></li>
-                  <li><a class="dropdown-item" href="#">Snoopy</a></li>
-                  <li><a class="dropdown-item" href="#">Rick and Morty</a></li>
-                  <li><a class="dropdown-item" href="#">Looney Tunes</a></li>
-                  <li><a class="dropdown-item" href="#">Bugs Bunny</a></li>
-                  <li><a class="dropdown-item" href="#">Tweety</a></li>
-                  <li><a class="dropdown-item" href="#">Space Jam</a></li>
-                  <li><a class="dropdown-item" href="#">Tom and Jerry</a></li>
-                  <li><a class="dropdown-item" href="#">Scooby Doo</a></li>
-                  <li><a class="dropdown-item" href="#">Disney</a></li>
-                  <li><a class="dropdown-item" href="#">Mickey Mouse</a></li>
-                  <li><a class="dropdown-item" href="#">Donald Duck</a></li>
-                  <li><a class="dropdown-item" href="#">Samurai Jack</a></li>
-                  <li><a class="dropdown-item" href="#">Ben 10</a></li>
-                  <li><a class="dropdown-item" href="#">Sponge Bob <br> Square Pants</a></li>
-                  <li><a class="dropdown-item" href="#">Fido Dido</a></li>
-                </div>
-                <div class="mx-2">
-                  <li><a class="dropdown-item" href="#">Chotta Beam</a></li>
-                  <li><a class="dropdown-item" href="#">Motu Patlu</a></li>
-                  <li><a class="dropdown-item" href="#">Mowgli</a></li>
-                  <li><a class="dropdown-item" href="#">Doremon</a></li>
-                  <li><a class="dropdown-item" href="#">Jackie Chan <br> Adventure</a></li>
-                  <li><a class="dropdown-item" href="#">Little Krishna</a></li>
-                  <li><a class="dropdown-item" href="#">Shiva</a></li>
-                  <li><a class="dropdown-item" href="#">Dora the Explorer</a></li>
-                  <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Web series</a></li>
-                  <li><a class="dropdown-item" href="#">Stranger Things</a></li>
-                  <li><a class="dropdown-item" href="#">Wednesday</a></li>
-                  <li><a class="dropdown-item" href="#">Never Have I Ever</a></li>
-                  <li><a class="dropdown-item" href="#">Elite</a></li>
-                  <li><a class="dropdown-item" href="#">Peaky Blinders</a></li>
-                  <li><a class="dropdown-item" href="#">Lucifer</a></li>
-                  <li><a class="dropdown-item" href="#">All Of Us Are Dead</a></li>
-                  <li><a class="dropdown-item" href="#">Sex Education</a></li>
-                </div>
-              </div>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="#">About us</a>
-          </li>
-        </ul>
-        <ul class="list-unstyled me-auto mb-2 mb-lg-0 mx-auto d-flex justify-content-center">
-          <li class="nav-item whishlist1">
-            <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-                <span>Whishlist</span>
-            </a>
-          </li>
-          <li class="nav-item bag1">
-            <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-              </svg>
-              <span>Bag</span>
-            </a>
-          </li>
-        </ul>
+      <a href="{% static "home" %}" class="navbrand-logo"><span class="text-warning">&#600;e</span></a>
+      <a class="navbar-brand fw-bold text-primary fs-2" href="#">T<span class="text-warning">&#600;e</span>Trend</a>
+      <div class="mb-nav">
+        <a class="mb-link" href="">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 30 30">
+            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"/>
+            </svg>
+        </a>
+        <a class="mb-link" href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+          <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
+        </a>
+        <a class="mb-link" href="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg>
+        </a>
       </div>
-      <ul class="list-unstyled me-auto mb-2 mb-lg-0 mx-auto d-flex">        
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 tees-desktop-viewport">
+        <li class="dropdown nav-item">
+          <a class="nav-link fw-bold text-uppercase text-dark nav-list" aria-current="page" href="{% url 'tshirt_list' %}">Shop</a>
+          <ul class="dropdown-menu ms-2">
+            <div class="list-item">
+              <div class="mx-2">
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?category=MT">Men</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=PN">Polo Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=HS">Half Sleeves</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=HLN">Henley Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=HD">Hoodies</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=SL">Sleeveless</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=SW">Sweatshirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=LS">Long Sleeves</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=PT">Printed T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=CBT">Colorblock T-Shirts</a></li>
+              </div>
+              <div class="mx-2">
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?category=WT">Women</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=PLN">Plunge Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=HS">Half Sleeves</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CS">Cold Shoulder</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=HD">Hoodies</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=SL">Sleeveless</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=SW">Sweatshirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=LS">Long Sleeves</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=PT">Printed T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CBT">Colorblock T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=HN">High Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CT">Collared T-shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=BW">Basic White T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=BT">Boyfriend tees</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=VN">V-Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=ST">Striped T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=KC">Knot Crop</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=SN">Scoop Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CN">Crew Neck</a></li>
+              </div>
+              <div class="mx-2">
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?category=KT">Kids</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=PN">Polo Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=VN">V-Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=HLN">Henley Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=LS">Long Sleeves</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=PT">Printed T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=CBT">Colorblock T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=WN">Wide Neck Off <br> Shoulder T-shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=YN">Yoke Neck T-shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=DB">Douche Bag <br> Neck T-shirt</a></li>
+              </div>
+              <div class="mx-2">
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Cloth Materials</a></li>
+                <li><a class="dropdown-item" href="#">Pure Cotton</a></li>
+                <li><a class="dropdown-item" href="#">Cotton Blend</a></li>
+                <li><a class="dropdown-item" href="#">Wool Blend</a></li>
+                <li><a class="dropdown-item" href="#">Lycra Blend</a></li>
+                <li><a class="dropdown-item" href="#">Organic Cotton</a></li>
+              </div>
+            </div>
+          </ul>
+        </li>          
+        <li class="dropdown nav-item">
+          <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="{% url 'tshirt_list' %}?category=CT">Characters</a>
+          <ul class="dropdown-menu ms-2">
+            <div class="list-item">
+              <div class="mx-2">
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=MR">Marvel</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=AVM">Avengers</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=SMM">Spider-Man</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=IMM">Iron Man</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=CAM">Captain America</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=TM">Thor</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=LM">Loki</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=DSM">Doctor Strange</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=DPM">Dead Pool</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=HM">The Hulk</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=BWM">Black Widow</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=VM">Venom</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=WVM">Wandavision</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=AMM">Ant-Man</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=CMM">Captain Marvel</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=SCM">Shang Chi</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=TNM">Thanos</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=BPM">Black Panther</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=EM">Eternals</a></li>
+              </div>
+              <div class="mx-2">
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=DC">dc comics</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=BBD">Blue Beetle</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=JLD">Justice League</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=BMD">Batman</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=TFD">The Fish</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=SMD">Superman</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=WWD">Wonder Woman</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=SD">Shazam</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=JD">Joker</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=AMD">Aquaman</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=GLD">Green Lantern</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=HQD">Harley Quinn</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=BAD">Black Adam</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=SSD">Suicide Squad</a></li>
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=MS">Movies & tv</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=HPM">Harry Potter</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=FM">Friends</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=SWM">star Wars</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=TMM">The mandalorian</a></li>
+              </div>
+              <div class="mx-2">
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=HDM">House of the Dragon</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=GTM">Game of Thrones</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=LKM">The Lion King</a></li>
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=CA">Cartoons / anime</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SNC">Snoopy</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=RMC">Rick and Morty</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=LTC">Looney Tunes</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=BBC">Bugs Bunny</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=TC">Tweety</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SJC">Space Jam</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=TJC">Tom and Jerry</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SDC">Scooby Doo</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=DC">Disney</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=MMC">Mickey Mouse</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=DDC">Donald Duck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SJ">Samurai Jack</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=BC">Ben 10</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SBC">Sponge Bob <br> Square Pants</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=FDC">Fido Dido</a></li>
+              </div>
+              <div class="mx-2">
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=CBC">Chotta Beam</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=MPC">Motu Patlu</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=MC">Mowgli</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=DMC">Doremon</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=JAC">Jackie Chan <br> Adventure</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=LKC">Little Krishna</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SC">Shiva</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=DEC">Dora the Explorer</a></li>
+                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=WS">Web series</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=STW">Stranger Things</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=WW">Wednesday</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=NHW">Never Have I Ever</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=EW">Elite</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=PBW">Peaky Blinders</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=LW">Lucifer</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=ADW">All Of Us Are Dead</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=SEW">Sex Education</a></li>
+              </div>
+            </div>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="#">About</a>
+        </li>
+      </ul>
+      <form class="search-form">
+        <input class="form-control me-2 small-font" type="search" placeholder="Search for T-Shirt , brand and more" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <ul class="list-unstyled mb-2 mb-lg-0 tees-desktop-viewport">
+        <li class="nav-item profile dropdown" id="profile-icon">
+          <a class="nav-link text-dark d-flex flex-column align-items-center dropdown-toggle profile-link" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+            </svg>
+            <span class="tees-pf">Profile</span>
+            <div class="dropdown-menu tees-pf-menu p-3" aria-labelledby="navbarDropdown">
+              <div id="login-div">
+                <div class="login-details">
+                  {% if accts %}
+                    <p>{{ accts.full_name }}</p>
+                    <p>{{ accts.phone_number }}</p>
+                  {% else %}
+                    <h5>Welcome to T<span class="text-warning">&#600;&#600;</span>Trend</h5>
+                  {% endif %}
+                  {% if 'user_id' in request.session %}
+                    <hr class="dropdown-divider">
+                    <ul class="list-unstyled">
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
+                      <li class="profile-items">Your Orders</li>
+                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items">Contact Us</li>
+                      <li class="profile-items" onclick="location.href='{% url "logout" %}'">Sign Out</li>
+                    </ul>
+                  {% else %}
+                    <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
+                    <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
+                    <hr class="dropdown-divider">
+                    <ul class="list-unstyled">
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
+                      <li class="profile-items">Your Orders</li>
+                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items">Contact Us</li>
+                    </ul>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </a>          
+        </li>        
         <li class="nav-item whishlist">
           <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
               <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-              <span>Whishlist</span>
+            <span>Whishlist</span>
           </a>
         </li>
         <li class="nav-item bag">
           <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
             </svg>
             <span>Bag</span>
@@ -210,25 +259,143 @@
     </div>
   </nav>
 
+  <div class="mobile-menu-bar">
+    <div class="mb-user-div">
+      {% if 'user_id' in request.session %}
+        <span class="menubar-close close-menu">
+          <!-- SVG for close button -->
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 50 50">
+            <path fill="White" stroke="White" stroke-width="5" d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+          </svg>
+        </span>
+        <div class="mb-user-icon-div close-menu" onclick="location.href='{% url "account" %}'">
+          <!-- User icon -->
+          <span class="user-icon"><i class="fas fa-user"></i></span>
+        </div>
+        <div class="user-div close-menu" onclick="location.href='{% url "account" %}'">
+          <span class="user">User</span>
+          <span class="user-right-arrow"><i class="fa fa-angle-right"></i></span>
+        </div>
+      {% else %}
+        <!-- User is not logged in -->
+        <div class="mb-new-user">
+          <span class="menubar-close close-menu">
+            <!-- SVG for close button -->
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="18" height="18" viewBox="0 0 50 50">
+              <path fill="white" stroke="white" stroke-width="5" d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+            </svg>
+          </span>
+          <h5>Welcome to T<span class="text-warning">&#600;e</span>Trend</h5>
+          <div class="sign-up-or-login">
+            <!-- Sign In and Sign Up buttons -->
+            <a class="btn text-white fw-bold close-menu" onclick="location.href='{% url "sign_in" %}'">Sign In</a>
+            <a class="btn text-white fw-bold close-menu" onclick="location.href='{% url "sign_up" %}'">Sign Up</a>
+          </div>
+        </div>
+      {% endif %}
+    </div>    
+    <div class="mb-product-selection-div">
+      <ul>
+        <div class="mb-menu-mens-list">
+          <p>Men</p>
+          <span class="mens-right-arrow right-arrow"><i class="fa fa-angle-right"></i></span>
+          <span class="mens-down-arrow down-arrow"><i class="fa fa-angle-down"></i></span>
+        </div>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=PN'">Polo Neck</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=HS'">Half Sleeves</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=HLN'">Henley Neck</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=HD'">Hoodies</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=SL'">Sleeveless</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=SW'">Sweatshirts</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=LS'">Long Sleeves</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=PT'">Printed T-Shirts</li>
+        <li class="mens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=CBT'">Colorblock T-Shirts</li>
+      </ul>
+      <ul>
+        <div class="mb-menu-womens-list">
+          <p>Women</p>
+          <span class="womens-right-arrow right-arrow"><i class="fa fa-angle-right"></i></span>
+          <span class="womens-down-arrow down-arrow"><i class="fa fa-angle-down"></i></span>
+        </div>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=PLN'">Plunge Neck</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HS'">Half Sleeves</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CS'">Cold Shoulder</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HD'">Hoodies</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=SL'">Sleeveless</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=SW'">Sweatshirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=LS'">Long Sleeves</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=PT'">Printed T-Shirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CBT'">Colorblock T-Shirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HN'">High Neck</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CT'">Collared T-shirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=BW'">Basic White T-Shirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=BT'">Boyfriend tees</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=VN'">V-Neck</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=ST'">Striped T-Shirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=KC'">Knot Crop</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=SN'">Scoop Neck</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CN'">Crew Neck</li>
+      </ul>
+      <ul>
+        <div class="mb-menu-kids-list">
+          <p>Kids</p>
+          <span class="kids-right-arrow right-arrow"><i class="fa fa-angle-right"></i></span>
+          <span class="kids-down-arrow down-arrow"><i class="fa fa-angle-down"></i></span>
+        </div>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=PN'">Polo Neck</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=VN'">V-Neck</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=HLN'">Henley Neck</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=LS'">Long Sleeves</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=PT'">Printed T-Shirts</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=CBT'">Colorblock T-Shirts</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=WN'">Wide Neck Off Shoulder T-shirts</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=YN'">Yoke Neck T-shirts</li>
+        <li class="kids-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=KT&subcategory=DB'">Douche Bag Neck T-shirt</li>
+      </ul>
+      <ul>
+        <div class="mb-menu-characters-list">
+          <p>Characters</p>
+          <span class="char-right-arrow right-arrow"><i class="fa fa-angle-right"></i></span>
+          <span class="char-down-arrow down-arrow"><i class="fa fa-angle-down"></i></span>
+        </div>
+        <li class="char-menu-list-items" onclick="location.href='{% url 'tshirt_list' %}?characters=MR'">Marvel</li>
+        <li class="char-menu-list-items" onclick="location.href='{% url 'tshirt_list' %}?characters=DC'">Dc Comics</li>
+        <li class="char-menu-list-items" onclick="location.href='{% url 'tshirt_list' %}?characters=MS'">Movies & Tv</li>
+        <li class="char-menu-list-items" onclick="location.href='{% url 'tshirt_list' %}?characters=CA'">Cartoons / Anime</li>
+        <li class="char-menu-list-items" onclick="location.href='{% url 'tshirt_list' %}?characters=WS'">Web series</li>
+      </ul>
+    </div>
+    <hr class="dropdown-divider">
+    <div class="mb-profile-selection-div">
+      <li class="pf-menu-list-items close-menu" onclick="location.href='{% url "account" %}'">Account</li>
+      <li class="pf-menu-list-items">Orders</li>
+      <li class="pf-menu-list-items">Contact Us</li>
+      <li class="pf-menu-list-items">FAQs</li>
+      <li class="pf-menu-list-items">Legal</li>
+    </div>
+    <div class="mb-ad-div"></div>
+  </div>
+
   
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-  $(document).ready(function(){
-    $('#id_show_password').click(function(){
-      if($(this).prop("checked") == true){
-        $('#id_password').attr('type', 'text');
-      }
-      else if($(this).prop("checked") == false){
-        $('#id_password').attr('type', 'password');
-      }
-    });
-  });
-  </script>
   <script src="{% static "js/account.js" %}"></script>
+  <script src="{% static "js/teetrend.js" %}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      $('#id_show_password').click(function(){
+        if($(this).prop("checked") == true){
+          $('#id_password').attr('type', 'text');
+        }
+        else if($(this).prop("checked") == false){
+          $('#id_password').attr('type', 'password');
+        }
+      });
+    });
+  </script>
 
 {% block content %}{% endblock  %}
 </body>

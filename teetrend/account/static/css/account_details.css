@@ -1,9 +1,11 @@
 @media (min-width: 992px) {
   .account-settings {
-    margin: 50px 150px;
+    margin: 5% 10%;
+    padding: 4%;
   }
   .profile-card {
-    padding: 42px 100px;
+    padding: 5%;
+    margin: 3% 2%;
   }
   .td span {
     width: 200px;
@@ -29,10 +31,12 @@
 }
 @media  (max-width: 992px) {
   .account-settings {
-    margin: 10px 10px;
+    margin: 4%;
+    padding: 3%;
   }
   .profile-card {
-    padding: 5px 10px;
+    padding: 5%;
+    margin: 4%;
   }
   .profile-infoTable {
     padding: 5px 10px;
@@ -94,7 +98,13 @@
   padding: 0;
 }
 .profile-card {
+  overflow-x: auto;
   overflow-y: hidden;
+  overflow: scroll;
+  border: 1px solid rgb(255, 230, 6);
+}
+.profile-card::-webkit-scrollbar {
+  display: none;
 }
 .profile-infoTable {
   display: flex;

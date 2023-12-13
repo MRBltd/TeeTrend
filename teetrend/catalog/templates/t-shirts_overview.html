@@ -1,18 +1,60 @@
 {% extends "product_catalog.html" %}
-{% block title %}{% endblock  %}
+{% block title %}Buy {{ tshirt.name }}{% endblock  %}
 {% load static %}
 {% block content %}
 <div class="tees-product-overview">
   <!-- Breadcrumb navigation for better user navigation -->
-  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+  <nav class="breadcrumb-base" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{% url "home" %}">Home</a></li>
-      <li class="breadcrumb-item"><a href="#">T-Shits</a></li>
-      <li class="breadcrumb-item"><a href="{% url "mens_tshirts" %}">Mens T-shits</a></li>
-      <li class="breadcrumb-item"><a href="#">{{ tshirt.brand }}</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url "tshirt_list" %}">T-Shirts</a></li>
+      {% if category == 'Men T-Shirts' %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?category=MT">{{ category }}</a></li>
+      {% endif %}
+      {% if category == 'Women T-Shirts' %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?category=WT">{{ category }}</a></li>
+      {% endif %}
+      {% if category == 'Kids T-Shirts' %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?category=KT">{{ category }}</a></li>
+      {% endif %}
+      {% if category == 'Characters' %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?category=CT">{{ category }}</a></li>
+      {% endif %}
+      {% if subcategory %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?category=CT">{{ subcategory }}</a></li>
+      {% endif %}
+      {% if characters %}
+        {% if marvel_subcategory %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?characters=MR">{{ characters }}</a></li>
+        {% elif dc_comics_subcategory %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?characters=DC">{{ characters }}</a></li>
+        {% elif movies_tv_subcategory %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?characters=MT">{{ characters }}</a></li>
+        {% elif cartoons_anime_subcategory %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?characters=CA">{{ characters }}</a></li>
+        {% elif web_series_subcategory %}
+        <li class="breadcrumb-item"><a href="{% url 'tshirt_list' %}?characters=WS">{{ characters }}</a></li>
+        {% endif %}
+      {% endif %}
+      {% if marvel_subcategory %}
+        <li class="breadcrumb-item active">{{ marvel_subcategory }}</li>
+      {% endif %}
+      {% if dc_comics_subcategory %}
+        <li class="breadcrumb-item active">{{ dc_comics_subcategory }}</li>
+      {% endif %}
+      {% if movies_tv_subcategory %}
+        <li class="breadcrumb-item active">{{ movies_tv_subcategory }}</li>
+      {% endif %}
+      {% if cartoons_anime_subcategory %}
+        <li class="breadcrumb-item active">{{ cartoons_anime_subcategory }}</li>
+      {% endif %}
+      {% if web_series_subcategory %}
+        <li class="breadcrumb-item active">{{ web_series_subcategory }}</li>
+      {% endif %}
+      <li class="breadcrumb-item"><a href="{% url "tshirt_list" %}?title={{ tshirt.title }}">{{ tshirt.title }}</a></li>
       <li class="breadcrumb-item active">{{ tshirt.name }}</li>
     </ol>
-  </nav>
+  </nav>    
   <!-- Product catalog details section -->
   <div class="the-product-catalog">
     <!-- Desktop view of product images -->
@@ -126,7 +168,7 @@
       </div>
     </div>
     <!-- Mobile view of product images using a responsive carousel -->
-    <div class="tees-mobile-view-product-images">
+    <div class="tees-mobile-view-product-images close-menu">
       <!-- Created a responsive carousel for displaying multiple images -->
       <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
         <!-- Carousel indicators for each image -->
@@ -206,15 +248,15 @@
     <!-- Product overview details section -->
     <div class="tees-product-overview-details">
       <!-- Display product name and description -->
-      <h5>{{ tshirt.name }}</h5>
-      <p>{{ tshirt.description }}</p>
+      <h5>{{ tshirt.title }}</h5>
+      <p>{{ tshirt.name }}</p>
       <!-- Product ratings section -->
       <div class="product-ratings">
         <div class="ratings-value">
           <!-- Display product rating -->
           <p>4.3</p>
           <!-- Display a star icon for the rating -->
-          <li class="rating-star"><a class="fa fa-star" href="#"></a></li>
+          <li class="rating-ov-star"><a class="fa fa-star" href="#"></a></li>
         </div>
         <!-- Divider between ratings and number of ratings -->
         <div class="col no-gutters" style="border-right:1px solid black"></div>

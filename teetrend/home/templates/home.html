@@ -4,12 +4,13 @@
 {% load static %}
 <div class="modal-body">
 {% if messages %}
-    <div class="messages">
+    <div class="messages" id="messageBox">
     {% for message in messages %}
-    {{ message }}
+    <span>{{ message }}</span>
     {% endfor %}
     </div>
 {% endif %}
 </div>
-<h1>Home Page</h1>
+<a href="{% url "create_tshirt" %}">Click</a>
+<h1 class="close-menu">Home Page</h1>
 {% endblock  %}

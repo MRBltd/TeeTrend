@@ -10,7 +10,7 @@
       {% if accts %}
       <div class="row">
         <h6 class="fw-bold m-0">Account</h6>
-        <p>{% if accts.full_name %} {{ accts.full_name }} {% else %}- not added -{% endif %}</p>
+        <p class="hd">{% if accts.full_name %} {{ accts.full_name }} {% else %}- not added -{% endif %}</p>
         <hr style="border-top: 1px solid black; margin: 0;">
         <div class="col-lg-2 no-gutters">
           <div class="tees-row">
@@ -48,7 +48,7 @@
         </div>
         <div class="col no-gutters" style="border-right:1px solid black"></div>
         <div class="col-lg-9 no-gutters">
-          <div class="profile-card overflow-scroll overflow-x-auto border border-1 border-warning m-3">
+          <div class="profile-card">
             <h4>Profile Details</h4>
             <hr style="border-top: 1px solid black;">
             <div class="profile-infoTable">

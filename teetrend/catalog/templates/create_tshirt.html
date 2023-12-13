@@ -1,0 +1,128 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "css/teetrend.css" %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <title>Create</title>
+</head>
+<body>
+  <div class="container">
+    {% if form.errors %}
+      <ul class="errorlist">
+      {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+      {% endfor %}
+      {% for field in form %}
+          {% for error in field.errors %}
+              <li>{{ field.label }}: {{ error }}</li>
+          {% endfor %}
+      {% endfor %}
+      </ul>
+    {% endif %}
+    <div class="create-div">
+      <form class="create-form" action="{% url 'create_tshirt' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }} 
+        <input type="submit" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+  <script>
+    // The T-shirt Adding forms
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to update the subcategories based on the selected category and characters
+      function updateSubcategories() {
+        var selectedCategory = document.getElementById('id_category').value;
+        var selectedCharacters = document.getElementById('id_characters').value;
+        
+        // Hide all subcategory fields
+        document.getElementById('div_id_subcategory').style.display = 'none';
+        document.getElementById('div_id_characters').style.display = 'none';
+        document.getElementById('div_id_marvel_subcategory').style.display = 'none';
+        document.getElementById('div_id_dc_comics_subcategory').style.display = 'none';
+        document.getElementById('div_id_movies_tv_subcategory').style.display = 'none';
+        document.getElementById('div_id_cartoons_anime_subcategory').style.display = 'none';
+        document.getElementById('div_id_web_series_subcategory').style.display = 'none';
+        
+        // Show the relevant subcategory field based on the selected category
+        if (selectedCategory === 'CT') {  // 'Characters'
+          document.getElementById('div_id_characters').style.display = 'block';
+          if (selectedCharacters === 'MR') {
+            document.getElementById('div_id_marvel_subcategory').style.display = 'block';
+          }
+          if (selectedCharacters === 'DC') {
+            document.getElementById('div_id_dc_comics_subcategory').style.display = 'block';
+          }
+          if (selectedCharacters === 'MS') {
+            document.getElementById('div_id_movies_tv_subcategory').style.display = 'block';
+          }
+          if (selectedCharacters === 'CA') {
+            document.getElementById('div_id_cartoons_anime_subcategory').style.display = 'block';
+          }
+          if (selectedCharacters === 'WS') {
+            document.getElementById('div_id_web_series_subcategory').style.display = 'block';
+          }
+        } else {
+          // If it's not the 'Characters' category, show the default subcategory field
+          document.getElementById('div_id_subcategory').style.display = 'block';
+        }
+      }
+
+      // Add event listeners to the category and characters fields
+      document.getElementById('id_category').addEventListener('change', updateSubcategories);
+      document.getElementById('id_characters').addEventListener('change', updateSubcategories);
+
+      // Call the function on page load to initialize the form based on the default category
+      updateSubcategories();
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Function to update the form fields based on the selected category
+      function updateFields() {
+          var selectedCategory = document.getElementById('id_category').value;
+          
+          // Hide all fields
+          document.getElementById('div_id_size').style.display = 'none';
+          document.getElementById('div_id_age').style.display = 'none';
+          
+          // Show the relevant field based on the selected category
+          if (selectedCategory === 'KT') {  // 'Kids'
+              document.getElementById('div_id_age').style.display = 'block';
+          } else {
+              // If it's not the 'Kids' category, show the normal size field
+              document.getElementById('div_id_size').style.display = 'block';
+          }
+      }
+
+      // Add an event listener to the category field
+      document.getElementById('id_category').addEventListener('change', updateFields);
+
+      // Call the function on page load to initialize the form based on the default category
+      updateFields();
+    });
+
+    window.onload = function() {
+      var inputs = document.getElementsByTagName('input');
+      for(var i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener('focus', function() {
+          this.dataset.placeholder = this.placeholder;
+          this.placeholder = '';
+        });
+        inputs[i].addEventListener('blur', function() {
+          this.placeholder = this.dataset.placeholder;
+        });
+      }
+    };
+
+  </script>
+</body>
+</html>

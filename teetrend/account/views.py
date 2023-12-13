@@ -83,7 +83,7 @@ def verify_otp(request):
           user.is_verified = True  # set is_verified to True
           user.save()  # save the change to the database
           request.session['user_id'] = user.id 
-          messages.success(request, 'Welcome , Successful Logged')
+          messages.success(request, 'Logged in successfully')
           return redirect('home')
         else:
           form.add_error('otp', 'Invalid OTP')
@@ -103,7 +103,7 @@ def sign_in(request):
       try:
         user = UserAccount.objects.get(username=username, password=password)
         request.session['user_id'] = user.id 
-        messages.success(request, 'Welcome , Successful Logged')
+        messages.success(request, 'Logged in successfully')
         return redirect('home')
       except UserAccount.DoesNotExist:
         form.add_error(None, 'Invalid username or password')
@@ -148,7 +148,7 @@ def sign_in_verify_otp(request):
           user.is_verified = True  
           user.save()  # save the change to the database
           request.session['user_id'] = user.id 
-          messages.success(request, 'Welcome , Successful Logged')
+          messages.success(request, 'Logged in successfully')
           return redirect('home')
         else:
           form.add_error('otp', 'Invalid OTP.. Enter a correct OTP and click the sign in button')

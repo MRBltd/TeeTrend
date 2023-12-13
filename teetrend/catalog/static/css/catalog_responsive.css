@@ -1,0 +1,292 @@
+/* Responsive design using media queries */
+@media (max-width: 992px) {
+  /* Hide profile desktop viewport elements on larger screens */
+  .tees-desktop-viewport {
+    display: none;
+  }
+  /* Display profile mobile viewport elements on larger screens */
+  .tees-mobile-viewport {
+    display: flex;
+    justify-content: center;
+  }
+  /* Flex layout for the product catalog on small screens */
+  .the-product-catalog {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+  }
+  .tees-product {
+    padding: 2% 0;
+  }
+  .row-base {
+    width: 100%;
+  }
+  .search-filter {
+    display: none;
+  }
+  .product-catalog-row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1%;
+  }
+  .product-catalog-col {
+    flex: 50%;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .card {
+    width: 100%;
+    height: 305px;
+    border: 1px solid rgb(174, 174, 174) !important;
+    border-radius: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  /* Styling for the body of the card */
+  .card-body {
+    height: 95px;
+  }
+  .card-top-img {
+    height: 210px !important;
+  }
+  .card .carousel {
+    display: none;
+  }
+  .rating-review {
+    border-radius: 15px;
+  }
+  .rating-review span {
+    padding: 3px 5px;
+  }
+  .rating-star {
+    padding: 0 5px 0 0 !important;
+    font-size: 10px;
+    margin: 0 !important;
+  }
+  /* Styling for product details  */
+  .product-title {
+    display: block;
+    text-align: start;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+  }
+  .product-name {
+    display: block;
+    text-align: start;
+    font-size: 12px;
+    color: rgb(144, 144, 144);
+    margin: 0 0 5px 0;
+  }
+  .product-whishlist {
+    display: none;
+  }
+  .product-size {
+    display: none;
+  }
+  .product-price-details {
+    display: flex;
+    text-align: start;
+  }
+  .product-price {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 5px 0 0;
+  }
+  .product-retail-price {
+    font-size: 12px;
+    margin: 0 5px 0 5px;
+  }
+  /* Styling for product discount */
+  .product-discount {
+    margin: 0;
+    color: rgb(255, 196, 0);
+    font-size: 11px;
+    font-weight: bold;
+    margin: 0 5px 0 5px;
+  }
+  /* Hide desktop view product images on small screens */
+  .tees-desktop-view-product-images {
+    display: none;
+  }
+   /* Adjust width and styling for product overview details on small screens */
+  .tees-product-overview-details {
+    width: 100%;
+    padding: 4%;
+  }
+  /* Hide breadcrumb navigation on small screens */
+  .breadcrumb-nav {
+    display: none;
+  }
+  .breadcrumb-base {
+    display: none;
+  }
+  /* Display mobile view product images on small screens */
+  .tees-mobile-view-product-images {
+    display: flex;
+  }
+}
+@media (min-width: 992px) {
+  /* Hide profile mobile viewport elements on larger screens */
+  .tees-mobile-viewport {
+    display: none;
+  }
+  /* Display profile desktop viewport elements on larger screens */
+  .tees-desktop-viewport {
+    display: flex;
+  }
+  /* Flex layout for the product catalog on larger screens */
+  .the-product-catalog {
+    display: flex;
+    padding: 2%;
+  }
+  .tees-product {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.7% !important;
+  }
+  .row-base {
+    width: 100%;
+    display: flex;
+  }
+  .search-filter {
+    width: 20%;
+  }
+  .product-catalog-row {
+    padding: 2% !important;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80% !important;
+  }
+  .product-catalog-col {
+    width: 20% !important;
+    box-sizing: border-box;
+    padding: 0;
+    padding: 1.5% !important;
+  }
+  .card {
+    width: 100%;
+    height: 360px;
+    border: none !important;
+    border-radius: 0 !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  /* Styling for the body of the card */
+  .card-body {
+    height: 110px;
+    border: none;
+  }
+  .card-top-img {
+    height: 250px;
+  }
+  .rating-review {
+    border-radius: 2px;
+    padding: 1px 4px 4px;
+  }
+  .rating-review span {
+    padding: 0 4px;
+    margin-top: 2px;
+  }
+  .rating-star {
+    padding: 0 !important;
+    font-size: 10px;
+  }
+  .card:hover .rating-review {
+    display: none;
+  }
+  /* Styling for the carousel within the card */
+  .card .carousel {
+    display: none;
+  }
+  /* Display carousel on card hover */
+  .card:hover .carousel {
+    display: block;
+  }
+  /* Hide top image on card hover */
+  .card:hover .card-top-img {
+    display: none;
+  }
+  /* Hide various elements on card hover */
+  .card:hover .product-title {
+    display: none;
+  }
+  .card:hover .product-name {
+    display: none;
+  }
+  /* Styling for product wishlist on card hover */
+  .card:hover .product-whishlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: black;
+    border: 1px solid rgba(199, 199, 199, 0.823);
+  }
+  /* Display product size on card hover */
+  .card:hover .product-size {
+    display: block;
+    color: rgb(144, 144, 144);
+    font-size: 14px;
+    margin: 0 0 5px 5px;
+  }
+  .card:hover .carousel-indicators {
+    transition: background-color 1s ease-in-out;
+  }
+  /* Styling for product details  */
+  .product-title {
+    display: block;
+    text-align: start;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 5px 5px;
+  }
+  .product-name {
+    display: block;
+    text-align: start;
+    font-size: 14px;
+    color: rgb(144, 144, 144);
+    margin: 0 0 5px 5px;
+  }
+  .product-price-details {
+    display: flex;
+  }
+  .product-price {
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 0 0 5px;
+  }
+  .product-retail-price {
+    font-size: 12px;
+    margin: 0 0 0 7px;
+  }
+  /* Styling for product discount */
+  .product-discount {
+    margin: 0 0 0 7px;
+    color: rgb(255, 196, 0);
+    font-size: 11px;
+    font-weight: bold;
+  }
+  /* Display desktop view product images on larger screens */
+  .tees-desktop-view-product-images {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Adjust width and margins for product overview details on larger screens */
+  .tees-product-overview-details {
+    width: 50%;
+    margin-left: 50px;
+    margin-top: 7px;
+  }
+  /* Hide mobile view product images on larger screens */
+  .tees-mobile-view-product-images {
+    display: none;
+  }
+}

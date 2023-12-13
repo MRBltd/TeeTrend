@@ -1,282 +1,67 @@
-/* Set default styling for HTML and body */
-html {
-  width: 100%;
-}
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  /* overflow-x: hidden; */
-  box-sizing: border-box;
-}
-/* Reset margin for container-fluid class */
-.container-fluid {
-  margin: 0;
-}
-/* Set styling for a specific heading class */
-.tees-ht {
-  font-size: 25px;
-  font-weight: 900;
-  color: rgb(112, 111, 111);
-}
-/* Responsive design using media queries */
-@media (max-width: 992px) {
-  /* Hide certain elements on small screens */
-  .profile , .whishlist , .bag {
-    display: none;
-  }
-  .list-item {
-    display: flex;
-    flex-direction: column;
-  }
-  /* Adjust width for specific sections */
-  #subscribe-section , #section , #about {
-    width: 100%;
-  }
-  /* Flex layout for the product catalog on small screens */
-  .the-product-catalog {
-    display: flex;
-    flex-direction: column;
-    padding: 2%;
-  }
-  /* Hide desktop view product images on small screens */
-  .tees-desktop-view-product-images {
-    display: none;
-  }
-   /* Adjust width and styling for product overview details on small screens */
-  .tees-product-overview-details {
-    width: 100%;
-    padding: 4%;
-  }
-  /* Hide breadcrumb navigation on small screens */
-  .breadcrumb-nav {
-    display: none;
-  }
-  /* Display mobile view product images on small screens */
-  .tees-mobile-view-product-images {
-    display: flex;
-  }
-}
-@media (min-width: 992px) {
-  /* Hide certain elements on larger screens */
-  .profile1 , .whishlist1 , .bag1 {
-    display: none;
-  }
-  /* Adjust width for specific sections on larger screens */
-  #subscribe-section {
-    width: 40%;
-  }
-  #section {
-    width: 12%;
-  }
-  #about {
-    width: 20%;
-  }
-  /* Flex layout for the product catalog on larger screens */
-  .the-product-catalog {
-    display: flex;
-    padding: 2%;
-  }
-  /* Display desktop view product images on larger screens */
-  .tees-desktop-view-product-images {
-    display: flex;
-    flex-direction: column;
-  }
-  /* Adjust width and margins for product overview details on larger screens */
-  .tees-product-overview-details {
-    width: 50%;
-    margin-left: 50px;
-    margin-top: 7px;
-  }
-  /* Hide mobile view product images on larger screens */
-  .tees-mobile-view-product-images {
-    display: none;
-  }
-}
-/* Styling for login details */
-.profile .login-details {
-  font-size: 15px;
-  font-weight: 700;
-}
-/* Styling for list items */
-.list-item {
-  display: flex;
-}
-/* Styling for navigation sub-headline */
-.nav-sub-headline {
-  font-size: 11px;
-}
-/* Dropdown menu display on hover */
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-/* Styling for dropdown items */
-.dropdown-item {
-  font-size: 12px;
-}
-/* Styling for login div */
-#login-div {
-  padding: 0;
-}
-/* Styling for login details */
-.login-details h5 , .login-details p {
-  cursor: text;
-}
-/* Styling for profile items */
-.login-details ul {
-  cursor: default;
-}
-.profile-items {
-  color: rgb(120, 119, 119);
-  width: 130px;
-  padding: 4px 0 4px 8px;
-  cursor: pointer;
-}
-/* Styling for profile items on hover and active states */
-.profile-items:hover {
-  color: rgb(42, 40, 40);
-  font-weight: bold;
-  background-color: rgb(239, 238, 238);
-}
-.profile-items:active {
-  border-bottom: 2px solid red;
-}
-/* Styling for navigation list on hover */
-.nav-list:hover {
-  border-bottom: 2px solid red;
-}
-/* Styling for footer section list on hover */
-.footer-section-list:hover {
-  color: rgb(42, 40, 40);
-  font-weight: bold;
-}
-/* Styling for footer sub-headline */
-.footer-sub-headline {
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-/* Styling for footer section list */
-.footer-section-list {
-  font-size: 12px;
-}
-/* Styling for footer */
-.footer {
-  padding-left: 8px;
-}
-/* Styling for footer item */
-.footer-item {
-  overflow: hidden;
-  list-style: none;
-}
-/* Styling for footer link */
-.footer-link {
-  text-decoration: none;
-}
-/* Styling for django messages */
-.messages {
-  list-style-type: none;
-  background-color: rgba(51, 186, 69, 0.603);
-  font-size: 14px;
-  font-weight: 500;
-  padding: 10px 20px;
-}
 /* Product Catalog section */
 /* Styling for card container */
+.breadcrumb-base {
+  width: fit-content;
+  padding: 20px 0 0 0;
+  margin: 0;
+}
 .card {
-  width: 100%;
-  height: 400px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  box-shadow: 1px 1px 10px whitesmoke;
-  transition: all ease 1s;
+  transition: all ease 0.2s;
+  cursor: pointer;
 }
 /* Card hover effect with scaling, shadow, and border-radius */
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 1px 1px 10px rgb(66, 66, 66);
-  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 3px rgb(158, 158, 158);
 }
 /* Styling for the top image within the card */
 .card-top-img {
   width: 100%;
-  height: 250px;
   cursor: pointer;
   transition: all ease 1s;
 }
-/* Styling for the body of the card */
-.card-body {
-  height: 150px;
+.card-image {
+  position: relative;
+}
+.rating-review {
+  position: absolute;
+  bottom: 7px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: #ffffffe6;
+}
+.cross-linebreaks {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0 3px 0 8px !important;
+  margin: 0 !important;
 }
 /* Styling for card top image display */
 .card .card-top-img {
   display: block;
 }
-/* Styling for the carousel within the card */
-.card .carousel {
-  display: none;
-}
-/* Hide top image on card hover */
-.card:hover .card-top-img {
-  display: none;
-}
-/* Display carousel on card hover */
-.card:hover .carousel {
-  display: block;
-}
-/* Hide various elements on card hover */
-.card:hover .product-title {
-  display: none;
-}
-.card:hover .product-description {
-  display: none;
-}
-/* Styling for product wishlist on card hover */
-.card:hover .product-whishlist {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-}
-/* Display product size on card hover */
-.card:hover .product-size {
-  display: block;
+.carousel-indicators {
+  background-color: white;
+  margin: 0 !important;
 }
 /* Styling for carousel indicators */
 .carousel-indicators button {
-  width: 5px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #ffffff;
+  width: 5px !important;
+  height: 5px !important;
+  margin: 0 5px 0 5px !important;
+  border-radius: 50% !important;
+  background-color: #818181 !important;
 }
 /* Styling for active carousel indicator */
 .carousel-indicators .active {
-  background-color: #555;
-}
-/* Styling for product details  */
-.product-title , .product-description , .product-price , .product-discount , .product-whishlist , .product-size {
-  text-decoration: none;
-  text-align: start;
-  margin: 0 10px 10px;
-  color: black;
+  background-color: #ff0000 !important;
 }
 /* Hover effect on product details */
-.product-title:hover , .product-description:hover , .product-price:hover , .product-whishlist:hover , .product-size:hover {
-  font-weight: bold;
-  color: red;
-}
-/* Styling for product discount */
-.product-discount {
-  color: rgb(255, 196, 0);
-}
-/* Hover effect on product discount */
-.product-discount:hover {
-  font-weight: bold;
-  color: rgb(255, 196, 0);
-}
-/* Display and styling for specific elements */
-.product-title , .product-description {
-  display: block;
+.product-whishlist:hover {
+  color: black;
+  border: 1px solid rgb(0, 0, 0) !important;
 }
 /* Hide elements initially */
 .product-whishlist , .product-size {
@@ -289,21 +74,28 @@ body {
 /* Product Catalog overview */
 /* Styling for breadcrumb navigation */
 .breadcrumb-nav {
-  padding: 23px 20px;
+  padding: 20px 20px 0;
   margin: 0;
 }
 /* Styling for breadcrumb items */
 .breadcrumb-item {
+  font-size: 14px;
   font-weight: 700;
+  padding: 0 !important;
 }
 /* Styling for breadcrumb links */
 .breadcrumb-item a {
   text-decoration: none;
-  color: rgb(113, 113, 113);
+  font-weight: normal;
+  margin: 0 2px !important;
+  color: rgb(84, 84, 84);
 }
 /* Styling for active breadcrumb item */
 .breadcrumb-item.active {
   color: black !important;
+}
+.breadcrumb-item::before {
+  padding: 0 !important;
 }
 /* Styling for product overview section */
 .tees-product-overview {
@@ -356,7 +148,7 @@ body {
 /* Styling for the modal content */
 .tees-desktop-modal-content {
   position: relative;
-  margin: 0 auto;
+  margin: 70px auto;
   display: block;
   width: 100%;
   max-width: 982px;
@@ -390,6 +182,9 @@ body {
 /* Styling for the selected thumbnail button */
 .tees-desktop-modal-image-thumbnail-button.selected {
   border: 1px solid #f00;
+}
+.tees-images:active .tees-desktop-modal-image-thumbnail-button {
+  border: 1px solid green;
 }
 /* Styling to hide the scrollbar in the image container */
 .tees-dessktop-modal-content-images::-webkit-scrollbar {
@@ -502,7 +297,7 @@ body {
   color: green;
 }
 /* Styling for rating star list */
-.rating-star {
+.rating-ov-star {
   list-style-type: none;
   margin-left: 3px;
 }

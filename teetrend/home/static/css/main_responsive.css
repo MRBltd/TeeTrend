@@ -1,0 +1,336 @@
+/* Media query for screens up to 992px width */
+@media (max-width: 992px) {
+  body {
+    margin-top: 50px !important;
+    font-family: 'Roboto', sans-serif !important;
+  }
+
+  /* Responsive adjustments for mobile view */
+  .tees-desktop-viewport {
+    display: none !important;
+  }
+  
+  .navbar {
+    justify-content: space-evenly !important;
+  }
+
+  .navbar .container-fluid {
+    justify-content: space-around !important;
+    padding-left: 1% !important;
+  }
+
+  .navbrand-logo {
+    display: block;
+    font-size: 28px;
+    text-decoration: none;
+  }
+
+  .navbar-brand {
+    margin: 0 !important;
+    display: none;
+  }
+
+  .mb-nav {
+    display: flex;
+    justify-content: space-evenly !important;
+    align-items: center;
+    margin: 0 0 0 auto !important;
+    padding: 0 5% !important;
+  }
+
+  .mb-link {
+    text-decoration: none;
+    color: black;
+    padding: 0 10% !important;
+  }
+
+  .mb-link:hover {
+    color: black;
+  }
+
+  .navbar-toggler {
+    font-size: 12px !important;
+    padding: 2px 3px !important;
+    margin: 0 auto 0 0 !important;
+    border: none !important;
+    border-color: white !important;
+  }
+
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  .dropdown-menu, .nav-list, .navbar-nav {
+    width: fit-content;
+  }
+
+  .navbar-collapse {
+    width: fit-content !important;
+  }
+
+  .navbar-nav {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  .nav-list {
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+  }
+  
+  .search-form {
+    display: none !important;
+  }
+
+  #subscribe-section {
+    display: none;
+  }
+
+  #section {
+    width: 50%;
+  }
+
+  #about {
+    width: 100%;
+  }
+
+  .back-to-top {
+    display: none;
+  }
+
+  .mobile-menu-bar {
+    display: none;
+    width: 75%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+  
+  .mobile-menu-bar::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .mobile-menu-bar::-webkit-scrollbar-thumb {
+    background: rgba(174, 174, 174, 0.586);
+  }
+
+  hr {
+    background-color: inherit !important;
+  }
+
+  .dropdown-divider {
+    height: 0 !important;
+    margin: 10px 0 !important;
+    opacity: 0.15 !important;
+    border-top: 1px solid rgba(44, 44, 44, 0.648) !important;
+  }
+
+  .mb-user-div {
+    width: 100%;
+    position: relative;
+    background-color: rgba(25, 0, 35, 0.523)!important;
+  }
+  
+  .menubar-close {
+    position: absolute;
+    top: 2px;
+    right: 7px;
+  }
+  
+  .mb-user-icon-div {
+    background-color: white !important;
+    width: fit-content;
+    margin: 13px 65% 13px 7%;
+    padding: 1% 5%;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(244, 244, 244, 0.675);
+  }
+  
+  .user-icon {
+    font-size: 20px;
+  }
+
+  .user-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 4%;
+    font-size: 16px;
+    color: white;
+  }
+
+  .user {
+    padding: 0 5%;
+  }
+
+  .user-right-arrow {
+    padding: 0 5%;
+  }
+  
+  .mb-new-user {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+  }
+
+  .mb-new-user h5 {
+    font-size: 14px;
+    color: whitesmoke;
+  }
+
+  .sign-up-or-login {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sign-up-or-login .btn {
+    margin: 1% 3%;
+  }
+
+  .mb-product-selection-div {
+    width: 100%;
+  }
+
+  .mb-menu-mens-list , .mb-menu-womens-list , .mb-menu-kids-list , .mb-menu-characters-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 12px 8px 18px;
+  }
+
+  .mb-product-selection-div p , ul {
+    margin-bottom: 0 !important;
+  }
+
+  .mb-product-selection-div ul {
+    padding-left: 0 !important;
+  }
+
+  .mens-menu-list-items , .down-arrow , .womens-menu-list-items , .kids-menu-list-items , .char-menu-list-items {
+    display: none;
+  }
+
+  .mens-menu-list-items , .womens-menu-list-items , .kids-menu-list-items , .char-menu-list-items {
+    padding: 8px 0 8px 25px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .mb-profile-selection-div {
+    width: 100%;
+  }
+
+  .pf-menu-list-items {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 12px 8px 18px;
+    list-style-type: none;
+  }
+
+  .mobile-footer-menu-bar {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 0 5px rgb(235, 235, 235);
+  }
+  .mb-footer-list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 1% !important;
+  }
+  .mb-footer-list-items {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgb(138, 138, 138);
+  }
+  .mb-home-logo {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .mb-explore-icon {
+    font-size: 13px;
+  }
+}
+
+/* Media query for screens larger than 992px width */
+@media (min-width: 992px) {
+  /* Adding top margin to body for desktop view */
+  body {
+    margin-top: 70px !important;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+  }
+
+  /* Responsive adjustments for desktop view */
+  .tees-mobile-viewport {
+    display: none;
+  }
+
+  .tees-desktop-viewport {
+    display: flex;
+  }
+
+  .navbrand-logo {
+    display: none;
+  }
+
+  .navbar-brand {
+    margin-left: 48px !important;
+  }
+  
+  .mb-nav {
+    display: none;
+  }
+
+  .navbar-nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .nav-list {
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+  }
+
+  #subscribe-section {
+    width: 40%;
+  }
+
+  #section {
+    width: 12%;
+  }
+
+  #about {
+    width: 20%;
+  }
+
+  .back-to-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu-bar , .mb-product-selection-div , .mb-user-div , .mb-profile-selection-div , .mobile-footer-menu-bar {
+    display: none;
+  }
+}
