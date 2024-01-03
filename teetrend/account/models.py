@@ -10,8 +10,7 @@ class UserAccount(models.Model):
   address = models.TextField(null=True , blank=True)
   birth_date = models.DateField(null=True, blank=True)
   is_verified = models.BooleanField(default=False)
+  sign_in_timestamp = models.DateTimeField(auto_now_add=True)
 
   def __str__(self):
     return self.email
-  
-  

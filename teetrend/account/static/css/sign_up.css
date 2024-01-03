@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   .sign-up {
     width: 50%;
@@ -28,6 +29,7 @@
   }
   .sign-up {
     width: 100%;
+    margin-top: 50px;
   }
   .verify-otp-section {
     display: flex;
@@ -41,31 +43,58 @@
   }
 }
 .sign-up {
-  padding: 30px 30px;
-  box-shadow: 1px 1px 10px rgb(4, 4, 4);
-  border-radius: 10px;
+  padding: 20px 30px;
+}
+.sign-up:hover {
+  box-shadow: 1px 1px 5px rgb(213, 213, 213);
 }
 .sign-up h5 {
   text-align: center;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 14px;
 }
 .sign-up-form {
   margin-top: 20px;
 }
-.btn {
+.btn-up {
   margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 7px 5px;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
+.btn-up:hover {
+  background-color: rgb(1, 116, 165);
+  color: white;
+  border-radius: 2px;
+}
+.btn-l {
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 7px 5px;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
+.btn-l:hover {
+  background-color: rgb(22, 54, 211);
+  color: white;
+  border-radius: 2px;
 }
 .messages {
   list-style-type: none;
 }
 .verify-otp {
   padding: 30px 30px;
-  box-shadow: 1px 1px 10px rgb(4, 4, 4);
-  border-radius: 10px;
+}
+.verify-otp:hover {
+  box-shadow: 1px 1px 5px rgb(213, 213, 213);
 }
 .verify-otp h5 {
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 900;
 }

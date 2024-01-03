@@ -4,13 +4,245 @@
 {% load static %}
 <div class="modal-body">
 {% if messages %}
-    <div class="messages" id="messageBox">
-    {% for message in messages %}
-    <span>{{ message }}</span>
-    {% endfor %}
-    </div>
+  <div class="messages" id="messageBox">
+  {% for message in messages %}
+  <span>{{ message }}</span>
+  {% endfor %}
+  </div>
 {% endif %}
 </div>
-<a href="{% url "create_tshirt" %}">Click</a>
-<h1 class="close-menu">Home Page</h1>
+<div class="container-fluid close-menu" style="padding: 0;">
+  <div id="carouselExampleAutoplaying" class="carousel home-carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static "images/Carousel/teerific-xmas-sale-slider.webp" %}" class="d-block w-100" alt="Christmas Sales">
+      </div>
+      <div class="carousel-item" >
+        <img src="{% static "images/Carousel/oversized-tees-slider.jpg" %}" class="d-block w-100" alt="Oversized T-shirts">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static "images/Carousel/t-shirts-for-women-homepage-slider.webp" %}" class="d-block w-100" alt="Womens-T-shirts">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="container-fluid close-menu" style="padding: 0;">
+  <div class="home-cat-hd">
+    <span>Category Special</span>
+  </div>
+</div>
+<div class="container-fluid close-menu" style="padding: 0;">
+  <div class="home-tees-cat-list">
+    <div class="row-card">
+      <div class="home-card" onclick="location.href='{% url "tshirt_list" %}?category=WT&subcategory=PN'">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Polo-Neck.jpg" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Polo Neck</span>
+          <span class="tees-dt-hd">40-80% OFF</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card" onclick="location.href='{% url "tshirt_list" %}?category=WT&subcategory=OS'">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.jpg" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Off Shoulder</span>
+          <span class="tees-dt-hd">40-80% OFF</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-V-Neck.jpg" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>V Neck</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Striped.jpg" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Striped T-shirts</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Knot-Crop.jpg" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Knot Crop</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card" onclick="location.href='{% url "tshirt_list" %}?category=WT&subcategory=SW'">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Sweatshirts.jpg" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Sweatshirts</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} <div class="home-tees-cat-list">
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-tees-cat-list">
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+    <div class="row-card">
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="home-card-img">
+          <img src="{% static "images/Card/Womens-Off-Shoulder.avif" %}" alt="Category Images">
+        </div>
+        <div class="home-tees-card-details">
+          <span>Name</span>
+          <span class="tees-dt-hd">discount</span>
+          <span>Shop</span>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+</div>
 {% endblock  %}

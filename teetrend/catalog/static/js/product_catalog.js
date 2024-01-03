@@ -8,9 +8,13 @@ function openImage(src) {
 }
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-  modal.style.display = "none";
+if(span) {
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  };
+} else {
+  console.log('Element with class "close" was not found');
 }
 
 // The selecting the specific image in the thumbnails
@@ -36,3 +40,50 @@ window.onload = function() {
     });
   }
 };
+
+window.addEventListener('load', function() {
+  var mensCatList = document.getElementById('mens-cat-list');
+  var womensCatList = this.document.getElementById('womens-cat-list');
+  var mensCatToggler = document.getElementById('mens-cat-toggler');
+  var womensCatToggler = document.getElementById('womens-cat-toggler');
+  var charactersCatToggler = document.getElementById('Characters-cat-toggler');
+
+  function handleWomensCatToggle(e) {
+    mensCatList.style.display = "none";
+    womensCatList.style.display = "block";
+    mensCatToggler.classList.remove('cat-active');
+    charactersCatToggler.classList.remove('cat-active');
+    womensCatToggler.classList.add('cat-active');
+  }
+  if(womensCatToggler) {
+    womensCatToggler.addEventListener('click', handleWomensCatToggle);
+  } else {
+    console.log('Element with id "womensCatToggler" was not found');
+  }
+
+  function handleMensCatToggle(e) {
+    mensCatList.style.display = "block";
+    womensCatList.style.display = "none";
+    womensCatToggler.classList.remove('cat-active');
+    charactersCatToggler.classList.remove('cat-active');
+    mensCatToggler.classList.add('cat-active');
+  }
+  if(mensCatToggler) {
+    mensCatToggler.addEventListener('click' , handleMensCatToggle);
+  } else {
+    console.log('Element with id "mensCatToggler" was not found');
+  }
+
+  function handleCharactersCatToggle(e) {
+    mensCatList.style.display = "none";
+    womensCatList.style.display = "none";
+    womensCatToggler.classList.remove('cat-active');
+    mensCatToggler.classList.remove('cat-active');
+    charactersCatToggler.classList.add('cat-active');
+  }
+  if(charactersCatToggler) {
+    charactersCatToggler.addEventListener('click' , handleCharactersCatToggle);
+  } else {
+    console.log('Element with id "charactersCatToggler" was not found');
+  }
+});

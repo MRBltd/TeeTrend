@@ -19,14 +19,142 @@
   <div class="categories">
     <div class="mb-categories">
       <div class="mb-categories-list">
-        <div class="mb-cat-list cat-active">
-          <span class="cat-list">Men</span>
+        <div class="mb-cat-list cat-active" id="mens-cat-toggler">
+          <span>Men</span>
         </div>
-        <div class="mb-cat-list">
-          <span class="cat-list">Women</span>
+        <div class="mb-cat-list" id="womens-cat-toggler">
+          <span>Women</span>
         </div>
-        <div class="mb-cat-list">
-          <span class="cat-list">Kids</span>
+        <div class="mb-cat-list" id="Characters-cat-toggler">
+          <span>Characters</span>
+        </div>
+      </div>
+    </div>
+    <div class="mb-cat-list-items">
+      <div class="cat-list" id="mens-cat-list">
+        <div class="list-items">
+          <div class="mens-polo-neck-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=PN'">
+            <img src="{% static "images/Mens-Category/Polo_Neck_T-shirts.webp" %}" alt="">
+            <span>Polo Neck</span>
+          </div>
+          <div class="mens-half-sleeves-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=HS'">
+            <img src="{% static "images/Mens-Category/Half-Sleeve-T-Shirts.webp" %}" alt="">
+            <span>Half Sleeve</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="mens-Henley-Neck-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=HLN'">
+            <img src="{% static "images/Mens-Category/Mens-Henley-Neck.jpg" %}" alt="">
+            <span>Henley Neck</span>
+          </div>
+          <div class="mens-Hoodies-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=HD'">
+            <img src="{% static "images/Mens-Category/Hoodies.webp" %}" alt="">
+            <span>Hoodies</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="mens-sleeveless-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=SL'">
+            <img src="{% static "images/Mens-Category/Mens-Sleeveless.jpg" %}" alt="">
+            <span>Sleeveless</span>
+          </div>
+          <div class="mens-half-sweatshirts-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=SW'">
+            <img src="{% static "images/Mens-Category/Men-sweater.jpg" %}" alt="">
+            <span>Sweatshirts</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="mens-long-sleeves-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=LS'">
+            <img src="{% static "images/Mens-Category/Full-Sleeve-T-Shirts.webp" %}" alt="">
+            <span>Long Sleeves</span>
+          </div>
+          <div class="mens-half-sleeves-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=PT'">
+            <img src="{% static "images/Mens-Category/Men-PrintedTee.jpg" %}" alt="">
+            <span>Printed T-shirts</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="mens-colorblock-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=MT&subcategory=CBT'">
+            <img src="{% static "images/Mens-Category/Mens-Colorblock.jpg" %}" alt="">
+            <span>Colorblock T-shirts</span>
+          </div>
+          <div class="view-all" onclick="location.href='{% url 'tshirt_list' %}?category=MT'">
+            <div class="all-items">
+              <span>View All</span>
+            </div>
+            <Span>All Topwear</Span>
+          </div>
+        </div>
+      </div>
+      <div class="cat-list" id="womens-cat-list">
+        <div class="list-items">
+          <div class="womens-half-slevees-list-items cat-items" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HS'">
+            <img src="{% static "images/Womens-Category/Womens-Half-Sleeve.webp" %}" alt="">
+            <span>Half Sleeves</span>
+          </div>
+          <div class="womens-full-slevees-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Full-Sleeves.jpg" %}" alt="">
+            <span>Long Sleeves</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="womens-boyfriend-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Boyfriend.jpg" %}" alt="">
+            <span>Boyfriend Tees</span>
+          </div>
+          <div class="womens-hoodies-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Hoodies.jpg" %}" alt="">
+            <span>Hoodies</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="womens-print-tees-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Print-Tees.jpg" %}" alt="">
+            <span>Printed T-shirts</span>
+          </div>
+          <div class="womens-polo-neck-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Hoodies.jpg" %}" alt="">
+            <span>Polo Neck</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="womens-knot-crop-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Print-Tees.jpg" %}" alt="">
+            <span>Knot Crop</span>
+          </div>
+          <div class="womens-cold-shoulder-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Hoodies.jpg" %}" alt="">
+            <span>Cold Shoulder</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="womens-sweatshirts-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Print-Tees.jpg" %}" alt="">
+            <span>Sweatshirts</span>
+          </div>
+          <div class="womens-sleeveless-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Hoodies.jpg" %}" alt="">
+            <span>Sleeveless</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="womens-colorblock-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Print-Tees.jpg" %}" alt="">
+            <span>Colorblock T-shirts</span>
+          </div>
+          <div class="womens-high-neck-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Hoodies.jpg" %}" alt="">
+            <span>High Neck</span>
+          </div>
+        </div>
+        <div class="list-items">
+          <div class="womens-striped-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Print-Tees.jpg" %}" alt="">
+            <span>Striped T-shirts</span>
+          </div>
+          <div class="womens-v-neck-list-items cat-items">
+            <img src="{% static "images/Womens-Category/Womens-Hoodies.jpg" %}" alt="">
+            <span>V-Neck</span>
+          </div>
         </div>
       </div>
     </div>
@@ -36,14 +164,14 @@
           <span class="text-warning mb-home-logo">&#600;e</span>
           <span>Home</span>
         </li>
-        <li class="mb-footer-list-items" onclick="location.href='{% url "categories" %}'">
+        <li class="mb-footer-list-items cat-toggler" onclick="location.href='{% url "categories" %}'">
           <div>
             <div class="d-flex">
               <div style="width: 7px; height: 7px; border: 2px solid rgb(100, 100, 100); margin: 1px;"></div>
-              <div style="width: 7px; height: 7px; border: 2px solid rgb(100, 100, 100); margin: 1px; border-radius: 10px;"></div>
+              <div class="cat-icon" style="width: 7px; height: 7px; border: 2px solid rgb(100, 100, 100); margin: 1px; border-radius: 10px;"></div>
             </div>
             <div class="d-flex">
-              <div style="width: 7px; height: 7px; border: 2px solid rgb(100, 100, 100); margin: 1px;"></div>
+              <div class="cat-icon" style="width: 7px; height: 7px; border: 2px solid rgb(100, 100, 100); margin: 1px;"></div>
               <div style="width: 7px; height: 7px; border: 2px solid rgb(100, 100, 100); margin: 1px;"></div>
             </div>
           </div>
@@ -64,5 +192,7 @@
       </ul>
     </div>
   </div>
+
+  <script src="{% static "js/product_catalog.js" %}"></script>
 </body>
 </html>

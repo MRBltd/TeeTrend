@@ -4,32 +4,32 @@
     margin-top: 50px !important;
     font-family: 'Roboto', sans-serif !important;
   }
-
+  .mb-e {
+    margin-bottom: 50px;
+  }
+  ul {
+    margin-bottom: 0 !important;
+  }
   /* Responsive adjustments for mobile view */
   .tees-desktop-viewport {
     display: none !important;
   }
-  
   .navbar {
     justify-content: space-evenly !important;
   }
-
   .navbar .container-fluid {
     justify-content: space-around !important;
     padding-left: 1% !important;
   }
-
   .navbrand-logo {
     display: block;
     font-size: 28px;
     text-decoration: none;
   }
-
   .navbar-brand {
     margin: 0 !important;
     display: none;
   }
-
   .mb-nav {
     display: flex;
     justify-content: space-evenly !important;
@@ -37,17 +37,14 @@
     margin: 0 0 0 auto !important;
     padding: 0 5% !important;
   }
-
   .mb-link {
     text-decoration: none;
     color: black;
     padding: 0 10% !important;
   }
-
   .mb-link:hover {
     color: black;
   }
-
   .navbar-toggler {
     font-size: 12px !important;
     padding: 2px 3px !important;
@@ -55,53 +52,44 @@
     border: none !important;
     border-color: white !important;
   }
-
   .list-item {
     display: flex;
     flex-direction: column;
     width: fit-content;
   }
-
   .dropdown-menu, .nav-list, .navbar-nav {
     width: fit-content;
   }
-
   .navbar-collapse {
     width: fit-content !important;
   }
-
   .navbar-nav {
     margin-left: 5px !important;
     margin-right: 5px !important;
   }
-
   .nav-list {
     padding-bottom: 8px !important;
     padding-top: 8px !important;
   }
-  
   .search-form {
     display: none !important;
   }
-
   #subscribe-section {
     display: none;
   }
-
   #section {
     width: 50%;
   }
-
   #about {
     width: 100%;
   }
-
+  .px-none {
+    padding: 1% 0 !important;
+  }
   .back-to-top {
     display: none;
   }
-
   .mobile-menu-bar {
-    display: none;
     width: 75%;
     position: fixed;
     left: 0;
@@ -112,131 +100,117 @@
     overflow-x: hidden;
     overflow-y: scroll;
   }
-  
+  .slide-in-menu {
+    left: -100%; /* Hide the menubar off the left side of the screen */
+    transition: left 0.5s ease-out; /* Add a transition effect */
+  }
+  .slide-in-menu.show {
+    left: 0; /* Show the menubar */
+  }
   .mobile-menu-bar::-webkit-scrollbar {
     width: 5px;
   }
-
   .mobile-menu-bar::-webkit-scrollbar-thumb {
     background: rgba(174, 174, 174, 0.586);
   }
-
   hr {
     background-color: inherit !important;
   }
-
   .dropdown-divider {
     height: 0 !important;
     margin: 10px 0 !important;
     opacity: 0.15 !important;
     border-top: 1px solid rgba(44, 44, 44, 0.648) !important;
   }
-
   .mb-user-div {
     width: 100%;
     position: relative;
     background-color: rgba(25, 0, 35, 0.523)!important;
+    padding: 5% 4% 0 8%;
   }
-  
-  .menubar-close {
-    position: absolute;
-    top: 2px;
-    right: 7px;
-  }
-  
   .mb-user-icon-div {
     background-color: white !important;
     width: fit-content;
-    margin: 13px 65% 13px 7%;
     padding: 1% 5%;
     border-radius: 5px;
     box-shadow: 0 0 4px rgba(244, 244, 244, 0.675);
   }
-  
   .user-icon {
     font-size: 20px;
   }
-
   .user-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2% 4%;
+    padding: 4% 4% 3% 0;
     font-size: 16px;
     color: white;
   }
-
-  .user {
-    padding: 0 5%;
-  }
-
   .user-right-arrow {
     padding: 0 5%;
   }
-  
   .mb-new-user {
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 3%;
   }
-
   .mb-new-user h5 {
     font-size: 14px;
     color: whitesmoke;
   }
-
   .sign-up-or-login {
     display: flex;
-    justify-content: center;
   }
-
-  .sign-up-or-login .btn {
-    margin: 1% 3%;
+  .mb-user-i {
+    text-decoration: none;
+    color: rgb(230, 230, 230);
+    font-size: 10px;
+    padding: 5px 10px;
   }
-
   .mb-product-selection-div {
     width: 100%;
   }
-
   .mb-menu-mens-list , .mb-menu-womens-list , .mb-menu-kids-list , .mb-menu-characters-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
     font-weight: 700;
-    padding: 8px 12px 8px 18px;
+    padding: 0 12px 0 18px;
   }
-
-  .mb-product-selection-div p , ul {
+  .mb-product-selection-div p {
     margin-bottom: 0 !important;
+    width: 100px;
+    padding-left: 5px;
   }
-
   .mb-product-selection-div ul {
     padding-left: 0 !important;
+    margin-bottom: 0 !important;
   }
-
   .mens-menu-list-items , .down-arrow , .womens-menu-list-items , .kids-menu-list-items , .char-menu-list-items {
     display: none;
   }
-
+  .right-arrow {
+    display: block;
+  }
   .mens-menu-list-items , .womens-menu-list-items , .kids-menu-list-items , .char-menu-list-items {
     padding: 8px 0 8px 25px;
     font-size: 13px;
     font-weight: 500;
   }
-
   .mb-profile-selection-div {
     width: 100%;
   }
-
+  .arrow {
+    padding: 8px 15px;
+  }
   .pf-menu-list-items {
     font-size: 14px;
     font-weight: 500;
     padding: 8px 12px 8px 18px;
     list-style-type: none;
   }
-
   .mobile-footer-menu-bar {
     width: 100%;
     position: fixed;
@@ -270,6 +244,11 @@
   }
   .mb-explore-icon {
     font-size: 13px;
+  }
+  .mb-tees-intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -330,7 +309,136 @@
     justify-content: center;
   }
 
-  .mobile-menu-bar , .mb-product-selection-div , .mb-user-div , .mb-profile-selection-div , .mobile-footer-menu-bar {
+  .mobile-menu-bar , .mb-product-selection-div , .mb-user-div , .mb-profile-selection-div , .mobile-footer-menu-bar , .mb-tees-intro {
     display: none;
+  }
+  .home-tees-cat-list {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    display: flex;
+    padding-top: 1.3%;
+  }
+  .row-card {
+    display: flex;
+    width: 33.33%;
+  }
+  .home-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 4%;
+    cursor: pointer;
+  }
+  .home-card-img {
+    width: 100%;
+  }
+  .home-card-img img {
+    width: 100%;
+  }
+  .home-tees-card-details {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    right: 5%;
+    padding: 1%;
+    background-color: rgba(186, 26, 26, 0.941);
+    border-radius: 2px;
+  }
+  .home-tees-card-details span {
+    display: block;
+    color: rgba(236, 235, 235, 0.847);
+    text-shadow: 1px 1px 5px solid whitesmoke;
+    text-align: center;
+  }
+  .tees-dt-hd {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 992px) {
+  .home-tees-cat-list {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    display: flex;
+    padding-top: 1.3%;
+  }
+  .row-card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+  }
+  .home-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 4%;
+    cursor: pointer;
+  }
+  .home-card-img img {
+    width: 100%;
+  }
+  .home-tees-card-details {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    right: 5%;
+    padding: 1%;
+    background-color: rgba(186, 26, 26, 0.93);
+    border-radius: 3px;
+  }
+  .home-tees-card-details span {
+    display: block;
+    color: rgba(236, 235, 235, 0.847);
+    text-shadow: 1px 1px 5px solid whitesmoke;
+    text-align: center;
+    font-size: 10px;
+  }
+  .tees-dt-hd {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .home-tees-cat-list {
+    font-family: 'Raleway', sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.3%;
+  }
+  .row-card {
+    display: flex;
+    width: 100%;
+  }
+  .home-card {
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 2%;
+    cursor: pointer;
+  }
+  .home-card-img img {
+    width: 100%;
+  }
+  .home-tees-card-details {
+    position: absolute;
+    bottom: 3%;
+    left: 5%;
+    right: 5%;
+    padding: 1%;
+    background-color: rgba(186, 26, 26, 0.93);
+    border-radius: 3px;
+  }
+  .home-tees-card-details span {
+    display: block;
+    color: rgba(236, 235, 235, 0.847);
+    text-shadow: 1px 1px 5px solid whitesmoke;
+    text-align: center;
+    font-size: 8px;
+  }
+  .tees-dt-hd {
+    font-size: 11px !important;
   }
 }

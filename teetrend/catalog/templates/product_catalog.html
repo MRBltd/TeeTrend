@@ -42,11 +42,11 @@
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 tees-desktop-viewport">
         <li class="dropdown nav-item">
-          <a class="nav-link fw-bold text-uppercase text-dark nav-list" aria-current="page" href="#">Shop</a>
+          <a class="nav-link nav-list shop-tees" aria-current="page" href="#">Shop</a>
           <ul class="dropdown-menu ms-2">
             <div class="list-item">
               <div class="mx-2">
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?category=MT">Men</a></li>
+                <li><a class="dropdown-header shop-tees-list" href="{% url 'tshirt_list' %}?category=MT">Men</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=PN">Polo Neck</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=HS">Half Sleeves</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=HLN">Henley Neck</a></li>
@@ -58,10 +58,10 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=MT&subcategory=CBT">Colorblock T-Shirts</a></li>
               </div>
               <div class="mx-2">
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?category=WT">Women</a></li>
-                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=PLN">Plunge Neck</a></li>
+                <li><a class="dropdown-header shop-tees-list" href="{% url 'tshirt_list' %}?category=WT">Women</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=HS">Half Sleeves</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CS">Cold Shoulder</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=OS">Off Shoulder</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=HD">Hoodies</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=SL">Sleeveless</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=SW">Sweatshirts</a></li>
@@ -69,8 +69,8 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=PT">Printed T-Shirts</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CBT">Colorblock T-Shirts</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=HN">High Neck</a></li>
-                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CT">Collared T-shirts</a></li>
-                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=BW">Basic White T-Shirts</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=PN">Polo Neck</a></li>
+                <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=WT">White T-Shirts</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=BT">Boyfriend tees</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=VN">V-Neck</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=ST">Striped T-Shirts</a></li>
@@ -79,7 +79,7 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=WT&subcategory=CN">Crew Neck</a></li>
               </div>
               <div class="mx-2">
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?category=KT">Kids</a></li>
+                <li><a class="dropdown-header shop-tees-list" href="{% url 'tshirt_list' %}?category=KT">Kids</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=PN">Polo Neck</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=VN">V-Neck</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=HLN">Henley Neck</a></li>
@@ -91,7 +91,7 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?category=KT&subcategory=DB">Douche Bag <br> Neck T-shirt</a></li>
               </div>
               <div class="mx-2">
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold">Cloth Materials</a></li>
+                <li><a class="dropdown-header shop-tees-list">Cloth Materials</a></li>
                 <li><a class="dropdown-item" href="#">Pure Cotton</a></li>
                 <li><a class="dropdown-item" href="#">Cotton Blend</a></li>
                 <li><a class="dropdown-item" href="#">Wool Blend</a></li>
@@ -102,11 +102,11 @@
           </ul>
         </li>          
         <li class="dropdown nav-item">
-          <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="{% url 'tshirt_list' %}?category=CT">Characters</a>
+          <a class="nav-link nav-list cat-tees" href="{% url 'tshirt_list' %}?category=CT">Characters</a>
           <ul class="dropdown-menu ms-2">
             <div class="list-item">
               <div class="mx-2">
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=MR">Marvel</a></li>
+                <li><a class="dropdown-header cat-tees-list" href="{% url 'tshirt_list' %}?characters=MR">Marvel</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=AVM">Avengers</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=SMM">Spider-Man</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=IMM">Iron Man</a></li>
@@ -127,7 +127,7 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MR&marvel_subcategory=EM">Eternals</a></li>
               </div>
               <div class="mx-2">
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=DC">dc comics</a></li>
+                <li><a class="dropdown-header cat-tees-list" href="{% url 'tshirt_list' %}?characters=DC">dc comics</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=BBD">Blue Beetle</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=JLD">Justice League</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=BMD">Batman</a></li>
@@ -141,7 +141,7 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=HQD">Harley Quinn</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=BAD">Black Adam</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=DC&dc_comics_subcategory=SSD">Suicide Squad</a></li>
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=MS">Movies & tv</a></li>
+                <li><a class="dropdown-header cat-tees-list" href="{% url 'tshirt_list' %}?characters=MS">Movies & tv</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=HPM">Harry Potter</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=FM">Friends</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=SWM">star Wars</a></li>
@@ -151,7 +151,7 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=HDM">House of the Dragon</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=GTM">Game of Thrones</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=MS&movies_tv_subcategory=LKM">The Lion King</a></li>
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=CA">Cartoons / anime</a></li>
+                <li><a class="dropdown-header cat-tees-list" href="{% url 'tshirt_list' %}?characters=CA">Cartoons / anime</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SNC">Snoopy</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=RMC">Rick and Morty</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=LTC">Looney Tunes</a></li>
@@ -177,7 +177,7 @@
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=LKC">Little Krishna</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=SC">Shiva</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=CA&cartoons_anime_subcategory=DEC">Dora the Explorer</a></li>
-                <li><a class="dropdown-header nav-link nav-sub-headline ms-2 text-uppercase text-danger fw-bold" href="{% url 'tshirt_list' %}?characters=WS">Web series</a></li>
+                <li><a class="dropdown-header cat-tees-list" href="{% url 'tshirt_list' %}?characters=WS">Web series</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=STW">Stranger Things</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=WW">Wednesday</a></li>
                 <li><a class="dropdown-item" href="{% url 'tshirt_list' %}?characters=WS&web_series_subcategory=NHW">Never Have I Ever</a></li>
@@ -191,11 +191,11 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link fw-bold text-uppercase text-dark nav-list" href="#">About</a>
+          <a class="nav-link nav-list" href="#">About</a>
         </li>
       </ul>
       <form class="search-form">
-        <input class="form-control me-2 small-font" type="search" placeholder="Search for T-Shirt , brand and more" aria-label="Search">
+        <input class="form-control me-2 small-font" type="search" placeholder="Search for T-Shirt , brand and more" aria-label="Search" name="q">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <ul class="list-unstyled mb-2 mb-lg-0 tees-desktop-viewport">
@@ -209,28 +209,28 @@
               <div id="login-div">
                 <div class="login-details">
                   {% if accts %}
-                    <h5>{{ accts.full_name }}</h5>
+                    <p>{{ accts.full_name }}</p>
                     <p>{{ accts.phone_number }}</p>
                   {% else %}
-                    <h5>Welcome to T<span class="text-warning">&#600;&#600;</span>Trend</h5>
+                    <h5>Welcome to T<span class="text-warning">&#600;e</span>Trend</h5>
                   {% endif %}
                   {% if 'user_id' in request.session %}
                     <hr class="dropdown-divider">
                     <ul class="list-unstyled">
-                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
-                      <li class="profile-items">Your Orders</li>
-                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Account</li>
+                      <li class="profile-items">Orders</li>
+                      <li class="profile-items">Whish List</li>
                       <li class="profile-items">Contact Us</li>
                       <li class="profile-items" onclick="location.href='{% url "logout" %}'">Sign Out</li>
                     </ul>
                   {% else %}
-                    <button class="btn btn-success fw-bold" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
-                    <button class="btn btn-info fw-bold" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
+                    <button class="btn-ul-tees btn-in" onclick="location.href='{% url "sign_in" %}'">Sign In</button>
+                    <button class="btn-ul-tees btn-up" onclick="location.href='{% url "sign_up" %}'">Sign Up</button>
                     <hr class="dropdown-divider">
                     <ul class="list-unstyled">
-                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Your Account</li>
-                      <li class="profile-items">Your Orders</li>
-                      <li class="profile-items">Your Whish List</li>
+                      <li class="profile-items" onclick="location.href='{% url "account" %}'">Account</li>
+                      <li class="profile-items">Orders</li>
+                      <li class="profile-items">Whish List</li>
                       <li class="profile-items">Contact Us</li>
                     </ul>
                   {% endif %}
@@ -258,7 +258,7 @@
     </div>
   </nav>
 
-  <div class="mobile-menu-bar">
+  <div class="mobile-menu-bar slide-in-menu">
     <div class="mb-user-div">
       {% if 'user_id' in request.session %}
         <span class="menubar-close close-menu">
@@ -316,9 +316,9 @@
           <span class="womens-right-arrow right-arrow"><i class="fa fa-angle-right"></i></span>
           <span class="womens-down-arrow down-arrow"><i class="fa fa-angle-down"></i></span>
         </div>
-        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=PLN'">Plunge Neck</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HS'">Half Sleeves</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CS'">Cold Shoulder</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=OS'">Off Shoulder</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HD'">Hoodies</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=SL'">Sleeveless</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=SW'">Sweatshirts</li>
@@ -326,8 +326,8 @@
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=PT'">Printed T-Shirts</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CBT'">Colorblock T-Shirts</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=HN'">High Neck</li>
-        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=CT'">Collared T-shirts</li>
-        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=BW'">Basic White T-Shirts</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=PN'">Polo Neck</li>
+        <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=WT'">White T-Shirts</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=BT'">Boyfriend tees</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=VN'">V-Neck</li>
         <li class="womens-menu-list-items close-menu" onclick="location.href='{% url 'tshirt_list' %}?category=WT&subcategory=ST'">Striped T-Shirts</li>
@@ -377,14 +377,13 @@
   
 {% block content %}{% endblock  %}
 
-  <div class="container close-menu">
+  <div class="container-fluid close-menu" style="padding: 0;">
     <footer>
       <div class="row">
         <div id="about">
           <h6 class="footer-sub-headline mb-4">About</h6>
           <p style="font-size: 12px;">Teetrend is a one-stop online destination for all your T-shirt needs. We offer a wide range of trendy and comfortable T-shirts designed to suit every individual’s unique style. Our collection includes a variety of designs, from classic solids and stripes to quirky prints and graphics.<a href="#" class="footer-link text-danger">Show More</a></p>
         </div>
-
         <div id="section">
           <h6 class="footer-sub-headline mb-4">Online Shopping</h6>
           <ul class="footer flex-column">
@@ -394,7 +393,6 @@
             <li class="footer-item mb-2"><a href="{% url 'tshirt_list' %}?category=CT" class="footer-link footer-section-list">Characters</a></li>
           </ul>
         </div>
-  
         <div id="section">
           <h6 class="footer-sub-headline mb-4">Contact Us</h6>
             <p class="footer-adr" style="font-size: 12px; margin: 0; padding: 0;">MRB Technologies Private Limited,</p>
@@ -403,7 +401,6 @@
             <p class="footer-adr" style="font-size: 12px; margin: 0; padding: 0;">Email address : </p>
             <p class="footer-adr" style="font-size: 12px; margin: 0; padding: 0;">© 2015-2023 TeeTrend.com</p>
         </div>
-
         <div id="section">
           <h6 class="footer-sub-headline mb-4">customer policies</h6>
           <ul class="footer flex-column">
@@ -415,7 +412,6 @@
             <li class="footer-item mb-2"><a href="#" class="footer-link footer-section-list">Privacy Policy</a></li>
           </ul>
         </div>
-  
         <div id="subscribe-section">
           <form>
             <h6>Subscribe to know our new updates</h6>
@@ -428,17 +424,15 @@
           </form>
         </div>
       </div>
-  
-      <div class="d-flex flex-column align-items-center py-4 my-4 border-top">
+      <div class="d-flex flex-column align-items-center border-top">
         <p>© 2021 Company, Inc. All rights reserved.</p>
         <ul class="list-unstyled d-flex">
-          <li class="mx-3"><a class="fa fa-facebook text-decoration-none text-primary" href="#"></a></li>
-          <li class="mx-3"><a class="fa fa-twitter text-decoration-none text-info" href="#"></a></li>
-          <li class="mx-3"><a class="fa fa-instagram text-decoration-none text-danger" href="#"></a></li>
+          <li class="mx-3"><a class="fab fa-facebook text-decoration-none text-primary" href="#"></a></li>
+          <li class="mx-3"><a class="fab fa-twitter text-decoration-none text-info" href="#"></a></li>
+          <li class="mx-3"><a class="fab fa-instagram text-decoration-none text-danger" href="#"></a></li>
         </ul>
       </div>
-
-      <div class="py-4 my-4 border-top back-to-top">
+      <div class="py-3 border-top back-to-top">
         <button class="btn btn-dark" id="back-to-top" style="font-size: 10px;">Back To Top</button>
       </div>
     </footer>

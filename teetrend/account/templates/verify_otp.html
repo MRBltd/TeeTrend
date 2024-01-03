@@ -6,8 +6,12 @@
 <div class="container-fluid">
   <div class="verify-otp-section">
     <div class="verify-otp">
-      <a class="navbar-brand fw-bold text-primary fs-2 ms-5" href="{% url "home" %}">T<span class="text-warning">&#600;&#600;</span>Trend</a>
+      <a class="navbar-brand fw-bold text-primary ms-5" href="{% url "home" %}">T<span class="text-warning">e&#600;</span>Trend</a>
+      {% if verify_otp %}
       <h5>SIGN UP</h5>
+      {% elif sign_in_verify_otp %}
+      <h5>SIGN IN</h5>
+      {% endif %}
       {% if messages %}
       <ul class="messages">
           {% for message in messages %}
@@ -18,7 +22,7 @@
       <form action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}     
-        <button class="btn btn-primary">Verify OTP</button>
+        <button class="btn-l">Verify OTP</button>
       </form>
     </div>
   </div>

@@ -4,15 +4,14 @@
 {% block content %}
 
 {% load static %}
-<body>
-  <div class="container">
+  <div class="container close-menu" style="padding: 0;">
     <div class="account-settings">
       {% if accts %}
       <div class="row">
         <h6 class="fw-bold m-0">Account</h6>
         <p class="hd">{% if accts.full_name %} {{ accts.full_name }} {% else %}- not added -{% endif %}</p>
         <hr style="border-top: 1px solid black; margin: 0;">
-        <div class="col-lg-2 no-gutters">
+        <div class="col-lg-2 no-gutters p-0">
           <div class="tees-row">
             <div class="col tees-info no-gutters px-2 py-4">
               <a class="hd-overview" href="#">Overview</a>
@@ -75,5 +74,4 @@
       {% endif %} 
     </div>
   </div>
-</body>
 {% endblock %}

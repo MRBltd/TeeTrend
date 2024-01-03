@@ -121,12 +121,4 @@ class TshirtDetailView(DetailView):
     context['movies_tv_subcategory'] = self.request.GET.get('movies_tv_subcategory')
     context['cartoons_anime_subcategory'] = self.request.GET.get('cartoons_anime_subcategory')
     context['web_series_subcategory'] = self.request.GET.get('web_series_subcategory')
-    print(Tshirt.get_full_name(Tshirt.CATEGORY_CHOICES, self.category))
-    print(Tshirt.get_full_name(Tshirt.SUBCATEGORIES, self.subcategory))
-    print(Tshirt.get_full_name(Tshirt.CHARACTERS_SUBCATEGORIES, self.characters))
-    print(Tshirt.get_full_name(Tshirt.MARVEL_SUBCATEGORIES, self.marvel_subcategory))
-    print(Tshirt.get_full_name(Tshirt.DC_COMICS_SUBCATEGORIES, self.dc_comics_subcategory))
-    print(Tshirt.get_full_name(Tshirt.MOVIES_TV_SUBCATEGORIES, self.movies_tv_subcategory))
-    print(Tshirt.get_full_name(Tshirt.CARTOONS_ANIME_SUBCATEGORIES, self.cartoons_anime_subcategory))
-    print(Tshirt.get_full_name(Tshirt.WEB_SERIES_SUBCATEGORIES, self.web_series_subcategory))
     return context

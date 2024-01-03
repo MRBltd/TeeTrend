@@ -6,12 +6,12 @@
 <div class="container-fluid">
   <div class="sign-up-section">
     <div class="sign-up">
-      <a class="navbar-brand fw-bold text-primary fs-2 ms-5" href="{% url "home" %}">T<span class="text-warning">&#600;&#600;</span>Trend</a>
+      <a class="navbar-brand fw-bold text-primary ms-5" href="{% url "home" %}">T<span class="text-warning">e&#600;</span>Trend</a>
       <h5>SIGN UP</h5>
       <form class="sign-up-form" action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
-        <button class="btn btn-info fw-bold">Sign Up</button>
+        <button class="btn-up">Sign Up</button>
       </form>
     </div>
   </div>

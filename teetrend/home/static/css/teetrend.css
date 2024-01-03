@@ -4,16 +4,10 @@ body {
   overflow-x: hidden;
   cursor: default !important;
 }
-
 p::selection  , h1::selection , h2::selection , h3::selection , h4::selection , h5::selection , h6::selection , span::selection , li::selection , a::selection {
-  background-color: rgba(215, 215, 0, 0.69);
+  background-color: rgb(0, 13, 255);
+  color: white;
 }
-
-/* Resetting container-fluid margin */
-.container-fluid {
-  margin: 0;
-}
-
 .navbar {
   box-shadow: 0 2px 10px rgb(231, 231, 231);
   background-color: white;
@@ -21,42 +15,54 @@ p::selection  , h1::selection , h2::selection , h3::selection , h4::selection , 
 .navbar-toggler {
   border: 1px solid rgba(82, 82, 82, 0.516) !important;
 }
-
 .navbar-toggler:focus {
   box-shadow: none !important;
 }
-
+.nav-list {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black !important;
+}
 /* Styling for profile login details */
 .profile .login-details {
   font-size: 15px;
   font-weight: 700;
 }
-
 .list-item {
   display: flex;
 }
-
 /* Styling for navigation sub-headline */
 .nav-sub-headline {
   font-size: 11px;
 }
-
 /* Displaying dropdown menu on hover */
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
+.shop-tees-list {
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: red !important;
+}
+.cat-tees-list {
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgb(206, 191, 21) !important;
+}
 /* Styling for dropdown items */
 .dropdown-item {
   font-size: 12px;
 }
-
 /* Styling for profile, wishlist, and bag items */
 .profile, .profile1, .whishlist, .whishlist1, .bag, .bag1 {
   font-size: 13px;
   font-weight: 500;
 }
-
 /* Styling for search form */
 .search-form {
   display: flex;
@@ -65,21 +71,34 @@ p::selection  , h1::selection , h2::selection , h3::selection , h4::selection , 
   min-width: 270px;
   flex-grow: 1;
 }
-
 .form-control {
   background-color: rgba(239, 239, 239, 0.436) !important;
 }
-
 .form-control:focus {
   box-shadow: none !important;
   background-color: white !important;
 }
-
 /* Adjusting font size for specific elements */
 .small-font {
   font-size: 14px !important;
 }
-
+.search-box {
+  width: max-content;
+  position: relative;
+  left: 50%;
+  top: 50px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 1px 1px 5px rgb(228, 228, 228);
+  padding: 10px !important;
+}
+#itemList {
+  padding: 0;
+  margin: 0;
+}
+#itemList li {
+  list-style-type: none;
+}
 .tees-pf-menu {
   width: 230px;
   text-align: start;
@@ -87,108 +106,117 @@ p::selection  , h1::selection , h2::selection , h3::selection , h4::selection , 
   margin-top: 50px !important;
   cursor: default !important;
 }
-
 /* Styling for login div */
 #login-div {
   padding: 0;
 }
-
+.btn-ul-tees {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 7px 5px;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
+.btn-up:hover {
+  background-color: rgb(1, 116, 165);
+  color: white;
+  border-radius: 2px;
+}
+.btn-in:hover {
+  background-color: rgb(1, 165, 1);
+  color: white;
+  border-radius: 2px;
+}
 /* Cursor styles for login details */
 .login-details p {
   cursor: pointer;
   margin-bottom: 0 !important;
+  width: fit-content;
+  font-size: 12px;
 }
-
 .login-details h5 {
+  font-size: 15px;
   cursor: text;
 }
-
 /* Cursor style for login details ul */
 .login-details ul {
   cursor: default;
 }
-
 /* Hiding dropdown toggle arrow */
 .dropdown-toggle::after {
   display: none !important;
 }
-
 /* Hover effect for profile link */
 .profile-link:hover {
   border-bottom: 4px solid red !important;
 }
-
 /* Styling for profile items */
 .profile-items {
-  color: rgb(120, 119, 119);
-  width: 130px;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: rgb(105, 105, 105);
+  width: 80px;
   padding: 4px 0 4px 8px;
   cursor: pointer;
 }
-
 /* Hover effect for profile items */
 .profile-items:hover {
+  font-size: 14px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: rgb(42, 40, 40);
-  font-weight: bold;
-  background-color: rgb(239, 238, 238);
 }
-
 /* Active state for profile items */
 .profile-items:active {
   border-bottom: 2px solid red;
 }
-
 /* Hover effect for nav item */
-.nav-item:hover .nav-list {
-  border-bottom: 3px solid red !important;
+.nav-item:hover .shop-tees {
+  border-bottom: 4px solid red !important;
 }
-
+.nav-item:hover .cat-tees {
+  border-bottom: 4px solid rgb(206, 191, 21) !important;
+}
 footer {
-  padding-top: 3.704%;
+  padding: 3.704% 3.704% 1% 3.704%;
+  background-color: rgb(250, 250, 250);
 }
-
 /* Hover effect for footer section list */
 .footer-section-list:hover {
   color: rgb(255, 0, 0);
   font-weight: 900;
 }
-
 .footer-section-list , .footer-adr {
   color: rgb(153, 153, 153);
 }
-
 /* Styling for footer sub-headline */
 .footer-sub-headline {
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 700;
 }
-
 /* Styling for footer section list */
 .footer-section-list {
   font-size: 12px;
 }
-
 /* Styling for footer */
 .footer {
   padding-left: 8px;
 }
-
 /* Styling for footer item */
 .footer-item {
   overflow: hidden;
   list-style: none;
 }
-
 /* Styling for footer links */
 .footer-link {
   text-decoration: none;
 }
-
 .modal-body {
   padding: 0 !important;
 }
-
 /* Styling for messages */
 .messages {
   transition: all ease-in-out 3s;
@@ -208,21 +236,17 @@ footer {
   z-index: 9999; /* Display on top */
   animation: slide-down 0.4s forwards;
 }
-
 @keyframes slide-down {
   0% { transform: translateY(0); }
   100% { transform: translateY(100%); }
 }
-
 .slide-up {
   animation: slide-up 1.8s forwards;
 }
-
 @keyframes slide-up {
   0% { transform: translateY(0); top: 25px;}
   100% { transform: translateY(-100%); top: 0;}
 }
-
 .create-div {
   display: flex;
   flex-direction: column;
@@ -246,4 +270,60 @@ option {
 form-select::-webkit-scrollbar {
   width: 5px;
   height: 10px;
+}
+@keyframes colorchange {
+  0%   {background: red;}
+  25%  {background: yellow;}
+  50%  {background: blue;}
+  100% {background: green;}
+}
+#logo {
+  animation-name: colorchange;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#homepage {
+  transition: opacity 1s ease-out;
+}
+.home-carousel {
+  cursor: pointer;
+}
+.home-cat-hd {
+  margin-top: 1%;
+  background-image: linear-gradient(to right , rgb(202, 146, 146) , rgb(183, 133, 198) , rgb(202, 146, 146) , rgb(183, 133, 198) , rgb(202, 146, 146) , rgb(183, 133, 198) , rgb(202, 146, 146));
+  text-align: center;
+  padding: 1%;
+  font-size: 5vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: white;
+}
+.search-result {
+  position: fixed;
+  top: 70px;
+  left: 52%;
+  width: 400px;
+  height: 400px;
+  z-index: 1000;
+  background-color: white;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 10px;
+}
+#suggestions {
+  display: none;
+}
+.search-list {
+  list-style-type: none;
+  padding: 5px 0 5px;
+}
+.search-link {
+  text-decoration: none;
+  color: black;
+}
+.search-link:hover {
+  color: red;
 }

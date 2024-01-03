@@ -13,7 +13,6 @@
   .the-product-catalog {
     display: flex;
     flex-direction: column;
-    padding: 2%;
   }
   .tees-product {
     padding: 2% 0;
@@ -27,7 +26,6 @@
   .product-catalog-row {
     display: flex;
     flex-wrap: wrap;
-    padding: 1%;
   }
   .product-catalog-col {
     flex: 50%;
@@ -38,7 +36,6 @@
   .card {
     width: 100%;
     height: 305px;
-    border: 1px solid rgb(174, 174, 174) !important;
     border-radius: 0 !important;
     margin-top: 0;
     margin-bottom: 0;

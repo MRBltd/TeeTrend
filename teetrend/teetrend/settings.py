@@ -44,6 +44,13 @@ INSTALLED_APPS = [
     'home' ,
     'account' ,
     'catalog' ,
+    'rest_framework.authtoken' ,
+    'rest_framework_jwt' ,
+    'rest_framework_simplejwt' ,
+]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +62,14 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JWTAuthentication',
+        # other authentication classes if any
+    ),
+    # other settings
+}
 
 ROOT_URLCONF = 'teetrend.urls'
 

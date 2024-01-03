@@ -26,20 +26,32 @@ body {
 }
 .sign-in {
   padding: 30px 30px;
-  box-shadow: 1px 1px 10px rgb(4, 4, 4);
-  border-radius: 10px;
+}
+.sign-in:hover {
+  box-shadow: 1px 1px 5px rgb(213, 213, 213);
 }
 .sign-in h5 {
   /* color: rgb(213, 26, 26); */
   text-align: center;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 14px;
 }
 .sign-in-form {
   margin-top: 20px;
 }
-.btn {
+.btn-in {
   margin-left: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 7px 5px;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
+.btn-in:hover {
+  background-color: rgb(1, 165, 1);
+  color: white;
+  border-radius: 2px;
 }
 .messages {
   list-style-type: none;
@@ -52,4 +64,22 @@ body {
 }
 .forgot-password a {
   color: red;
+}
+.asteriskField {
+  display: none;
+}
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit !important;
+  margin-left: 10px;
+}
+.form-control {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  font-family: inherit !important;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  background-color: white !important;
 }

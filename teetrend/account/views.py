@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from .forms import UserAccountForm , VerifyOTPForm , SignInForm , EmailSignInForm , SignInOtpForm , deactivateOtpForm , EditProfileForm
+from .forms import UserAccountForm , EmailSignInForm , SignInOtpForm , deactivateOtpForm , EditProfileForm
 from .models import UserAccount
 from django.core.mail import send_mail
 import random
@@ -13,6 +13,14 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.utils.safestring import mark_safe
+from django.db import IntegrityError
+from django.utils import timezone
+from datetime import timedelta
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from django.contrib.auth import get_user_model
+from rest_framework_jwt.settings import api_settings
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 # The User entering details
@@ -42,21 +50,30 @@ def sign_up(request):
   if request.method == 'POST':
     form = UserAccountForm(request.POST)
     if form.is_valid():
-      phone_number = form.cleaned_data.get('phone_number')
       email = form.cleaned_data.get('email')
-      username = form.cleaned_data.get('username')
-      # Check if the phone number, email, or username already exist in the database
-      if UserAccount.objects.filter(phone_number=phone_number).exists():
-        form.add_error('phone_number', 'This phone number is already in use')
-      elif UserAccount.objects.filter(email=email).exists():
+      # Check if the email already exist in the database
+      if UserAccount.objects.filter(email=email).exists():
         form.add_error('email', 'This email is already in use')
-      elif UserAccount.objects.filter(username=username).exists():
-        form.add_error('username', 'This username is already in use')
+        return render(request, 'sign_up.html', {'form': form})
       else:
         otp = generate_otp() # The Generated otp will saving in otp named variable
+        print(otp)
         user = form.save(commit=False)
         user.otp = otp
-        user.save() # The otp saving in the database
+        try:
+          user.save() # The otp saving in the database
+          jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
+          jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER
+          payload = jwt_payload_handler(user)
+          token = jwt_encode_handler(payload)
+          print(token)
+          response = redirect('verify_otp')
+          response.set_cookie('user_id', user.id)  # sets a cookie
+          response.set_cookie('jwt', token)  # sets the jwt token as a cookie
+          return response
+        except IntegrityError:
+          form.add_error('email', 'An error occurred while saving the user')
+          return render(request, 'sign_up.html', {'form': form})
         # The otp sending at user email
         send_mail(
           'Your OTP for Registration',
@@ -64,7 +81,7 @@ def sign_up(request):
           'midhunbalachandran07@gmail.com',
           [email],
         )
-        messages.success(request , f'Your User name is {username}')
+        messages.success(request , f'Your User email is {email}')
         return redirect('verify_otp')
   else:
     form = UserAccountForm()
@@ -73,60 +90,56 @@ def sign_up(request):
 # The otp verification with email(the user enter the sign up email and otp for send the user email)
 def verify_otp(request):
   if request.method == 'POST':
-    form = VerifyOTPForm(request.POST)
+    form = SignInOtpForm(request.POST)
     if form.is_valid():
       otp = form.cleaned_data.get('otp')
-      email = form.cleaned_data.get('email')
       try:
-        user = UserAccount.objects.get(email=email)
+        user = UserAccount.objects.get(otp=otp)
         if user.otp == otp:
-          user.is_verified = True  # set is_verified to True
+          user.is_verified = True  
           user.save()  # save the change to the database
           request.session['user_id'] = user.id 
           messages.success(request, 'Logged in successfully')
           return redirect('home')
         else:
-          form.add_error('otp', 'Invalid OTP')
-      except UserAccount.DoesNotExist:
-        form.add_error('email', 'No user with this email exists')
+          form.add_error('otp', 'Invalid OTP.. Enter a correct OTP and click the sign in button')
+      except ObjectDoesNotExist:
+        form.add_error(None, 'Invalid OTP.. Enter a correct OTP and click the sign in button')
   else:
-    form = VerifyOTPForm()
+      form = SignInOtpForm()
   return render(request , 'verify_otp.html' , {'form' : form})
 
-# The user signin function (using username and password)
+# The user signin function (using email)
 def sign_in(request):
-  if request.method == 'POST':
-    form = SignInForm(request.POST)
-    if form.is_valid():
-      username = form.cleaned_data.get('username')
-      password = form.cleaned_data.get('password')
-      try:
-        user = UserAccount.objects.get(username=username, password=password)
-        request.session['user_id'] = user.id 
-        messages.success(request, 'Logged in successfully')
-        return redirect('home')
-      except UserAccount.DoesNotExist:
-        form.add_error(None, 'Invalid username or password')
-  else:
-    form = SignInForm()
-  return render(request, 'sign_in.html', {'form': form})
-
-# The siugi function using email
-def email_sign_in(request):
+  user_id = request.COOKIES.get('user_id')
   if request.method == 'POST':
     form = EmailSignInForm(request.POST)
     if form.is_valid():
       email = form.cleaned_data.get('email')
       user = UserAccount.objects.filter(email=email).first()
       if user:
+        # Check the number of sign-ins in the last 24 hours
+        # Check the number of sign-ins in the last 24 hours
+        one_day_ago = timezone.now() - timedelta(days=1)
+        recent_sign_ins = UserAccount.objects.filter(email=email, sign_in_timestamp__gte=one_day_ago).count()
+        print(recent_sign_ins)
+        if recent_sign_ins >= 5:
+          print('Hello..')
+          # Too many sign-ins
+          form.add_error('email', 'Too many sign-ins in the last 24 hours.')
+          return render(request, 'sign_in.html', {'form': form})
         otp = generate_otp() # The Generated otp will saving in otp named variable
         user.otp = otp
-        user.save() # The otp saving in the database
+        try:
+          user.save() # The otp saving in the database
+        except IntegrityError:
+          form.add_error('email', 'An error occurred while saving the user')
+          return render(request, 'sign_in.html', {'form': form})
         # The otp sending at user email
         send_mail(
           'Your OTP',
           f'Your OTP is {otp}',
-          'midhunbalachandran07@gmail.com',
+          'midhunbalachandran07@gmail.com' ,
           [user.email],
         )
         return redirect('sign_in_verify_otp')
@@ -134,7 +147,8 @@ def email_sign_in(request):
         form.add_error('email', 'No user with this email exists')
   else:
     form = EmailSignInForm()
-  return render(request, 'email_sign_in.html', {'form': form})
+  return render(request, 'sign_in.html', {'form': form})
+
 
 # The Otp verification 
 def sign_in_verify_otp(request):
@@ -156,7 +170,7 @@ def sign_in_verify_otp(request):
         form.add_error(None, 'Invalid OTP.. Enter a correct OTP and click the sign in button')
   else:
       form = SignInOtpForm()
-  return render(request, 'sign_in_verify_otp.html', {'form': form})
+  return render(request, 'verify_otp.html', {'form': form})
 
 # The Profile edit function
 def edit_profile(request):
@@ -181,11 +195,14 @@ def logout_view(request):
 
 # The function for  User complete the signup or signin the home page will make some changes
 def profile(request):
-  # accts = None
+  accts = None
   if 'user_id' in request.session:
     user_id = request.session['user_id']
-    accts = UserAccount.objects.get(id=user_id)
-  return render(request, 'teetrend.html', {'accts': accts})  
+    try:
+      accts = UserAccount.objects.get(id=user_id)
+    except UserAccount.DoesNotExist:
+      print("UserAccount does not exist")
+  return render(request, 'home.html', {'accts': accts})
 
 def account_deactivation_warning(request):
   return render(request , 'account_deletion.html')
