@@ -1,0 +1,40 @@
+{% extends "teetrend.html" %}
+{% block title %}Wishlist{% endblock  %}
+{% load static %}
+{% block content %}
+<h2>Wishlist</h2>
+<div class="wishlist-section">
+  {% for tshirt in wishlist.tshirts.all %}
+  <div class="product-wishlist-col">
+    <div class="wish-card" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">
+      <div class="wish-card-image">
+        <!-- Display top image with a link to t-shirt overview page -->
+        <img src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}" class="card-top-img" id="card-img{{ forloop.counter }}">
+        <div class="rating-review">
+          <span>4.3</span>
+          <span class="rating-star"><a class="fa fa-star" href="#"></a></span>
+          <span class="cross-linebreaks">|</span>
+          <span>750</span>
+        </div>
+      </div>
+      <div class="wish-card-body p-2">
+        <!-- Link to t-shirt overview page for product title and description -->
+        <p class="product-title">{{ tshirt.title }}</p>
+        <p class="product-name" title="{{ tshirt.name }}">{{ tshirt.name|truncatechars:35 }}</p>
+        <!-- Link to t-shirt overview page for product price, and discount -->
+        <div class="product-price-details">
+          <p class="product-price">&#8377;{{ tshirt.price }}</p>
+          <p class="product-retail-price">MRP <del>1400</del></p>
+          {% if tshirt.discount %}
+          <p class="product-discount">({{ tshirt.discount }}% OFF)</p>
+          {% endif %}
+        </div>
+        <div class="the-wish-remove">
+          <button class="wish-remove-btn" id="wish-remove" onclick="window.location.href='{% url 'remove_from_wishlist' tshirt.id %}'">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock  %}

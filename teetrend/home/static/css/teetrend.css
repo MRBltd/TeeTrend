@@ -327,3 +327,6 @@ form-select::-webkit-scrollbar {
 .search-link:hover {
   color: red;
 }
+.heart-filled {
+  fill: red;
+}

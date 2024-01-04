@@ -329,3 +329,24 @@ window.onunload = function() {
   document.getElementById('searchBox').value = '';
   document.getElementById('suggestions').innerHTML = '';
 }
+
+// Get all elements with class 'bi-heart'
+var hearts = document.querySelectorAll('.bi-heart');
+// Add a click event listener to each heart
+hearts.forEach(function(heart) {
+    heart.addEventListener('click', function() {
+        var tshirtId = this.getAttribute('data-tshirt-id');
+        // Create a new XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/tshirt/add_to_wishlist/' + tshirtId + '/');
+        // Setup the onload handler
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // On success, add the 'heart-filled' class
+                document.querySelector(".bi-heart[data-tshirt-id='" + tshirtId + "']").classList.add('heart-filled');
+            }
+        };
+        // Send the request
+        xhr.send();
+    });
+});

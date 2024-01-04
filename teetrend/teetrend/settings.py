@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'home' ,
     'account' ,
     'catalog' ,
+    'wishcart' ,
     'rest_framework.authtoken' ,
     'rest_framework_jwt' ,
     'rest_framework_simplejwt' ,

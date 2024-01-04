@@ -1,0 +1,32 @@
+.wishlist-section {
+  width: 100%;
+  display: flex;
+  padding: 2%;
+}
+.product-wishlist-col {
+  width: 16.2%;
+  padding: 1%;
+}
+.wish-card {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px rgb(227, 227, 227);
+}
+.wish-card-image {
+  position: relative;
+}
+.the-wish-remove {
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+}
+.wish-remove-btn {
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  padding: 2px;
+}
+.wish-remove-btn:hover {
+  background-color: red;
+  color: white;
+}
