@@ -12,6 +12,9 @@
 {% endblock %}
 {% load static %}
 {% block content %}
+<div class="modal-body">
+  <div class="wish-messages"></div>
+</div>
 <div class="container-fluid tees-product close-menu px-none">
   <div class="row-base">
     <!-- Breadcrumb navigation for better user navigation -->
@@ -115,14 +118,17 @@
       {% for tshirt in object_list %}
       <div class="product-catalog-col">
         <div class="card">
-          <div class="card-image" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">
+          <div class="card-image">
             <!-- Display top image with a link to t-shirt overview page -->
-            <img src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}" class="card-top-img" id="card-img{{ forloop.counter }}">
+            <img src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}" class="card-top-img" id="card-img{{ forloop.counter }}" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">
             <div class="rating-review">
               <span>4.3</span>
               <span class="rating-star"><a class="fa fa-star" href="#"></a></span>
               <span class="cross-linebreaks">|</span>
               <span>750</span>
+            </div>
+            <div class="mb-wishlist js-wishlist-tsm">
+              <span><i id="mb-wishlist-icon-{{ tshirt.id }}" class="fa fa-heart mb-wishlist-icon" data-tshirt-id="{{ tshirt_id }}"></i></span>
             </div>
           </div>
           <!-- Carousel for additional images -->
@@ -206,12 +212,12 @@
             <p class="product-title" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">{{ tshirt.title }}</p>
             <p class="product-name" title="{{ tshirt.name }}" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">{{ tshirt.name|truncatechars:35 }}</p>
             <!-- Wishlist link -->
-            <a href="{% url 'add_to_wishlist' tshirt.id %}" class="product-whishlist">
+            <div class="product-whishlist js-wishlist-tsm" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}">
               <!-- Heart icon for wishlist -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16" data-tshirt-id="{{ tshirt.id }}">
-                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
-              <span>Whishlist</span>
-            </a>
+              <span class="ds-wish-icon-1"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="far fa-heart ds-wishlist-icon-1" data-tshirt-id="{{ tshirt_id }}"></i></span>
+              <span class="ds-wish-icon-2" style="display: none;"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="fas fa-heart ds-wishlist-icon-2" data-tshirt-id="{{ tshirt_id }}"></i></span>
+              <span class="ds-wish-txt">Wishlist</span>
+            </div>
             <!-- Link to t-shirt overview page for product size, price, and discount -->
             <p class="product-size" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">Size: {{ tshirt.size }}</p>
             <div class="product-price-details" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">

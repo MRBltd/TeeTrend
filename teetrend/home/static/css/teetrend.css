@@ -330,3 +330,34 @@ form-select::-webkit-scrollbar {
 .heart-filled {
   fill: red;
 }
+.wish-messages {
+  display: none;
+  transition: all ease-in-out 3s;
+  width: fit-content;
+  list-style-type: none;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 7px;
+  margin: 0 auto;
+  position: fixed; /* Fixed at the top of the page */
+  top: 30px; /* Position from the top */
+  right: 30px; /* Center the element */
+  transform: translateX(-50%); /* Center the element */
+  z-index: 9999; /* Display on top */
+  animation: slide-down 0.4s forwards;
+  opacity: 1; /* Make sure the element is visible */
+}
+@keyframes slide-down {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+.wish-slide-up {
+  animation: slide-up 1.8s forwards;
+}
+@keyframes wish-slide-up {
+  0% { transform: translateY(0); top: 25px; opacity: 1; }
+  100% { transform: translateY(-100%); top: 0; opacity: 0; } 
+}

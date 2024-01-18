@@ -48,6 +48,18 @@
   .card-top-img {
     height: 210px !important;
   }
+  .card-image {
+    position: relative;
+  }
+  .mb-wishlist {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+  }
+  .mb-wishlist-icon {
+    font-size: 14px;
+    color: white;
+  }
   .card .carousel {
     display: none;
   }
@@ -124,6 +136,25 @@
   .tees-mobile-view-product-images {
     display: flex;
   }
+  .mb-the-move-to-bag {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    padding: 8px 10px;
+    z-index: 10000;
+    background-color: white;
+  }
+  .mb-move-to-bg-btn {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px 8px;
+    border-radius: 8px;
+  }
 }
 @media (min-width: 992px) {
   /* Hide profile mobile viewport elements on larger screens */
@@ -179,6 +210,16 @@
   }
   .card-top-img {
     height: 250px;
+  }
+  .mb-wishlist {
+    display: none;
+  }
+  .ds-wishlist-icon-1 {
+    font-size: 15px !important;
+  }
+  .ds-wishlist-icon-2 {
+    font-size: 15px;
+    color: red;
   }
   .rating-review {
     border-radius: 2px;
@@ -284,6 +325,9 @@
   }
   /* Hide mobile view product images on larger screens */
   .tees-mobile-view-product-images {
+    display: none;
+  }
+  .mb-the-move-to-bag {
     display: none;
   }
 }
