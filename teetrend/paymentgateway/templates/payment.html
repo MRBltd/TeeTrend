@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "css/teetrend.css" %}">
+  <link rel="stylesheet" href="{% static "css/cart.css" %}">
+  <link rel="stylesheet" href="{% static "css/wishcart.css" %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <title>PAYMENT</title>
+  <link rel="icon" type="image/png" href="{% static 'images/main/tees-favicon.png' %}" />
+</head>
+<body>
+  <div class="modal-body">
+    <div class="wish-messages"></div>
+  </div>
+  <header class="cart-header-nav">
+    <nav class="cart-navbar">
+      <div class="tees-icon"><span class="text-warning">&#600;e</span></div>
+      <div class="cart-list">
+        <ol class="cart-ol">
+          <li class="cart-list-items">Bag</li>
+          <li class="divider"></li>
+          <li class="cart-list-items">Address</li>
+          <li class="divider"></li>
+          <li class="cart-list-items active">Payment</li>
+        </ol>
+      </div>
+      <div class="the-sprite-secure">
+        <img src="{% static "images/sprite-secure.png" %}" alt="Secure-payment-icon">
+        <div class="secure-txt">100%  Secure</div>
+      </div>
+    </nav>
+  </header>
+  <div class="desktop-cart-container close-menu">
+    <div class="desktop-cart-block">
+      <div class="left-block">
+        {% for tshirt in cart.tshirts.all %}
+        <div class="cart-items-list tshirt-item-list" data-item-count="{{ cart.tshirts.count }}" data-price="{{ tshirt.price }}" data-retail-price="{{ tshirt.retail_price }}" data-discount="{{ tshirt.discount }}">
+        </div>
+        {% endfor %}
+        <button onclick="location.href='{% url "make_payment" %}'">Pay Now</button>
+      </div>
+      <div class="block-divider"></div>
+      <div class="right-block">
+        <div>
+          <div class="priceBlock-container">
+            <div class="priceBlock-header">Price Details (<span class="item-count"></span> <spna class="item-count-txt">items</span>)</div>
+            <div class="priceDetails-summary">
+              <div class="priceDetails-row">
+                <span>Total MRP</span>
+                <span class="priceDetails-value">
+                  <span class="total-retail-price-value"></span>
+                </span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Discount On MRP</span>
+                <span class="priceDetails-value">
+                  <span class="dst-value">
+                    <span>-</span>
+                    <span class="discount-price-value"></span>
+                  </span>
+                </span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Platform Fee</span>
+                <span class="platform-fee">free</span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Shipping Fee</span>
+                <span class="shopping-fee-details">
+                  <span class="less-min"><del>&#8377;40</del></span>
+                  <span class="greater-min">&#8377;</span>
+                  <span class="shipping-fee"></span>
+                </span>
+              </div>
+            </div>
+            <hr class="dropdown-divider">
+            <div class="total-price-content">
+              <div class="total-price-details">
+                <span>Total Amount</span>
+                <span class="total-amount">
+                  <span class="total-amount-value"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-loading-time">
+    <div class="spinner-border" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  
+  <script src="{% static "js/wishcart.js" %}"></script>
+</body>
+</html>

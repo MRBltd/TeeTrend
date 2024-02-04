@@ -11,4 +11,4 @@ class Wishlist(models.Model):
 
 class Cart(models.Model):
   user = models.ForeignKey(UserAccount , on_delete=models.CASCADE)
-  tshirts = models.ManyToManyField(Tshirt)    
+  tshirts = models.ManyToManyField(Tshirt)   

@@ -8,5 +8,5 @@ urlpatterns = [
   path('create/' , views.create_tshirt , name = 'create_tshirt') ,
   path('categories/' , views.categories , name = 'categories') ,
   path('tshirt/', TshirtListView.as_view(), name='tshirt_list') ,
-  path('tshirts/<int:pk>/', TshirtDetailView.as_view(), name='tshirt_detail') ,
+  path('tshirt/<int:pk>/', TshirtDetailView.as_view(), name='tshirt_detail') ,
 ]

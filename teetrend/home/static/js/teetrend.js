@@ -172,10 +172,10 @@ function handleAnimation(toggler) {
   });
 }
 // Use the function for the Men's and Women's sections
-handleAnimation(mensToggler);
-handleAnimation(womensToggler);
-handleAnimation(kidsToggler);
-handleAnimation(charToggler);
+if (mensToggler) handleAnimation(mensToggler);
+if (womensToggler) handleAnimation(womensToggler);
+if (kidsToggler) handleAnimation(kidsToggler);
+if (charToggler) handleAnimation(charToggler);
 
 let suggestions = {
   'men tshirts': 'product_catalog/tshirts/?category=MT',

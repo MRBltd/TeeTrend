@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'account' ,
     'catalog' ,
     'wishcart' ,
+    'paymentgateway' ,
     'rest_framework.authtoken' ,
     'rest_framework_jwt' ,
     'rest_framework_simplejwt' ,
@@ -164,3 +165,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STRIPE_PUBLISHABLE_KEY = 'my_publishable_key'
+STRIPE_SECRET_KEY = 'my_secret_key'

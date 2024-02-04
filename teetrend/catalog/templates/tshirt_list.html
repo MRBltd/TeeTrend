@@ -212,12 +212,20 @@
             <p class="product-title" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">{{ tshirt.title }}</p>
             <p class="product-name" title="{{ tshirt.name }}" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">{{ tshirt.name|truncatechars:35 }}</p>
             <!-- Wishlist link -->
-            <div class="product-whishlist js-wishlist-tsm" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}">
+            {% if 'user_id' in request.session %}
+            <div class="product-wishlist js-wishlist-tsm" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}" data-user-id="{{ user_id }}">
               <!-- Heart icon for wishlist -->
               <span class="ds-wish-icon-1"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="far fa-heart ds-wishlist-icon-1" data-tshirt-id="{{ tshirt_id }}"></i></span>
               <span class="ds-wish-icon-2" style="display: none;"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="fas fa-heart ds-wishlist-icon-2" data-tshirt-id="{{ tshirt_id }}"></i></span>
               <span class="ds-wish-txt">Wishlist</span>
             </div>
+            {% else %}
+            <div class="product-user-wishlist js-wishlist-tsm" onclick="window.open('{% url "sign_in" %}')">
+              <!-- Heart icon for wishlist -->
+              <span class="ds-user-wish-icon-1"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="far fa-heart ds-wishlist-icon-1" ></i></span>
+              <span class="ds-user-wish-txt">Wishlist</span>
+            </div>
+            {% endif %}
             <!-- Link to t-shirt overview page for product size, price, and discount -->
             <p class="product-size" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">Size: {{ tshirt.size }}</p>
             <div class="product-price-details" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">

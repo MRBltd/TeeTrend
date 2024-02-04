@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{% static "css/main_responsive.css" %}">
   <link rel="stylesheet" href="{% static "css/product_catalog.css" %}">
   <link rel="stylesheet" href="{% static "css/catalog_responsive.css" %}">
+  <link rel="stylesheet" href="{% static "css/wishcart.css" %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
@@ -219,7 +220,7 @@
                     <ul class="list-unstyled">
                       <li class="profile-items" onclick="location.href='{% url "account" %}'">Account</li>
                       <li class="profile-items">Orders</li>
-                      <li class="profile-items">Whish List</li>
+                      <li class="profile-items" onclick="location.href='{% url "wishlist_view" %}'">Wishlist</li>
                       <li class="profile-items">Contact Us</li>
                       <li class="profile-items" onclick="location.href='{% url "logout" %}'">Sign Out</li>
                     </ul>
@@ -230,7 +231,7 @@
                     <ul class="list-unstyled">
                       <li class="profile-items" onclick="location.href='{% url "account" %}'">Account</li>
                       <li class="profile-items">Orders</li>
-                      <li class="profile-items">Whish List</li>
+                      <li class="profile-items" onclick="location.href='{% url "wishlist_view" %}'">Wishlist</li>
                       <li class="profile-items">Contact Us</li>
                     </ul>
                   {% endif %}
@@ -240,14 +241,14 @@
           </a>          
         </li>        
         <li class="nav-item whishlist">
-          <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
+          <a href="{% url "wishlist_view" %}" class="nav-link text-dark d-flex flex-column align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
               <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/></svg>
             <span>Whishlist</span>
           </a>
         </li>
         <li class="nav-item bag">
-          <a href="#" class="nav-link text-dark d-flex flex-column align-items-center">
+          <a href="{% url "cart_view" %}" class="nav-link text-dark d-flex flex-column align-items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
               <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
             </svg>
@@ -450,6 +451,7 @@
 
   <script src="{% static "js/teetrend.js" %}"></script>
   <script src="{% static "js/product_catalog.js" %}"></script>
+  <script src="{% static "js/wishcart.js" %}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" integrity="sha512-TPh2Oxlg1zp+kz3nFA0C5vVC6leG/6mm1z9+mA81MI5eaUVqasPLO8Cuk4gMF4gUfP5etR73rgU/8PNMsSesoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>

@@ -28,6 +28,7 @@ def account(request):
   if 'user_id' in request.session:
     try:
       user_id = request.session['user_id']
+      print(user_id)
       accts = UserAccount.objects.get(id=user_id)  
       return render(request, 'account_details.html', {'accts': accts})
     except UserAccount.DoesNotExist:
@@ -189,8 +190,7 @@ def edit_profile(request):
 
 # The User logout function
 def logout_view(request):
-  if 'user_id' in request.session:
-      del request.session['user_id']
+  request.session.pop('user_id', None)
   return redirect('sign_in')
 
 # The function for  User complete the signup or signin the home page will make some changes

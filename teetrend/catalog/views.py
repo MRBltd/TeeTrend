@@ -63,6 +63,8 @@ class TshirtListView(ListView):
   def get_context_data(self, **kwargs):
     self.object_list = self.get_queryset()  # ensure get_queryset is called
     context = super().get_context_data(**kwargs)
+    user_id = self.request.session.get('user_id')
+    context['user_id'] = user_id
     context['category'] = Tshirt.get_full_name(Tshirt.CATEGORY_CHOICES, self.category)
     context['subcategory'] = Tshirt.get_full_name(Tshirt.SUBCATEGORIES, self.subcategory)
     context['characters'] = Tshirt.get_full_name(Tshirt.CHARACTERS_SUBCATEGORIES, self.characters)

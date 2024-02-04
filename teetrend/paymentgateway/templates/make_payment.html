@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make Payment</title>
+</head>
+<body>
+    <h1>Make a Payment</h1>
+    <form method="POST" action="{% url 'make_payment' %}">
+        {% csrf_token %}
+        <label for="amount">Amount:</label><br>
+        <input type="number" id="amount" name="amount" min="1" required><br>
+        <!-- Add your Stripe Elements here -->
+        <button type="submit">Submit Payment</button>
+    </form>
+</body>
+</html>

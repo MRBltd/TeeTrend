@@ -191,6 +191,7 @@ class Tshirt(models.Model):
 
   title = models.CharField(max_length=200)
   name = models.CharField(max_length=500)
+  retail_price = models.DecimalField(max_digits=10 , decimal_places=2)
   price = models.DecimalField(max_digits=5, decimal_places=2)
   image = models.ImageField(upload_to='products/')
   image1 = models.ImageField(upload_to='products/' , null=True, blank=True) # To store product 2nd image

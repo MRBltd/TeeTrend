@@ -1,77 +1,269 @@
-{% extends "teetrend.html" %}
-{% block title %}Cart{% endblock  %}
 {% load static %}
-{% block content %}
-<div class="modal-body">
-  <div class="wish-messages"></div>
-</div>
-{% comment %} {% if 'user_id' in request.session %}
-{% if tshirt %}
-  <div class="wishlist-count-value">
-    <span>No. of items : {{ count }}</span>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static "css/teetrend.css" %}">
+  <link rel="stylesheet" href="{% static "css/cart.css" %}">
+  <link rel="stylesheet" href="{% static "css/wishcart.css" %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <title>CART</title>
+  <link rel="icon" type="image/png" href="{% static 'images/main/tees-favicon.png' %}" />
+</head>
+<body>
+  <div class="modal-body">
+    <div class="wish-messages"></div>
   </div>
-{% endif %}
-{% endif %} {% endcomment %}
-<div class="wishcart-section close-menu">
-  {% if 'user_id' in request.session %}
-  {% for tshirt in cart.tshirts.all %}
-  <div class="product-wishcart-col">
-    <div class="wish-cart-card">
-      <div class="wish-cart-card-image">
-        <!-- Display top image with a link to t-shirt overview page -->
-        <img src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}" class="card-top-img" id="card-img{{ forloop.counter }}" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">
-        <div class="wish-cart-remove-icon js-cart-remove-icon" data-tshirt-id="{{ tshirt.id }}">
-          <span>X</span>
-        </div>
-        <div class="rating-review">
-          <span>4.3</span>
-          <span class="rating-star"><a class="fa fa-star" href="#"></a></span>
-          <span class="cross-linebreaks">|</span>
-          <span>750</span>
-        </div>
+  <header class="cart-header-nav">
+    <nav class="cart-navbar">
+      <div class="tees-icon"><span class="text-warning">&#600;e</span></div>
+      <div class="cart-list">
+        <ol class="cart-ol">
+          <li class="cart-list-items active">Bag</li>
+          <li class="divider"></li>
+          <li class="cart-list-items">Address</li>
+          <li class="divider"></li>
+          <li class="cart-list-items">Payment</li>
+        </ol>
       </div>
-      <div class="wish-cart-card-body p-2" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">
-        <!-- Link to t-shirt overview page for product title and description -->
-        <p class="product-title ">{{ tshirt.title }}</p>
-        <p class="product-name" title="{{ tshirt.name }}">{{ tshirt.name|truncatechars:35 }}</p>
-        <!-- Link to t-shirt overview page for product price, and discount -->
-        <div class="product-price-details">
-          <p class="product-price">&#8377;{{ tshirt.price }}</p>
-          <p class="product-retail-price">MRP <del>1400</del></p>
-          {% if tshirt.discount %}
-          <p class="product-discount">({{ tshirt.discount }}% OFF)</p>
+      <div class="the-sprite-secure">
+        <img src="{% static "images/sprite-secure.png" %}" alt="Secure-payment-icon">
+        <div class="secure-txt">100%  Secure</div>
+      </div>
+    </nav>
+  </header>
+  {% if 'user_id' in request.session %}
+  {% if cart.tshirts.all %}
+  <div class="desktop-cart-container close-menu">
+    <div class="desktop-cart-block">
+      <div class="left-block">
+        <div class="address-base-container">
+          {% if address %}
+          <div class="base-address-panel">
+            <div class="address-base-title">
+              <div class="address-base-addressName">
+                Deliver to: 
+                <span class="address-base-highlight">{{ name }}</span>
+                <span class="address-base-highlight"></span>
+              </div>
+              <div class="address-base-subtxt">{{ address }}</div>
+            </div>
+            <div class="address-base-button">
+              <button class="c-address" onclick="window.open('{% url "edit_profile" %}' , 'blank')">Change address</button>
+            </div>
+          </div>
+          {% else %}
+          <div class="addressList-addBlock">
+            <div class="add-address-btn" onclick="window.open('{% url "edit_profile" %}' , 'blank')">+ Add New Address</div>
+          </div>
           {% endif %}
         </div>
+        {% for tshirt in cart.tshirts.all %}
+        <div class="cart-items-list" data-item-count="{{ cart.tshirts.count }}" data-price="{{ tshirt.price }}" data-retail-price="{{ tshirt.retail_price }}" data-discount="{{ tshirt.discount }}">
+          <div class="cart-items-list-container">
+            <div class="cart-items-list-left">
+              <div class="cart-list-img">
+                <img src="{{ tshirt.image.url }}" alt="" onclick="location.href='{% url "tshirt_detail" tshirt.id %}'">
+              </div>
+            </div>
+            <div class="cart-items-list-right">
+              <div class="cartItems-list-details">
+                <div class="cart-items-list-title">
+                  <span class="cart-title">{{ tshirt.title }}</span>
+                </div>
+                <div class="cart-items-list-name" onclick="location.href='{% url "tshirt_detail" tshirt.id %}'">
+                  <span class="cart-name">{{ tshirt.name }}</span>
+                </div>
+                <div class="cart-item-sellerData">
+                  <span class="item-sellerData">Sold by :{{ tshirt.brand }}</span>
+                </div>
+                <div class="cartItems-list-sizeAndQty">
+                  <div class="cartItems-list-size">
+                    <span class="size-selector-txt">Size:</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3" class="itemComponents-base-dropDown"><path fill-rule="evenodd" d="M0 0h6L3 3z"></path></svg>
+                  </div>
+                  <div class="cartItems-list-Qty">
+                    <span class="Qty-selector-txt">Qty:</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="3" viewBox="0 0 6 3" class="itemComponents-base-dropDown"><path fill-rule="evenodd" d="M0 0h6L3 3z"></path></svg>
+                  </div>
+                </div>
+                <div class="carItems-list-priceAnddst">
+                  <div class="cartItems-price">
+                    <span>&#8377;{{ tshirt.price }}</span>
+                  </div>
+                  <div class="cartItems-retailPrice">
+                    <span><del>&#8377;{{ tshirt.retail_price }}</del></span>
+                  </div>
+                  {% if tshirt.discount %}
+                  <div class="cartItems-dst">
+                    <span>{{ tshirt.discount }}% OFF</span>
+                  </div>
+                  {% endif %}
+                </div>
+                <div class="carItems-replaceDelivery">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.63639 6.99013C6.84386 7.1976 6.84386 7.53397 6.63639 7.74143L5.7725 8.60533H8.27232C9.21251 8.60533 9.97949 7.84333 9.97949 6.89824C9.97949 5.95914 9.21859 5.19824 8.27949 5.19824H6.89116C6.59776 5.19824 6.35991 4.96039 6.35991 4.66699C6.35991 4.37359 6.59776 4.13574 6.89116 4.13574H8.27949C9.80539 4.13574 11.042 5.37234 11.042 6.89824C11.042 8.43232 9.79722 9.66783 8.27241 9.66783H5.77242L6.63639 10.5318C6.84386 10.7393 6.84386 11.0756 6.63639 11.2831C6.42893 11.4906 6.09256 11.4906 5.88509 11.2831L4.11426 9.51227C4.0417 9.43971 3.99452 9.35138 3.97271 9.25831C3.96352 9.21922 3.95866 9.17846 3.95866 9.13658C3.95866 9.05996 3.97488 8.98713 4.00407 8.92134C4.02519 8.87367 4.05366 8.82847 4.08949 8.78745C4.09828 8.77738 4.10745 8.76764 4.11697 8.75826L5.88509 6.99013C6.09256 6.78267 6.42893 6.78267 6.63639 6.99013Z" fill="#282C3F"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M0.416992 7.50033C0.416992 3.58831 3.58831 0.416992 7.50033 0.416992C11.4123 0.416992 14.5837 3.58831 14.5837 7.50033C14.5837 11.4123 11.4123 14.5837 7.50033 14.5837C3.58831 14.5837 0.416992 11.4123 0.416992 7.50033ZM7.50033 1.47949C4.17511 1.47949 1.47949 4.17511 1.47949 7.50033C1.47949 10.8255 4.17511 13.5212 7.50033 13.5212C10.8255 13.5212 13.5212 10.8255 13.5212 7.50033C13.5212 4.17511 10.8255 1.47949 7.50033 1.47949Z" fill="#282C3F"></path></svg>
+                  <div class="carItems-replaceDelivery-returnTxt">
+                    <span></span>
+                    return available
+                  </div>
+                </div>
+              </div>
+              <div class="cartItem-remove">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" class="itemContainer-base-closeIcon"><path fill="#000" fill-rule="evenodd" d="M9.031 8l6.756-6.756a.731.731 0 0 0 0-1.031.732.732 0 0 0-1.031 0L8 6.969 1.244.213a.732.732 0 0 0-1.031 0 .731.731 0 0 0 0 1.03L6.969 8 .213 14.756a.731.731 0 0 0 0 1.031.732.732 0 0 0 1.031 0L8 9.031l6.756 6.756a.732.732 0 0 0 1.031 0 .731.731 0 0 0 0-1.03L9.031 8z"></path></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="#confirmModal" class="move-from-cart-container">
+          <div class="move-from-cart">
+            <div class="cart-remove-modal-close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" data-testid="modal-close" class="modal-base-cancelIcon itemComponents-base-modalCloseIcon"><path fill="#000" fill-rule="evenodd" d="M9.031 8l6.756-6.756a.731.731 0 0 0 0-1.031.732.732 0 0 0-1.031 0L8 6.969 1.244.213a.732.732 0 0 0-1.031 0 .731.731 0 0 0 0 1.03L6.969 8 .213 14.756a.731.731 0 0 0 0 1.031.732.732 0 0 0 1.031 0L8 9.031l6.756 6.756a.732.732 0 0 0 1.031 0 .731.731 0 0 0 0-1.03L9.031 8z"></path></svg>
+            </div>
+            <div class="confirm-cancelModal-nt">
+              <div class="confirm-cancelModal-img">
+                <img src="{{ tshirt.image.url }}" alt="{{ tshirt.title }}">
+              </div>
+              <div class="confirm-cancelModal-txt">
+                <span class="confirm-title">Move From Bag</span>
+                <span class="confirm-dsp">Are you sure you want to move this item from bag?</span>
+              </div>
+            </div>
+            <hr class="confirm-cancelModal-divider">
+            <div class="confirm-cancelModal-btn">
+              <div class="confirm-remove-btn">
+                <button class="cart-remove-btn" data-tshirt-id="{{ tshirt.id }}" data-user-id="{{ user_id }}">Remove</button>
+              </div>
+              <div class="confirm-btn-divider"></div>
+              <div class="confirm-moveTo-wishlist">
+                <button class="cart-moveTo-wishlist" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}" data-user-id="{{ user_id }}">Move To Wishlist</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="block-divider"></div>
+      <div class="right-block">
+        <div>
+          <div class="coupons">
+            <div class="coupons-header"></div>
+            <div class="coupons-content"></div>
+          </div>
+          <hr class="dropdown-divider">
+          <div class="donation">
+            <div class="donation-header"></div>
+            <div class="donation-container"></div>
+          </div>
+        </div>
         <hr class="dropdown-divider">
-        <div class="buy-the-item">
-          <button class="buy-the-item-btn" onclick="location.href='{% url "home" %}'">Buy</button>
+        <div>
+          <div class="priceBlock-container">
+            <div class="priceBlock-header">Price Details (<span class="item-count"></span> <spna class="item-count-txt">items</span>)</div>
+            <div class="priceDetails-summary">
+              <div class="priceDetails-row">
+                <span>Total MRP</span>
+                <span class="priceDetails-value">
+                  <span class="total-retail-price-value"></span>
+                </span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Discount On MRP</span>
+                <span class="priceDetails-value">
+                  <span class="dst-value">
+                    <span>-</span>
+                    <span class="discount-price-value"></span>
+                  </span>
+                </span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Coupon Discount</span>
+                <span class="coupon-link">Apply Coupon</span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Platform Fee</span>
+                <span class="platform-fee">free</span>
+              </div>
+              <div class="priceDetails-row">
+                <span>Shipping Fee</span>
+                <span class="shopping-fee-details">
+                  <span class="less-min"><del>&#8377;40</del></span>
+                  <span class="greater-min">&#8377;</span>
+                  <span class="shipping-fee"></span>
+                </span>
+              </div>
+            </div>
+            <hr class="dropdown-divider">
+            <div class="total-price-content">
+              <div class="total-price-details">
+                <span>Total Amount</span>
+                <span class="total-amount">
+                  <span class="total-amount-value"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="place-order-btn cart-order-btn" onclick="location.href='{% url "address" %}'">Place Order</button>
+          </div>
         </div>
       </div>
     </div>
+    <div class="similar-tees-list"></div>
   </div>
-  {% empty %}
-  <div class="the-empty-wishcart">
-    <div class="empty-wishcart">
-      <span class="empty-wish-cart-hd">your cart is empty</span>
-      <span class="empty-wish-cart-pg">Add items that you like to your cart. Review them anytime and easily buy this items.</span>
-      <div class="empty-wish-cart-img">
-        <img src="{% static "images/wishlist-icon-gif.gif" %}" alt="wishlist-gif">
-      </div>
-      <button class="wish-cart-shop-btn" onclick="location.href='{% url "home" %}'">continue shopping</button>
+  <div class="checkout-footer"> 
+    <div class="content">
+      <div class="images"> 
+        <img class="footer-bank-ssl" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-ssl.png" width="70" height="37"> 
+        <img class="footer-bank-visa" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-visa.png" width="60" height="37"> <img class="footer-bank-mc" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-mc.png" width="60" height="37"> 
+        <img class="footer-bank-ae" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-ae.png" width="60" height="37"> 
+        <img class="footer-bank-dc" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-dc.png" width="60" height="37"> 
+        <img class="footer-bank-nb" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-nb.png" width="60" height="37"> 
+        <img class="footer-bank-cod" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-cod.png" width="60" height="37"> 
+        <img class="footer-bank-rupay" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-rupay.png" width="60" height="37"> <img class="footer-bank-paypal" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-paypal.png" width="60" height="37"> <img class="footer-bank-bhim" src="https://constant.myntassets.com/checkout/assets/img/footer-bank-bhim.png" width="60" height="37"> 
+      </div> 
+      <a href="#" class="contact-us"> 
+        <span>Need Help ? Contact Us</span> 
+      </a> 
     </div>
   </div>
-  {% endfor %}
+  {% else %}
+  <div class="the-empty-wishcart">
+    <div class="empty-wishcart">
+      <div class="empty-cart-img">
+        <img src="{% static "images/empty-bag.png" %}" alt="empty-bag">
+      </div>
+      <span class="empty-wish-cart-hd">Hey, it feels so light!</span>
+      <span class="empty-wish-cart-pg">There is nothing in your bag. Let's add some items.</span>
+      <button class="wish-cart-shop-btn" onclick="location.href='{% url "wishlist_view" %}'" style="border-color: rgb(255, 82, 123); color: rgb(255, 82, 123); font-weight: 700;">Add items from Wishlist</button>
+    </div>
+  </div>
+  {% endif %}
   {% else %}
   <div class="the-login-wishcart">
     <div class="login-wishcart">
       <span class="login-wish-cart-hd">Please log in</span>
       <span class="login-wish-cart-pg">Login to view items in your wishlist</span>
       <div class="login-wish-cart-img">
-        <img src="{% static "images/wishlist-icon-gif.gif" %}" alt="wishlist-gif">
+        <img src="{% static "images/empty-bag.png" %}" alt="empty-bag">
       </div>
       <button class="wish-cart-login-btn" onclick="location.href='{% url "sign_in" %}'">login</button>
     </div>
   </div>
   {% endif %}
-</div>
-{% endblock  %}
+  <div class="cart-loading-time">
+    <div class="spinner-border" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+  <script src="{% static "js/wishcart.js" %}"></script>
+</body>
+</html>

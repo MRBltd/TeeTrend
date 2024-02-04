@@ -59,16 +59,16 @@
   background-color: #ff0000 !important;
 }
 /* Hover effect on product details */
-.product-whishlist:hover {
+.product-wishlist:hover , .product-user-wishlist:hover {
   color: black;
   border: 1px solid rgb(0, 0, 0) !important;
 }
 /* Hide elements initially */
-.product-whishlist , .product-size {
+.product-wishlist , .product-size , .product-user-wishlist {
   display: none;
 }
 /* Styling for product wishlist icon and text */
-.product-whishlist span , .product-whishlist svg {
+.product-wishlist span , .product-wishlist svg , .product-user-wishlist span , .product-user-wishlist svg {
   margin: 5px 10px;
 }
 /* Product Catalog overview */

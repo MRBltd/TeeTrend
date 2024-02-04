@@ -5,7 +5,9 @@
 <div class="modal-body">
   <div class="wish-messages"></div>
 </div>
-<div class="wishlist-count-value"></div>
+{% if wishlist.tshirts.all %}
+  <div class="wishlist-count-value">My Wishlist <span>{{ wishlist.tshirts.count }} {% if wishlist.tshirts.count == 1 %}item {% else %}items{% endif %}</span></div>
+{% endif %}
 <div class="wishcart-section close-menu">
   {% if 'user_id' in request.session %}
   {% for tshirt in wishlist.tshirts.all %}
@@ -14,7 +16,7 @@
       <div class="wish-cart-card-image">
         <!-- Display top image with a link to t-shirt overview page -->
         <img src="{{ tshirt.image.url }}" alt="{{ tshirt.name }}" class="card-top-img" id="card-img{{ forloop.counter }}" onclick="window.open('{% url 'tshirt_detail' tshirt.id  %}?category={{ tshirt.category }}', '_blank')">
-        <div class="wish-cart-remove-icon" data-tshirt-id="{{ tshirt.id }}" id="wish-remove" onclick="location.href='{% url 'remove_from_wishlist' tshirt.id %}'">
+        <div class="wish-cart-remove-icon" data-tshirt-id="{{ tshirt.id }}" data-user-id="{{ user_id }}" id="wish-remove">
           <span>X</span>
         </div>
         <div class="rating-review">
@@ -40,7 +42,7 @@
         </div>
         <hr class="dropdown-divider">
         <div class="the-move-to-bag">
-          <button class="move-to-bag-btn" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}">Move to Bag</button>
+          <button class="move-to-bag-btn" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}" data-user-id="{{ user_id }}">Move to Bag</button>
         </div>
       </div>
     </div>
@@ -50,7 +52,7 @@
     <div class="empty-wishcart">
       <span class="empty-wish-cart-hd">your wishlist is empty</span>
       <span class="empty-wish-cart-pg">Add items that you like to your wishlist. Review them anytime and easily move them to the bag.</span>
-      <div class="empty-wish-cart-img">
+      <div class="empty-wish-img">
         <img src="{% static "images/wishlist-icon-gif.gif" %}" alt="wishlist-gif">
       </div>
       <button class="wish-cart-shop-btn" onclick="location.href='{% url "home" %}'">continue shopping</button>

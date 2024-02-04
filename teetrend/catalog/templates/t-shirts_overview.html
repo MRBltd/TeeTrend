@@ -2,6 +2,9 @@
 {% block title %}Buy {{ tshirt.name }}{% endblock  %}
 {% load static %}
 {% block content %}
+<div class="modal-body">
+  <div class="wish-messages"></div>
+</div>
 <div class="tees-product-overview">
   <!-- Breadcrumb navigation for better user navigation -->
   <nav class="breadcrumb-base" aria-label="breadcrumb">
@@ -277,6 +280,43 @@
         </div>
         <!-- Display information about taxes -->
         <p class="taxes">inclusive of all taxes</p>
+      </div>
+      <div class="wishcart-ov-div">
+        <div class="wishlist-ov-div">
+          {% if 'user_id' in request.session %}
+          <div class="product-ov-wishlist js-wishlist-tsm" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}" data-category="{{ tshirt.category }}">
+            <!-- Heart icon for wishlist -->
+            <span class="ds-wish-icon-1"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="far fa-heart ds-wishlist-icon-1" data-tshirt-id="{{ tshirt_id }}"></i></span>
+            <span class="ds-wish-icon-2" style="display: none;"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="fas fa-heart ds-wishlist-icon-2" data-tshirt-id="{{ tshirt_id }}"></i></span>
+            <span class="ds-wish-txt">Wishlist</span>
+          </div>
+          {% else %}
+          <div class="product-ov-user-wishlist js-wishlist-tsm" onclick="window.open('{% url "sign_in" %}')">
+            <!-- Heart icon for wishlist -->
+            <span class="ds-user-wish-icon-1"><i id="ds-wishlist-icon-{{ tshirt.id }}" class="far fa-heart ds-wishlist-icon-1" data-tshirt-id="{{ tshirt_id }}"></i></span>
+            <span class="ds-user-wish-txt">Wishlist</span>
+          </div>
+          {% endif %}
+        </div>
+        <div class="cart-ov-div">
+          {% if 'user_id' in request.session %}
+          <div class="product-ov-cart js-cart-tsm" data-tshirt-id="{{ tshirt.id }}" data-title="{{ tshirt.title }}" data-name="{{ tshirt.name }}" data-category="{{ tshirt.category }}">
+            <!-- Bag icon for cart -->
+            <div class="add-to-bag">
+              <span class="ds-cart-icon"><i id="ds-cart-icon-{{ tshirt.id }}" class="fas fa-shopping-bag" data-tshirt-id="{{ tshirt_id }}"></i></span>
+              <span class="ds-cart-txt">Add to Cart</span>
+            </div>
+          </div>
+          {% else %}
+          <div class="product-ov-user-cart js-cart-tsm" onclick="window.open('{% url "sign_in" %}')">
+            <!-- Bag icon for cart -->
+            <div class="add-to-bag">
+              <span class="ds-user-cart-icon"><i id="ds-cart-icon-{{ tshirt.id }}" class="fas fa-shopping-bag" data-tshirt-id="{{ tshirt_id }}"></i></span>
+              <span class="ds-user-cart-txt">Add to Cart</span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
